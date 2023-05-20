@@ -12,6 +12,7 @@ export default function Join({ navigation }: any) {
   const isLoaded = useCachedResources();
   const [phoneNum, setPhoneNum] = useState("");
   const [verificationNum, setVerificationNum] = useState("");
+  const [clickVerifyBtn, setClickVerifyBtn] = useState(false);
 
   if (isLoaded) {
     return (
@@ -19,23 +20,36 @@ export default function Join({ navigation }: any) {
         <View style={styles.container}>
           <StatusBar style="auto" />
           <View style={styles.content}>
-            <Text style={styles.command}>휴대폰번호를{"\n"}입력해주세요</Text>
+            <Text style={styles.command}>
+              {[
+                (!clickVerifyBtn && "휴대폰번호") ||
+                  (clickVerifyBtn && "인증번호"),
+              ]}
+              를{"\n"}입력해주세요
+            </Text>
+            {clickVerifyBtn && (
+              <View style={styles.inputItem}>
+                <Text style={styles.textInputTitle}>
+                  {[
+                    (!verificationNum && "") || (verificationNum && "인증번호"),
+                  ]}
+                </Text>
+                <InputBox
+                  placeholder="인증번호"
+                  keyboardType="numeric"
+                  returnKeyType="done"
+                  value={verificationNum}
+                  onChangeText={(verificationNum: any) =>
+                    setVerificationNum(verificationNum)
+                  }
+                  clearText={() => setVerificationNum("")}
+                />
+              </View>
+            )}
             <View style={styles.inputItem}>
-              <Text style={styles.textInputTitle}>인증번호</Text>
-              <InputBox
-                placeholder="인증번호"
-                keyboardType="numeric"
-                returnKeyType="done"
-                value={verificationNum}
-                onChangeText={(verificationNum: any) =>
-                  setVerificationNum(verificationNum)
-                }
-                clearText={() => setVerificationNum("")}
-              />
-              {/* clear button 눌렀을 때는 키보드 안 사라지게 하는 코드 추가하기 */}
-            </View>
-            <View style={styles.inputItem}>
-              <Text style={styles.textInputTitle}>휴대폰번호</Text>
+              {clickVerifyBtn && (
+                <Text style={styles.textInputTitle}>휴대폰번호</Text>
+              )}
               <InputBox
                 placeholder="휴대폰번호"
                 keyboardType="numeric"
@@ -48,8 +62,11 @@ export default function Join({ navigation }: any) {
           </View>
           <View style={styles.buttonBox}>
             <BlueButton
-              title="인증번호 받기"
-              onPress={() => {}}
+              title={[
+                (!clickVerifyBtn && "인증번호 받기") ||
+                  (clickVerifyBtn && "확인"),
+              ]}
+              onPress={(clickVerifyBtn: any) => setClickVerifyBtn(true)}
               buttonStyle={{ width: "100%", height: 50 }}
             ></BlueButton>
           </View>
