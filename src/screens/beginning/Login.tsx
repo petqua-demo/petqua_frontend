@@ -29,6 +29,7 @@ export default function App({ navigation }: any) {
                 returnKeyType="done"
                 value={phoneNum}
                 onChangeText={(phoneNum: any) => setPhoneNum(phoneNum)}
+                clearText={() => setPhoneNum("")}
               />
             </View>
             <View style={styles.buttonBox}>

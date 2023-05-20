@@ -1,7 +1,7 @@
-import { StyleSheet, Text, TextInput, Image, View } from "react-native";
+import { StyleSheet, Pressable, TextInput, Image, View } from "react-native";
 import palette from "../styles/ColorPalette";
 
-const InputBox = ({ placeholder, value, ...props }) => {
+const InputBox = ({ placeholder, value, clearText, ...props }) => {
   return (
     <View style={styles.container}>
       <TextInput
@@ -11,10 +11,12 @@ const InputBox = ({ placeholder, value, ...props }) => {
         placeholderTextColor={palette.lightGray}
         value={value}
       ></TextInput>
-      <Image
-        source={require("../../assets/images/clearTextInputButton.png")}
-        style={styles.clearButton}
-      />
+      <Pressable onPress={clearText}>
+        <Image
+          source={require("../../assets/images/clearTextInputButton.png")}
+          style={[styles.clearButton, !value && styles.noInputValue]}
+        />
+      </Pressable>
     </View>
   );
 };
@@ -34,6 +36,10 @@ const styles = StyleSheet.create({
     width: 21,
     height: 21,
     marginTop: 2,
+  },
+  noInputValue: {
+    width: 0,
+    height: 0,
   },
 });
 

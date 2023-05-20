@@ -30,6 +30,7 @@ export default function Join({ navigation }: any) {
                 onChangeText={(verificationNum: any) =>
                   setVerificationNum(verificationNum)
                 }
+                clearText={() => setVerificationNum("")}
               />
               {/* clear button 눌렀을 때는 키보드 안 사라지게 하는 코드 추가하기 */}
             </View>
@@ -41,6 +42,7 @@ export default function Join({ navigation }: any) {
                 returnKeyType="done"
                 value={phoneNum}
                 onChangeText={(phoneNum: any) => setPhoneNum(phoneNum)}
+                clearText={() => setPhoneNum("")}
               />
             </View>
           </View>
