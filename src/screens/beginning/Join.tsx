@@ -1,17 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  View,
-  TextInput,
-  Image,
-  Pressable,
-  Keyboard,
-} from "react-native";
+import { StyleSheet, View, Pressable, Keyboard } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useState } from "react";
 
 import Text from "../../components/DefaultText";
 import BlueButton from "../../components/BlueButton";
+import InputBox from "../../components/InputBox";
 import palette from "../../styles/ColorPalette";
 
 export default function Join({ navigation }: any) {
@@ -28,45 +22,28 @@ export default function Join({ navigation }: any) {
             <Text style={styles.command}>휴대폰번호를{"\n"}입력해주세요</Text>
             <View style={styles.inputItem}>
               <Text style={styles.textInputTitle}>인증번호</Text>
-              <View style={styles.inputBox}>
-                <TextInput
-                  style={styles.textInput}
-                  placeholder="인증번호"
-                  placeholderTextColor={palette.lightGray}
-                  keyboardType="numeric"
-                  returnKeyType="done"
-                  value={verificationNum}
-                  onChangeText={(verificationNum) =>
-                    setVerificationNum(verificationNum)
-                  }
-                ></TextInput>
-                <Image
-                  source={require("../../../assets/images/clearTextInputButton.png")}
-                  style={styles.clearButton}
-                />
-                {/* clear button 눌렀을 때는 키보드 안 사라지게 하는 코드 추가하기 */}
-              </View>
+              <InputBox
+                placeholder="인증번호"
+                keyboardType="numeric"
+                returnKeyType="done"
+                value={verificationNum}
+                onChangeText={(verificationNum: any) =>
+                  setVerificationNum(verificationNum)
+                }
+              />
+              {/* clear button 눌렀을 때는 키보드 안 사라지게 하는 코드 추가하기 */}
             </View>
             <View style={styles.inputItem}>
               <Text style={styles.textInputTitle}>휴대폰번호</Text>
-              <View style={styles.inputBox}>
-                <TextInput
-                  style={styles.textInput}
-                  placeholder="휴대폰번호"
-                  placeholderTextColor={palette.lightGray}
-                  keyboardType="numeric"
-                  returnKeyType="done"
-                  value={phoneNum}
-                  onChangeText={(phoneNum) => setPhoneNum(phoneNum)}
-                ></TextInput>
-                <Image
-                  source={require("../../../assets/images/clearTextInputButton.png")}
-                  style={styles.clearButton}
-                />
-              </View>
+              <InputBox
+                placeholder="휴대폰번호"
+                keyboardType="numeric"
+                returnKeyType="done"
+                value={phoneNum}
+                onChangeText={(phoneNum: any) => setPhoneNum(phoneNum)}
+              />
             </View>
           </View>
-
           <View style={styles.buttonBox}>
             <BlueButton
               title="인증번호 받기"
@@ -108,21 +85,6 @@ const styles = StyleSheet.create({
     marginBottom: 13,
     fontSize: 12,
     color: palette.lightGray,
-  },
-  inputBox: {
-    flexDirection: "row",
-    paddingBottom: 12,
-    borderBottomWidth: 2,
-    borderBottomColor: palette.mainColor,
-  },
-  textInput: {
-    flex: 1,
-    fontSize: 20,
-  },
-  clearButton: {
-    width: 21,
-    height: 21,
-    marginTop: 2,
   },
   buttonBox: {
     justifyContent: "flex-end",
