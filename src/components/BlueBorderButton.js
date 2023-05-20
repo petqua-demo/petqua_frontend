@@ -10,7 +10,7 @@ const Button = ({ title, onPress, buttonStyle }) => {
           backgroundColor: "#ffffff",
         },
         pressed && {
-          backgroundColor: palette.mainColor,
+          backgroundColor: "#ffffff",
         },
         buttonStyle,
       ]}
