@@ -1,5 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, TextInput, Image } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  Image,
+  Pressable,
+  Keyboard,
+} from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useState } from "react";
 
@@ -15,44 +22,46 @@ export default function App({ navigation }: any) {
 
   if (isLoaded) {
     return (
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        <View style={styles.content}>
-          <BoldText style={styles.subtitle}>로그인</BoldText>
-          <Text style={styles.command}>휴대폰번호를{"\n"}입력해주세요</Text>
-          <View style={styles.inputItem}>
-            {/* <Text style={styles.textInputTitle}>휴대폰번호</Text> */}
-            <View style={styles.inputBox}>
-              <TextInput
-                style={styles.textInput}
-                placeholder="휴대폰번호"
-                placeholderTextColor={palette.lightGray}
-                keyboardType="numeric"
-                returnKeyType="done"
-                value={phoneNum}
-                onChangeText={(phoneNum) => setPhoneNum(phoneNum)}
-              ></TextInput>
-              <Image
-                source={require("../../../assets/images/clearTextInputButton.png")}
-                style={styles.clearButton}
-              />
-              {/* clear button 눌렀을 때는 키보드 안 사라지게 하는 코드 추가하기 */}
+      <Pressable style={{ flex: 1 }} onPress={() => Keyboard.dismiss()}>
+        <View style={styles.container}>
+          <StatusBar style="auto" />
+          <View style={styles.content}>
+            <BoldText style={styles.subtitle}>로그인</BoldText>
+            <Text style={styles.command}>휴대폰번호를{"\n"}입력해주세요</Text>
+            <View style={styles.inputItem}>
+              {/* <Text style={styles.textInputTitle}>휴대폰번호</Text> */}
+              <View style={styles.inputBox}>
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="휴대폰번호"
+                  placeholderTextColor={palette.lightGray}
+                  keyboardType="numeric"
+                  returnKeyType="done"
+                  value={phoneNum}
+                  onChangeText={(phoneNum) => setPhoneNum(phoneNum)}
+                ></TextInput>
+                <Image
+                  source={require("../../../assets/images/clearTextInputButton.png")}
+                  style={styles.clearButton}
+                />
+                {/* clear button 눌렀을 때는 키보드 안 사라지게 하는 코드 추가하기 */}
+              </View>
+            </View>
+            <View style={styles.buttonBox}>
+              <BlueButton
+                title="로그인"
+                onPress={() => {}}
+                buttonStyle={{ width: "100%", height: 50 }}
+              ></BlueButton>
+              <BlueBorderButton
+                title="회원가입"
+                onPress={() => navigation.navigate("Join")}
+                buttonStyle={{ width: "100%", height: 50 }}
+              ></BlueBorderButton>
             </View>
           </View>
-          <View style={styles.buttonBox}>
-            <BlueButton
-              title="로그인"
-              onPress={() => {}}
-              buttonStyle={{ width: "100%", height: 50 }}
-            ></BlueButton>
-            <BlueBorderButton
-              title="회원가입"
-              onPress={() => navigation.navigate("Join")}
-              buttonStyle={{ width: "100%", height: 50 }}
-            ></BlueBorderButton>
-          </View>
         </View>
-      </View>
+      </Pressable>
     );
   } else {
     return null;
