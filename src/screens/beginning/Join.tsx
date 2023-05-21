@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   textInputTitle: {
     marginBottom: 13,
     fontSize: 12,
-    color: palette.lightGray,
+    color: palette.gray2,
   },
   buttonBox: {
     justifyContent: "flex-end",

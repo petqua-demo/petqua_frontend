@@ -8,7 +8,7 @@ const InputBox = ({ placeholder, value, clearText, ...props }) => {
         {...props}
         style={styles.textInput}
         placeholder={placeholder}
-        placeholderTextColor={palette.lightGray}
+        placeholderTextColor={palette.gray2}
         value={value}
       ></TextInput>
       <Pressable onPress={clearText}>
