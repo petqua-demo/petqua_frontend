@@ -9,7 +9,7 @@ import BlueBorderButton from "../../components/BlueBorderButton";
 import BoldText from "../../components/BoldText";
 import InputBox from "../../components/InputBox";
 
-export default function App({ navigation }: any) {
+export default function Login({ navigation }: any) {
   const isLoaded = useCachedResources();
   const [phoneNum, setPhoneNum] = useState("");
 

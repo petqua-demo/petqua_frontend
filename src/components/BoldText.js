@@ -2,7 +2,7 @@ import React from "react";
 import { Text } from "react-native";
 import useCachedResources from "../useCachedResources";
 
-const DefaultText = (props) => {
+const BoldText = (props) => {
   return (
     <Text
       {...props}
@@ -16,4 +16,4 @@ const DefaultText = (props) => {
   );
 };
 
-export default DefaultText;
+export default BoldText;

@@ -1,7 +1,7 @@
 import { Text, Pressable, StyleSheet } from "react-native";
 import palette from "../styles/ColorPalette";
 
-const Button = ({ title, onPress, buttonStyle }) => {
+const BlueBorderButton = ({ title, onPress, buttonStyle }) => {
   return (
     <Pressable
       style={({ pressed }) => [
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Button;
+export default BlueBorderButton;
