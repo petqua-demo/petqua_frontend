@@ -1,6 +1,5 @@
 import React from "react";
 import { Text } from "react-native";
-import useCachedResources from "../useCachedResources";
 
 const BoldText = (props) => {
   return (

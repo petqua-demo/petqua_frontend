@@ -1,13 +1,13 @@
 import React from "react";
 import { Text } from "react-native";
 
-const DefaultText = (props) => {
+const ExtraBoldText = (props) => {
   return (
     <Text
       {...props}
       style={{
         ...props.style,
-        fontFamily: "pretendard-regular",
+        fontFamily: "pretendard-extraBold",
       }}
     >
       {props.children}
@@ -15,4 +15,4 @@ const DefaultText = (props) => {
   );
 };
 
-export default DefaultText;
+export default ExtraBoldText;
