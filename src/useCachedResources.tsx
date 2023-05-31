@@ -8,6 +8,7 @@ export default function useCachedResources() {
     async function loadResourcesAndDataAsync() {
       try {
         await Font.loadAsync({
+          "pretendard-light": require("../assets/fonts/Pretendard-Light.otf"),
           "pretendard-regular": require("../assets/fonts/Pretendard-Regular.otf"),
           "pretendard-bold": require("../assets/fonts/Pretendard-Bold.otf"),
           "pretendard-medium": require("../assets/fonts/Pretendard-Medium.otf"),
