@@ -12,8 +12,6 @@ import { useState } from "react";
 
 import Text from "../../components/DefaultText";
 import ExtraBoldText from "../../components/BoldText";
-import MediumText from "../../components/MediumText";
-import CategoryButton from "../../components/CategoryButton";
 import SellingListItem from "../../components/SellingListItem";
 import palette from "../../styles/ColorPalette";
 
@@ -175,9 +173,9 @@ export default function Selling({ navigation }: any) {
             </SafeAreaView>
           </View>
         </View>
-        <View style={styles.bottomNav}>
-          {/* 얘는 컴포넌트로 따로 만드는 게 나을듯. */}
-        </View>
+        {/* <View style={styles.bottomNav}>
+          <BottomNavigation></BottomNavigation>
+        </View> */}
       </View>
     );
   } else {
@@ -199,8 +197,8 @@ const styles = StyleSheet.create({
   content: {},
   tab: {
     marginTop: 34,
+    // marginBottom: (첫번째 아이템 marginTop: 28) - (SellingListItem 기본 간격 15)
     marginBottom: 13,
-    // (첫번째 아이템 marginTop: 28) - (SellingListItem 기본 간격 15)
     flexDirection: "row",
     justifyContent: "space-between",
     borderBottomColor: palette.body1,
@@ -224,5 +222,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   scrollView: {},
-  bottomNav: {},
+  bottomNav: {
+    width: "100%",
+    position: "absolute",
+    bottom: 0,
+  },
 });
