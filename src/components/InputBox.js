@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     fontSize: 20,
+    fontFamily: "pretendard-regular",
   },
   clearButton: {
     width: 21,

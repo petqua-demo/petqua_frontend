@@ -1,5 +1,6 @@
-import { Text, Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
 import palette from "../styles/ColorPalette";
+import Text from "./DefaultText";
 
 const BlueButton = ({ title, onPress, buttonStyle }) => {
   return (
