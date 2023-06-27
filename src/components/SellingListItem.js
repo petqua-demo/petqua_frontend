@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   },
   itemInfo: {
     marginLeft: 16,
-    marginTop: 6,
+    marginTop: 3,
     flexShrink: 1,
     flex: 1,
   },
@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
   },
   itemDetail: {
     flexDirection: "row",
-    marginVertical: 14,
+    marginTop: 8,
+    marginBottom: 10,
   },
   itemDetailContent: {
     color: palette.body1,
