@@ -6,6 +6,7 @@ import {
   ImageBackground,
   SafeAreaView,
   ScrollView,
+  Pressable,
 } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useState } from "react";
@@ -15,8 +16,16 @@ import ExtraBoldText from "../../components/BoldText";
 import SellingListItem from "../../components/SellingListItem";
 import palette from "../../styles/ColorPalette";
 
+export const Categories = {
+  ALL: "전체",
+  FISH: "반려어",
+  GOODS: "용품",
+};
+
 export default function Selling({ navigation }: any) {
   const isLoaded = useCachedResources();
+
+  const [selectedCategory, setSelectedCategory] = useState(Categories.ALL);
 
   if (isLoaded) {
     return (
@@ -44,15 +53,70 @@ export default function Selling({ navigation }: any) {
         </View>
         <View style={styles.content}>
           <View style={styles.tab}>
-            <View style={[styles.tabItems, { marginLeft: 41 }]}>
-              <Text style={{ width: 38, textAlign: "center" }}>전체</Text>
-            </View>
-            <View style={styles.tabItems}>
-              <Text style={{ width: 58, textAlign: "center" }}>반려어</Text>
-            </View>
-            <View style={[styles.tabItems, { marginRight: 41 }]}>
-              <Text style={{ width: 38, textAlign: "center" }}>용품</Text>
-            </View>
+            {/* Top tab으로 처리 안 하고 일단 Pressable, useState 이용해서 구현 */}
+            <Pressable
+              style={{
+                flex: 1,
+                alignItems: "center",
+              }}
+              onPress={() => {
+                setSelectedCategory(Categories.ALL);
+              }}
+            >
+              <View
+                style={[
+                  selectedCategory == Categories.ALL
+                    ? styles.selectedTabItems
+                    : {},
+                ]}
+              >
+                <Text style={{ width: 38, textAlign: "center" }}>
+                  {Categories.ALL}
+                </Text>
+              </View>
+            </Pressable>
+            <Pressable
+              style={{
+                flex: 1,
+                alignItems: "center",
+              }}
+              onPress={() => {
+                setSelectedCategory(Categories.FISH);
+              }}
+            >
+              <View
+                style={
+                  selectedCategory == Categories.FISH
+                    ? styles.selectedTabItems
+                    : {}
+                }
+              >
+                <Text style={{ width: 58, textAlign: "center" }}>
+                  {Categories.FISH}
+                </Text>
+              </View>
+            </Pressable>
+            <Pressable
+              style={{
+                flex: 1,
+                alignItems: "center",
+              }}
+              onPress={() => {
+                setSelectedCategory(Categories.GOODS);
+              }}
+            >
+              <View
+                style={[
+                  selectedCategory == Categories.GOODS
+                    ? styles.selectedTabItems
+                    : {},
+                ]}
+              >
+                <Text style={{ width: 38, textAlign: "center" }}>
+                  {Categories.GOODS}
+                </Text>
+              </View>
+            </Pressable>
           </View>
           <View style={styles.list}>
             <SafeAreaView style={styles.listItems}>
@@ -204,7 +268,7 @@ const styles = StyleSheet.create({
     borderBottomColor: palette.body1,
     borderBottomWidth: 0.25,
   },
-  tabItems: {
+  selectedTabItems: {
     borderBottomWidth: 1,
     borderBottomColor: palette.gray4,
     paddingBottom: 7,
