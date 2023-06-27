@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   ScrollView,
   Pressable,
+  TouchableOpacity,
 } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useState } from "react";
@@ -237,9 +238,21 @@ export default function Selling({ navigation }: any) {
             </SafeAreaView>
           </View>
         </View>
-        {/* <View style={styles.bottomNav}>
-          <BottomNavigation></BottomNavigation>
-        </View> */}
+        <View style={styles.floatingBTNContainer}>
+          {/* 기능구현 아직 x */}
+          <TouchableOpacity activeOpacity={0.4}>
+            <Image
+              source={require("../../../assets/images/writeIcon.png")}
+              style={styles.floatingBTN}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.4}>
+            <Image
+              source={require("../../../assets/images/channelTalkIcon.png")}
+              style={styles.floatingBTN}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   } else {
@@ -286,9 +299,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   scrollView: {},
-  bottomNav: {
-    width: "100%",
+  floatingBTNContainer: {
     position: "absolute",
     bottom: 0,
+    right: 20,
+  },
+  floatingBTN: {
+    width: 50,
+    height: 50,
+    marginBottom: 25,
   },
 });
