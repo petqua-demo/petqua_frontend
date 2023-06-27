@@ -14,6 +14,7 @@ import { useState } from "react";
 
 import Text from "../../components/DefaultText";
 import ExtraBoldText from "../../components/BoldText";
+import PostingMenuItem from "../../components/PostingMenuItem";
 import SellingListItem from "../../components/SellingListItem";
 import palette from "../../styles/ColorPalette";
 
@@ -27,6 +28,17 @@ export default function Selling({ navigation }: any) {
   const isLoaded = useCachedResources();
 
   const [selectedCategory, setSelectedCategory] = useState(Categories.ALL);
+  const [clickPostingBtn, setClickPostingBtn] = useState(false);
+
+  const clickPostingBtnHandler = () => {
+    if (clickPostingBtn == false) {
+      setClickPostingBtn(true);
+      // displayPostingMenu()
+    } else {
+      setClickPostingBtn(false);
+      // alert("닫았습니다.");
+    }
+  };
 
   if (isLoaded) {
     return (
@@ -239,10 +251,62 @@ export default function Selling({ navigation }: any) {
           </View>
         </View>
         <View style={styles.floatingBTNContainer}>
-          {/* 기능구현 아직 x */}
-          <TouchableOpacity activeOpacity={0.4}>
+          {clickPostingBtn && (
+            <View style={styles.postingMenu}>
+              {/* 나중에 PostingMenu도 컴포넌트로 따로 빼기 */}
+              <PostingMenuItem
+                ImageSrc={
+                  <Image
+                    source={require("../../../assets/images/clearTextInputButton.png")}
+                    style={{ width: 20, height: 20 }}
+                  />
+                }
+                title="반려어 입양 등록"
+              />
+              <PostingMenuItem
+                ImageSrc={
+                  <Image
+                    source={require("../../../assets/images/clearTextInputButton.png")}
+                    style={{ width: 20, height: 20 }}
+                  />
+                }
+                title="반려어 분양 등록"
+              />
+              <PostingMenuItem
+                ImageSrc={
+                  <Image
+                    source={require("../../../assets/images/clearTextInputButton.png")}
+                    style={{ width: 20, height: 20 }}
+                  />
+                }
+                title="용품 입양 등록"
+              />
+              <PostingMenuItem
+                ImageSrc={
+                  <Image
+                    source={require("../../../assets/images/clearTextInputButton.png")}
+                    style={{ width: 20, height: 20 }}
+                  />
+                }
+                title="용품 분양 등록"
+              />
+              <PostingMenuItem
+                ImageSrc={
+                  <Image
+                    source={require("../../../assets/images/clearTextInputButton.png")}
+                    style={{ width: 20, height: 20 }}
+                  />
+                }
+                title="어항 일기"
+              />
+            </View>
+          )}
+          <TouchableOpacity
+            activeOpacity={0.4}
+            onPress={clickPostingBtnHandler}
+          >
             <Image
-              source={require("../../../assets/images/writeIcon.png")}
+              source={require("../../../assets/images/postingIcon.png")}
               style={styles.floatingBTN}
             />
           </TouchableOpacity>
@@ -303,6 +367,13 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     right: 20,
+    alignItems: "flex-end",
+  },
+  postingMenu: {
+    width: 150,
+    backgroundColor: "#515151",
+    borderRadius: 16,
+    marginBottom: 10,
   },
   floatingBTN: {
     width: 50,
