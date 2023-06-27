@@ -1,5 +1,6 @@
-import { StyleSheet, Pressable, TextInput, Image, View } from "react-native";
+import { StyleSheet, Pressable, Image, View } from "react-native";
 import palette from "../styles/ColorPalette";
+import TextInput from "./RegularTextInput";
 
 const InputBox = ({ placeholder, value, clearText, ...props }) => {
   return (
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     fontSize: 20,
-    fontFamily: "pretendard-regular",
+    // fontFamily: "pretendard-regular",
   },
   clearButton: {
     width: 21,
