@@ -261,7 +261,8 @@ export default function Selling({ navigation }: any) {
                     style={{ width: 20, height: 20 }}
                   />
                 }
-                title="반려어 입양 등록"
+                title="반려어 입/분양 등록"
+                onPress={() => navigation.navigate("FishPosting")}
               />
               <PostingMenuItem
                 ImageSrc={
@@ -270,25 +271,8 @@ export default function Selling({ navigation }: any) {
                     style={{ width: 20, height: 20 }}
                   />
                 }
-                title="반려어 분양 등록"
-              />
-              <PostingMenuItem
-                ImageSrc={
-                  <Image
-                    source={require("../../../assets/images/clearTextInputButton.png")}
-                    style={{ width: 20, height: 20 }}
-                  />
-                }
-                title="용품 입양 등록"
-              />
-              <PostingMenuItem
-                ImageSrc={
-                  <Image
-                    source={require("../../../assets/images/clearTextInputButton.png")}
-                    style={{ width: 20, height: 20 }}
-                  />
-                }
-                title="용품 분양 등록"
+                title="용품 입/분양 등록"
+                onPress={() => navigation.navigate("GoodsPosting")}
               />
               <PostingMenuItem
                 ImageSrc={
@@ -298,6 +282,7 @@ export default function Selling({ navigation }: any) {
                   />
                 }
                 title="어항 일기"
+                onPress={() => navigation.navigate("DiaryPosting")}
               />
             </View>
           )}
@@ -370,7 +355,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   postingMenu: {
-    width: 150,
+    width: 160,
     backgroundColor: "#515151",
     borderRadius: 16,
     marginBottom: 10,

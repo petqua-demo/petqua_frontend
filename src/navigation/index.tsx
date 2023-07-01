@@ -7,6 +7,9 @@ import useCachedResources from "../useCachedResources";
 import Join from "../screens/beginning/Join";
 import Login from "../screens/beginning/Login";
 import Selling from "../screens/selling/Selling";
+import FishPosting from "../screens/posting/FishPosting";
+import GoodsPosting from "../screens/posting/GoodsPosting";
+import DiaryPosting from "../screens/posting/DiaryPosting";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +25,9 @@ export default function Navigation() {
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Join" component={Join} />
           <Stack.Screen name="BottomTabNav" component={BottomTabNav} />
+          <Stack.Screen name="FishPosting" component={FishPosting} />
+          <Stack.Screen name="GoodsPosting" component={GoodsPosting} />
+          <Stack.Screen name="DiaryPosting" component={DiaryPosting} />
         </Stack.Navigator>
       </NavigationContainer>
     );

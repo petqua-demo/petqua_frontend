@@ -1,9 +1,9 @@
 import { StyleSheet, TouchableOpacity } from "react-native";
 import Text from "./DefaultText";
 
-const PostingMenuItem = ({ ImageSrc, title }) => {
+const PostingMenuItem = ({ ImageSrc, title, onPress }) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       {ImageSrc}
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
@@ -12,7 +12,7 @@ const PostingMenuItem = ({ ImageSrc, title }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 150,
+    width: "100%",
     height: 47,
     backgroundColor: "#515151",
     borderRadius: 16,
