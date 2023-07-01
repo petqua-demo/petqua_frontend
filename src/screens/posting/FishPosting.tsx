@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
   photoList: {},
   textInput: {
     flex: 1,
-    fontSize: 20,
+    fontSize: 16,
     height: 48,
     borderRadius: 6,
     borderWidth: 1,
