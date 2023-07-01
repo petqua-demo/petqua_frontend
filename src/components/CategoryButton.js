@@ -29,9 +29,13 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 0.5,
     borderColor: palette.body1,
+    paddingHorizontal: 18,
+    height: 29,
+    // 카테고리 아이템 줄 나뉘었을 때 간격을 위해 marginBottom 설정
+    marginBottom: 15,
   },
   title: {
-    color: palette.gray3,
+    color: "#595959",
     fontSize: 12,
   },
 });
