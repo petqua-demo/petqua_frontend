@@ -12,9 +12,10 @@ const SellingListItem = ({
   price,
   comment,
   heart,
+  onPress,
 }) => {
   return (
-    <Pressable>
+    <Pressable onPress={onPress}>
       <View style={styles.container}>
         {ImageSrc}
         <View style={styles.itemInfo}>

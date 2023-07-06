@@ -161,6 +161,7 @@ export default function Selling({ navigation }: any) {
                   price="5000원"
                   comment="9"
                   heart="12"
+                  onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
                 <SellingListItem
                   ImageSrc={
@@ -175,6 +176,7 @@ export default function Selling({ navigation }: any) {
                   price="5000원"
                   comment="9"
                   heart="12"
+                  onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
                 <SellingListItem
                   ImageSrc={
@@ -189,6 +191,7 @@ export default function Selling({ navigation }: any) {
                   price="5000원"
                   comment="9"
                   heart="12"
+                  onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
                 <SellingListItem
                   ImageSrc={
@@ -203,6 +206,7 @@ export default function Selling({ navigation }: any) {
                   price="5000원"
                   comment="9"
                   heart="12"
+                  onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
                 <SellingListItem
                   ImageSrc={
@@ -217,6 +221,7 @@ export default function Selling({ navigation }: any) {
                   price="5000원"
                   comment="9"
                   heart="12"
+                  onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
                 <SellingListItem
                   ImageSrc={
@@ -231,6 +236,7 @@ export default function Selling({ navigation }: any) {
                   price="5000원"
                   comment="9"
                   heart="12"
+                  onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
                 <SellingListItem
                   ImageSrc={
@@ -245,6 +251,7 @@ export default function Selling({ navigation }: any) {
                   price="5000원"
                   comment="9"
                   heart="12"
+                  onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
               </ScrollView>
             </SafeAreaView>

@@ -10,6 +10,7 @@ import Selling from "../screens/selling/Selling";
 import FishPosting from "../screens/posting/FishPosting";
 import GoodsPosting from "../screens/posting/GoodsPosting";
 import DiaryPosting from "../screens/posting/DiaryPosting";
+import ProductDetail from "../screens/selling/ProductDetail";
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,7 @@ export default function Navigation() {
           <Stack.Screen name="FishPosting" component={FishPosting} />
           <Stack.Screen name="GoodsPosting" component={GoodsPosting} />
           <Stack.Screen name="DiaryPosting" component={DiaryPosting} />
+          <Stack.Screen name="ProductDetail" component={ProductDetail} />
         </Stack.Navigator>
       </NavigationContainer>
     );
