@@ -6,32 +6,44 @@ import palette from "../styles/ColorPalette";
 
 const Comment = ({ userName, commentContent, time, onPress }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.userInfo}>
-        <Image
-          source={require("../../assets/images/itemImageExample.png")}
-          style={styles.userProfile}
-        />
-        <BoldText style={styles.userName}>{userName}</BoldText>
-      </View>
-      <MediumText style={styles.commentContent}>{commentContent}</MediumText>
-      <Text style={styles.time}>{time}</Text>
-      <View style={styles.responseContainer}>
-        <Image
-          source={require("../../assets/images/commentIconLightGrey.png")}
-          style={styles.responseIcon}
-        />
-        <Image
-          source={require("../../assets/images/recommendIcon.png")}
-          style={[styles.responseIcon, { marginBottom: 1 }]}
-        />
-        <Image
-          source={require("../../assets/images/besidesIcon.png")}
-          style={[
-            styles.responseIcon,
-            { paddingHorizontal: 17, borderRightWidth: 0 },
-          ]}
-        />
+    <View>
+      {/* 구분선 */}
+      <View
+        style={{
+          flex: 1,
+          height: 0.5,
+          backgroundColor: "#C9C9C9",
+          marginLeft: -6,
+          marginRight: -6,
+        }}
+      />
+      <View style={styles.container}>
+        <View style={styles.userInfo}>
+          <Image
+            source={require("../../assets/images/itemImageExample.png")}
+            style={styles.userProfile}
+          />
+          <BoldText style={styles.userName}>{userName}</BoldText>
+        </View>
+        <MediumText style={styles.commentContent}>{commentContent}</MediumText>
+        <Text style={styles.time}>{time}</Text>
+        <View style={styles.responseContainer}>
+          <Image
+            source={require("../../assets/images/commentIconLightGrey.png")}
+            style={styles.responseIcon}
+          />
+          <Image
+            source={require("../../assets/images/recommendIcon.png")}
+            style={[styles.responseIcon, { marginBottom: 1 }]}
+          />
+          <Image
+            source={require("../../assets/images/besidesIcon.png")}
+            style={[
+              styles.responseIcon,
+              { paddingHorizontal: 17, borderRightWidth: 0 },
+            ]}
+          />
+        </View>
       </View>
     </View>
   );
@@ -42,8 +54,6 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingTop: 16,
     paddingBottom: 22,
-    borderBottomWidth: 0.5,
-    borderBottomColor: "#C9C9C9",
     backgroundColor: "#ffffff",
   },
   userInfo: {
@@ -64,11 +74,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: palette.gray3,
     marginTop: 8,
+    marginLeft: 46,
   },
   time: {
     fontSize: 12,
     color: palette.gray2,
     marginTop: 18,
+    marginLeft: 46,
   },
   responseContainer: {
     backgroundColor: "#F3F3F3",
