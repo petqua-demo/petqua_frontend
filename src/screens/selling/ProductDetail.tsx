@@ -16,6 +16,7 @@ import BoldText from "../../components/BoldText";
 import palette from "../../styles/ColorPalette";
 import TextInput from "../../components/RegularTextInput";
 import Comment from "../../components/Comment";
+import CommentReply from "../../components/CommentReply";
 
 export default function ProductDetail({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -72,6 +73,18 @@ export default function ProductDetail({ navigation }: any) {
               />
               <Comment
                 userName="펫쿠아"
+                commentContent="가나다라마바사 아자차카"
+                time="05/04 20:57"
+                onPress={{}}
+              />
+              <CommentReply
+                userName="익명 1"
+                commentContent="가나다라마바사 아자차카"
+                time="05/04 20:57"
+                onPress={{}}
+              />
+              <CommentReply
+                userName="익명 1"
                 commentContent="가나다라마바사 아자차카"
                 time="05/04 20:57"
                 onPress={{}}
