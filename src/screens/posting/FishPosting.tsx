@@ -33,154 +33,152 @@ export default function FishPosting({ navigation }: any) {
           style={styles.container}
           behavior={Platform.select({ ios: "padding" })}
         >
-          <ScrollView style={{ marginBottom: 70 }}>
-            <StatusBar style="auto" />
-            <View style={styles.header}>
-              <Pressable>
+          {/* <ScrollView style={{ marginBottom: 70 }}> */}
+          <StatusBar style="auto" />
+          <View style={styles.header}>
+            <Pressable>
+              <Image
+                source={require("../../../assets/images/closeButtonIcon.png")}
+                style={{ width: 15, height: 15, marginLeft: 24 }}
+              />
+            </Pressable>
+            <View
+              style={{
+                width: "100%",
+                position: "absolute",
+                alignItems: "center",
+              }}
+            >
+              <BoldText style={{ fontSize: 16 }}>반려어 입/분양 등록</BoldText>
+            </View>
+          </View>
+          <ScrollView style={styles.content}>
+            {/* 사진 */}
+            <View>
+              <View style={{ flexDirection: "row" }}>
+                <BoldText style={styles.subTitle}>사진</BoldText>
+                <Text
+                  style={{
+                    color: palette.body1,
+                    fontSize: 16,
+                    marginLeft: 5,
+                  }}
+                >
+                  (선택)
+                </Text>
+              </View>
+              {/* 피그마에 이미지 목록들 어떻게 띄울지 제시되어있지 않아서 일단 View로 임시 처리 */}
+              <View style={styles.photoList}>
                 <Image
-                  source={require("../../../assets/images/closeButtonIcon.png")}
-                  style={{ width: 15, height: 15, marginLeft: 24 }}
+                  source={require("../../../assets/images/takePhotoIcon.png")}
+                  style={{ width: 54, height: 54, marginTop: 23 }}
                 />
-              </Pressable>
-              <View
-                style={{
-                  width: "100%",
-                  position: "absolute",
-                  alignItems: "center",
-                }}
-              >
-                <BoldText style={{ fontSize: 16 }}>
-                  반려어 입/분양 등록
-                </BoldText>
               </View>
             </View>
-            <ScrollView style={styles.content}>
-              {/* 사진 */}
-              <View>
-                <View style={{ flexDirection: "row" }}>
-                  <BoldText style={styles.subTitle}>사진</BoldText>
-                  <Text
-                    style={{
-                      color: palette.body1,
-                      fontSize: 16,
-                      marginLeft: 5,
-                    }}
-                  >
-                    (선택)
+            {/* 글 제목 */}
+            <View style={{ marginTop: 38 }}>
+              <BoldText style={styles.subTitle}>글 제목</BoldText>
+              <TextInput
+                style={styles.textInput}
+                placeholder="제목을 입력해주세요"
+                placeholderTextColor={palette.gray3}
+                // value={value}
+              />
+            </View>
+            {/* 분양 가격 */}
+            <View style={{ marginTop: 44 }}>
+              <BoldText style={styles.subTitle}>분양 가격</BoldText>
+              <View style={styles.priceContainer}>
+                <TextInput
+                  style={{ fontSize: 20, flex: 0.8 }}
+                  // 백슬래시 대신 원화 표기방법 알아보기
+                  placeholder="$"
+                  placeholderTextColor={palette.gray2}
+                  keyboardType="numeric"
+                  returnKeyType="done"
+                />
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  <CheckBox
+                    checkedIcon={
+                      <Image
+                        source={require("../../../assets/images/selectedCheckbox.png")}
+                        style={{ width: 21, height: 21 }}
+                      />
+                    }
+                    uncheckedIcon={
+                      <Image
+                        source={require("../../../assets/images/notSelectedCheckbox.png")}
+                        style={{ width: 21, height: 21 }}
+                      />
+                    }
+                    checked={checkBox}
+                    onPress={() => setCheckBox(checkBox ? false : true)}
+                    containerStyle={{ marginRight: 0, marginVertical: -10 }}
+                  />
+                  <Text style={{ fontSize: 14, color: palette.gray4 }}>
+                    나눔
                   </Text>
                 </View>
-                {/* 피그마에 이미지 목록들 어떻게 띄울지 제시되어있지 않아서 일단 View로 임시 처리 */}
-                <View style={styles.photoList}>
-                  <Image
-                    source={require("../../../assets/images/takePhotoIcon.png")}
-                    style={{ width: 54, height: 54, marginTop: 23 }}
-                  />
-                </View>
               </View>
-              {/* 글 제목 */}
-              <View style={{ marginTop: 38 }}>
-                <BoldText style={styles.subTitle}>글 제목</BoldText>
-                <TextInput
-                  style={styles.textInput}
-                  placeholder="제목을 입력해주세요"
-                  placeholderTextColor={palette.gray3}
-                  // value={value}
+            </View>
+            {/* 카테고리 입력 */}
+            <View style={{ marginTop: 38 }}>
+              <MediumText style={styles.subTitle}>카테고리 입력</MediumText>
+              <View style={styles.categoryContainer}>
+                <CategoryButton
+                  title="열대어"
+                  onPress={() => setCategory("열대어")}
+                  buttonStyle={{ width: 67 }}
+                />
+                <CategoryButton
+                  title="대형어/희귀어"
+                  onPress={() => setCategory("대형어/희귀어")}
+                  buttonStyle={{ width: 91, paddingHorizontal: 13 }}
+                />
+                <CategoryButton
+                  title="스네일"
+                  onPress={() => setCategory("스네일")}
+                  buttonStyle={{ width: 67 }}
+                />
+                <CategoryButton
+                  title="새우"
+                  onPress={() => setCategory("새우")}
+                  buttonStyle={{ width: 60 }}
+                />
+                <CategoryButton
+                  title="잉어/금붕어"
+                  onPress={() => setCategory("잉어/금붕어")}
+                  buttonStyle={{ width: 77, paddingHorizontal: 11 }}
+                />
+                <CategoryButton
+                  title="해수어"
+                  onPress={() => setCategory("해수어")}
+                  buttonStyle={{ width: 67 }}
+                />
+                <CategoryButton
+                  title="반수생"
+                  onPress={() => setCategory("반수생")}
+                  buttonStyle={{ width: 67 }}
+                />
+                <CategoryButton
+                  title="수초"
+                  onPress={() => setCategory("수초")}
+                  buttonStyle={{ width: 60 }}
                 />
               </View>
-              {/* 분양 가격 */}
-              <View style={{ marginTop: 44 }}>
-                <BoldText style={styles.subTitle}>분양 가격</BoldText>
-                <View style={styles.priceContainer}>
-                  <TextInput
-                    style={{ fontSize: 20, flex: 0.8 }}
-                    // 백슬래시 대신 원화 표기방법 알아보기
-                    placeholder="$"
-                    placeholderTextColor={palette.gray2}
-                    keyboardType="numeric"
-                    returnKeyType="done"
-                  />
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                    }}
-                  >
-                    <CheckBox
-                      checkedIcon={
-                        <Image
-                          source={require("../../../assets/images/selectedCheckbox.png")}
-                          style={{ width: 21, height: 21 }}
-                        />
-                      }
-                      uncheckedIcon={
-                        <Image
-                          source={require("../../../assets/images/notSelectedCheckbox.png")}
-                          style={{ width: 21, height: 21 }}
-                        />
-                      }
-                      checked={checkBox}
-                      onPress={() => setCheckBox(checkBox ? false : true)}
-                      containerStyle={{ marginRight: 0, marginVertical: -10 }}
-                    />
-                    <Text style={{ fontSize: 14, color: palette.gray4 }}>
-                      나눔
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              {/* 카테고리 입력 */}
-              <View style={{ marginTop: 38 }}>
-                <MediumText style={styles.subTitle}>카테고리 입력</MediumText>
-                <View style={styles.categoryContainer}>
-                  <CategoryButton
-                    title="열대어"
-                    onPress={() => setCategory("열대어")}
-                    buttonStyle={{ width: 67 }}
-                  />
-                  <CategoryButton
-                    title="대형어/희귀어"
-                    onPress={() => setCategory("대형어/희귀어")}
-                    buttonStyle={{ width: 91, paddingHorizontal: 13 }}
-                  />
-                  <CategoryButton
-                    title="스네일"
-                    onPress={() => setCategory("스네일")}
-                    buttonStyle={{ width: 67 }}
-                  />
-                  <CategoryButton
-                    title="새우"
-                    onPress={() => setCategory("새우")}
-                    buttonStyle={{ width: 60 }}
-                  />
-                  <CategoryButton
-                    title="잉어/금붕어"
-                    onPress={() => setCategory("잉어/금붕어")}
-                    buttonStyle={{ width: 77, paddingHorizontal: 11 }}
-                  />
-                  <CategoryButton
-                    title="해수어"
-                    onPress={() => setCategory("해수어")}
-                    buttonStyle={{ width: 67 }}
-                  />
-                  <CategoryButton
-                    title="반수생"
-                    onPress={() => setCategory("반수생")}
-                    buttonStyle={{ width: 67 }}
-                  />
-                  <CategoryButton
-                    title="수초"
-                    onPress={() => setCategory("수초")}
-                    buttonStyle={{ width: 60 }}
-                  />
-                </View>
-              </View>
-              {/* 상세글 입력 */}
-              <View style={{ marginTop: 31, marginBottom: 70 }}>
-                <BoldText style={styles.subTitle}>상세글 입력</BoldText>
-                <TextInput style={styles.postingDetailInput} multiline={true} />
-              </View>
-            </ScrollView>
+            </View>
+            {/* 상세글 입력 */}
+            <View style={{ marginTop: 31, marginBottom: 70 }}>
+              <BoldText style={styles.subTitle}>상세글 입력</BoldText>
+              <TextInput style={styles.postingDetailInput} multiline={true} />
+            </View>
           </ScrollView>
+          {/* </ScrollView> */}
           {/* 등록하기 버튼 */}
           <View style={{ marginHorizontal: 24 }}>
             <BlueButton
