@@ -22,21 +22,24 @@ const CommentReply = ({ userName, commentContent, time, onPress }) => {
         <MediumText style={styles.commentContent}>{commentContent}</MediumText>
         <Text style={styles.time}>{time}</Text>
         <View style={styles.responseContainer}>
-          <Image
-            source={require("../../assets/images/commentIconLightGrey.png")}
-            style={styles.responseIcon}
-          />
-          <Image
-            source={require("../../assets/images/recommendIcon.png")}
-            style={[styles.responseIcon, { marginBottom: 1 }]}
-          />
-          <Image
-            source={require("../../assets/images/besidesIcon.png")}
-            style={[
-              styles.responseIcon,
-              { paddingHorizontal: 17, borderRightWidth: 0 },
-            ]}
-          />
+          <View style={styles.responseIconBox}>
+            <Image
+              source={require("../../assets/images/commentIconLightGrey.png")}
+              style={styles.responseIcon}
+            />
+          </View>
+          <View style={styles.responseIconBox}>
+            <Image
+              source={require("../../assets/images/recommendIcon.png")}
+              style={[styles.responseIcon, { marginBottom: 1 }]}
+            />
+          </View>
+          <View>
+            <Image
+              source={require("../../assets/images/besidesIcon.png")}
+              style={[styles.responseIcon, { paddingHorizontal: 17 }]}
+            />
+          </View>
         </View>
       </View>
     </View>
@@ -92,12 +95,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
+  responseIconBox: {
+    borderRightWidth: 0.5,
+    borderRightColor: "#737373",
+  },
   responseIcon: {
     height: 10,
     resizeMode: "contain",
     paddingHorizontal: 12,
-    borderRightWidth: 0.5,
-    borderRightColor: "#737373",
   },
 });
 
