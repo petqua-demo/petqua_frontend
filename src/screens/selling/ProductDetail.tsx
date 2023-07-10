@@ -10,6 +10,7 @@ import {
   Platform,
 } from "react-native";
 import useCachedResources from "../../useCachedResources";
+import { useState } from "react";
 
 import Text from "../../components/DefaultText";
 import BoldText from "../../components/BoldText";
@@ -21,6 +22,16 @@ import CommentReply from "../../components/CommentReply";
 export default function ProductDetail({ navigation }: any) {
   const isLoaded = useCachedResources();
 
+  const [clickImage, setClickImage] = useState(false);
+
+  const clickImageHandler = () => {
+    if (clickImage == false) {
+      setClickImage(true);
+    } else {
+      setClickImage(false);
+    }
+  };
+
   if (isLoaded) {
     return (
       // <Pressable style={{ flex: 1 }} onPress={() => Keyboard.dismiss()}>
@@ -31,10 +42,14 @@ export default function ProductDetail({ navigation }: any) {
         <ScrollView style={{ marginBottom: 70 }}>
           <View style={styles.container}>
             <StatusBar style="auto" />
-            <Image
-              source={require("../../../assets/images/productDetailImageExample.png")}
-              style={{ width: "100%", height: 370 }}
-            />
+
+            {/* 상세페이지 제품 이미지 */}
+            <Pressable onPress={clickImageHandler}>
+              <Image
+                source={require("../../../assets/images/productDetailImageExample.png")}
+                style={{ width: "100%", height: 370 }}
+              />
+            </Pressable>
             <View style={styles.content}>
               <View style={styles.userInfo}>
                 {/* 나중에 서버에서 userInfo 받아와서 처리하기 */}
@@ -148,6 +163,39 @@ export default function ProductDetail({ navigation }: any) {
             />
           </View>
         </View>
+        {/* 상세이미지 클릭하면 화면 꽉 채우게 이미지 보여주기 */}
+        {clickImage && (
+          <View
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              backgroundColor: palette.gray4,
+              justifyContent: "center",
+            }}
+          >
+            <Image
+              source={require("../../../assets/images/productDetailImageExample.png")}
+              style={{
+                width: "100%",
+                height: "100%",
+                resizeMode: "contain",
+              }}
+            />
+            <Pressable
+              onPress={clickImageHandler}
+              style={{ position: "absolute", right: 14, top: 60 }}
+            >
+              <Image
+                source={require("../../../assets/images/closeButtonIconBlack.png")}
+                style={{
+                  width: 40,
+                  height: 40,
+                }}
+              />
+            </Pressable>
+          </View>
+        )}
       </KeyboardAvoidingView>
       // </Pressable>
     );
