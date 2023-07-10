@@ -34,135 +34,142 @@ export default function ProductDetail({ navigation }: any) {
 
   if (isLoaded) {
     return (
-      // <Pressable style={{ flex: 1 }} onPress={() => Keyboard.dismiss()}>
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior={Platform.select({ ios: "padding" })}
-      >
-        <ScrollView style={{ marginBottom: 70 }}>
-          <View style={styles.container}>
-            <StatusBar style="auto" />
+      <View style={styles.container}>
+        <KeyboardAvoidingView
+          style={styles.container}
+          behavior={Platform.select({ ios: "padding" })}
+        >
+          <ScrollView style={{ marginBottom: 170 }}>
+            <View style={styles.container}>
+              <StatusBar style="auto" />
 
-            {/* 상세페이지 제품 이미지 */}
-            <Pressable onPress={clickImageHandler}>
-              <Image
-                source={require("../../../assets/images/productDetailImageExample.png")}
-                style={{ width: "100%", height: 370 }}
-              />
-            </Pressable>
-            <View style={styles.content}>
-              <View style={styles.userInfo}>
-                {/* 나중에 서버에서 userInfo 받아와서 처리하기 */}
+              {/* 상세페이지 제품 이미지 */}
+              <Pressable onPress={clickImageHandler}>
                 <Image
-                  source={require("../../../assets/images/itemImageExample.png")}
-                  style={styles.userProfile}
+                  source={require("../../../assets/images/productDetailImageExample.png")}
+                  style={{ width: "100%", height: 370 }}
                 />
-                <BoldText style={styles.userName}>펫쿠아</BoldText>
-              </View>
-              <View style={styles.productInfo}>
-                <BoldText style={styles.productName}>구피</BoldText>
-                <View style={{ flexDirection: "row", marginBottom: 19 }}>
-                  <Text style={styles.postingDetail}>열대어/소형어</Text>
-                  <Text style={styles.postingDetail}>1시간전</Text>
+              </Pressable>
+              <View style={styles.content}>
+                <View style={styles.userInfo}>
+                  {/* 나중에 서버에서 userInfo 받아와서 처리하기 */}
+                  <Image
+                    source={require("../../../assets/images/itemImageExample.png")}
+                    style={styles.userProfile}
+                  />
+                  <BoldText style={styles.userName}>펫쿠아</BoldText>
                 </View>
-                <Text style={styles.productExplanation}>
-                  구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구구피구피구구피구피구구피구피구구피구피구
-                </Text>
+                <View style={styles.productInfo}>
+                  <BoldText style={styles.productName}>구피</BoldText>
+                  <View style={{ flexDirection: "row", marginBottom: 19 }}>
+                    <Text style={styles.postingDetail}>열대어/소형어</Text>
+                    <Text style={styles.postingDetail}>1시간전</Text>
+                  </View>
+                  <Text style={styles.productExplanation}>
+                    구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구구피구피구구피구피구구피구피구구피구피구
+                  </Text>
+                </View>
+              </View>
+              {/* 구분선 */}
+              <View
+                style={{
+                  backgroundColor: "#F4F4F4",
+                  width: "100%",
+                  height: 8,
+                }}
+              />
+              <View style={styles.content}>
+                <BoldText style={styles.commentHeader}>댓글</BoldText>
+                <Comment
+                  userName="펫쿠아"
+                  commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
+                  time="05/04 20:57"
+                  onPress={{}}
+                />
+                <Comment
+                  userName="펫쿠아"
+                  commentContent="가나다라마바사 아자차카"
+                  time="05/04 20:57"
+                  onPress={{}}
+                />
+                <CommentReply
+                  userName="익명 1"
+                  commentContent="가나다라마바사 아자차카"
+                  time="05/04 20:57"
+                  onPress={{}}
+                />
+                <CommentReply
+                  userName="익명 1"
+                  commentContent="가나다라마바사 아자차카"
+                  time="05/04 20:57"
+                  onPress={{}}
+                />
+                <Comment
+                  userName="펫쿠아"
+                  commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카아자차카가나다라마바사 아자차카 가나다라마바사 아자차카아자차카"
+                  time="05/04 20:57"
+                  onPress={{}}
+                />
+                <Comment
+                  userName="펫쿠아"
+                  commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
+                  time="05/04 20:57"
+                  onPress={{}}
+                />
+                <Comment
+                  userName="펫쿠아"
+                  commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
+                  time="05/04 20:57"
+                  onPress={{}}
+                />
+                <Comment
+                  userName="펫쿠아"
+                  commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
+                  time="05/04 20:57"
+                  onPress={{}}
+                />
               </View>
             </View>
-            {/* 구분선 */}
-            <View
-              style={{
-                backgroundColor: "#F4F4F4",
-                width: "100%",
-                height: 8,
-              }}
-            />
-            <View style={styles.content}>
-              <BoldText style={styles.commentHeader}>댓글</BoldText>
-              <Comment
-                userName="펫쿠아"
-                commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
-                time="05/04 20:57"
-                onPress={{}}
+          </ScrollView>
+        </KeyboardAvoidingView>
+        <KeyboardAvoidingView
+          style={{ position: "absolute", width: "100%", bottom: 0, flex: 1 }}
+          behavior={"position"}
+          enabled
+        >
+          {/* 가격, 댓글 컨테이너 */}
+          <View style={styles.contactContainer}>
+            <View style={{ flexDirection: "row" }}>
+              <Image
+                source={require("../../../assets/images/heartIconLightGrey.png")}
+                style={{
+                  width: 21.23,
+                  height: 19.3,
+                  marginLeft: 3,
+                  marginTop: 9,
+                }}
               />
-              <Comment
-                userName="펫쿠아"
-                commentContent="가나다라마바사 아자차카"
-                time="05/04 20:57"
-                onPress={{}}
+              <View style={{ marginLeft: 44 }}>
+                <BoldText style={styles.productPrice}>12000원</BoldText>
+                <BoldText style={styles.bidding}>가격제안 불가</BoldText>
+              </View>
+            </View>
+            <View style={styles.commentInput}>
+              <TextInput
+                placeholder="댓글로 문의 해보세요 !"
+                placeholderTextColor={palette.gray2}
+                style={{ flex: 1 }}
               />
-              <CommentReply
-                userName="익명 1"
-                commentContent="가나다라마바사 아자차카"
-                time="05/04 20:57"
-                onPress={{}}
-              />
-              <CommentReply
-                userName="익명 1"
-                commentContent="가나다라마바사 아자차카"
-                time="05/04 20:57"
-                onPress={{}}
-              />
-              <Comment
-                userName="펫쿠아"
-                commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카아자차카가나다라마바사 아자차카 가나다라마바사 아자차카아자차카"
-                time="05/04 20:57"
-                onPress={{}}
-              />
-              <Comment
-                userName="펫쿠아"
-                commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
-                time="05/04 20:57"
-                onPress={{}}
-              />
-              <Comment
-                userName="펫쿠아"
-                commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
-                time="05/04 20:57"
-                onPress={{}}
-              />
-              <Comment
-                userName="펫쿠아"
-                commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
-                time="05/04 20:57"
-                onPress={{}}
+              <Image
+                source={require("../../../assets/images/sendIcon.png")}
+                style={{
+                  width: 22.12,
+                  height: 18.88,
+                }}
               />
             </View>
           </View>
-        </ScrollView>
-        {/* 가격, 댓글 컨테이너 */}
-        <View style={styles.contactContainer}>
-          <View style={{ flexDirection: "row" }}>
-            <Image
-              source={require("../../../assets/images/heartIconLightGrey.png")}
-              style={{
-                width: 21.23,
-                height: 19.3,
-                marginLeft: 3,
-                marginTop: 9,
-              }}
-            />
-            <View style={{ marginLeft: 44 }}>
-              <BoldText style={styles.productPrice}>12000원</BoldText>
-              <BoldText style={styles.bidding}>가격제안 불가</BoldText>
-            </View>
-          </View>
-          <View style={styles.commentInput}>
-            <TextInput
-              placeholder="댓글로 문의 해보세요 !"
-              placeholderTextColor={palette.gray2}
-              style={{ flex: 1 }}
-            />
-            <Image
-              source={require("../../../assets/images/sendIcon.png")}
-              style={{
-                width: 22.12,
-                height: 18.88,
-              }}
-            />
-          </View>
-        </View>
+        </KeyboardAvoidingView>
         {/* 상세이미지 클릭하면 화면 꽉 채우게 이미지 보여주기 */}
         {clickImage && (
           <View
@@ -196,8 +203,7 @@ export default function ProductDetail({ navigation }: any) {
             </Pressable>
           </View>
         )}
-      </KeyboardAvoidingView>
-      // </Pressable>
+      </View>
     );
   } else {
     return null;
