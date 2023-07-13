@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useState } from "react";
+import uuid from "react-uuid";
 
 import Text from "../../components/DefaultText";
 import BoldText from "../../components/BoldText";
@@ -18,6 +19,8 @@ import palette from "../../styles/ColorPalette";
 import TextInput from "../../components/RegularTextInput";
 import Comment from "../../components/Comment";
 import CommentReply from "../../components/CommentReply";
+import AddCommentInput from "../../components/AddCommentInput";
+import CommentList from "../../components/CommentList";
 
 export default function ProductDetail({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -31,6 +34,70 @@ export default function ProductDetail({ navigation }: any) {
       setClickImage(false);
     }
   };
+
+  const [comments, setComments] = useState([
+    {
+      id: uuid(),
+      userName: "펫쿠아",
+      textValue: "가나다라마바사 아자차카",
+      time: "05/04 20:57",
+    },
+    {
+      id: uuid(),
+      userName: "박채윤",
+      textValue: "가나다라마바사 아자차카",
+      time: "05/04 20:57",
+    },
+    {
+      id: uuid(),
+      userName: "펫쿠아",
+      textValue: "가나다라마바사 아자차카",
+      time: "05/04 20:57",
+    },
+    {
+      id: uuid(),
+      userName: "박채윤",
+      textValue: "가나다라마바사 아자차카",
+      time: "05/04 20:57",
+    },
+    {
+      id: uuid(),
+      userName: "펫쿠아",
+      textValue: "가나다라마바사 아자차카",
+      time: "05/04 20:57",
+    },
+    {
+      id: uuid(),
+      userName: "박채윤",
+      textValue: "가나다라마바사 아자차카",
+      time: "05/04 20:57",
+    },
+    {
+      id: uuid(),
+      userName: "펫쿠아",
+      textValue: "가나다라마바사 아자차카",
+      time: "05/04 20:57",
+    },
+    {
+      id: uuid(),
+      userName: "박채윤",
+      textValue: "가나다라마바사 아자차카",
+      time: "05/04 20:57",
+    },
+  ] as any);
+
+  const addComment = (userName: any, text: any, time: any) => {
+    setComments([
+      ...comments,
+      { id: uuid(), userName: userName, textValue: text, time: time },
+    ]);
+  };
+
+  const onRemove = (id: any) => (e: any) => {
+    setComments(comments.filter((Comment: { id: any }) => Comment.id !== id));
+  };
+
+  const onPress = (id: any) => (e: any) => {};
 
   if (isLoaded) {
     return (
@@ -80,7 +147,12 @@ export default function ProductDetail({ navigation }: any) {
               />
               <View style={styles.content}>
                 <BoldText style={styles.commentHeader}>댓글</BoldText>
-                <Comment
+                <CommentList
+                  Comments={comments}
+                  onRemove={onRemove}
+                  onPress={onPress}
+                />
+                {/* <Comment
                   userName="펫쿠아"
                   commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
                   time="05/04 20:57"
@@ -127,7 +199,7 @@ export default function ProductDetail({ navigation }: any) {
                   commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
                   time="05/04 20:57"
                   onPress={{}}
-                />
+                /> */}
               </View>
             </View>
           </ScrollView>
@@ -155,7 +227,7 @@ export default function ProductDetail({ navigation }: any) {
               </View>
             </View>
             <View style={styles.commentInput}>
-              <TextInput
+              {/* <TextInput
                 placeholder="댓글로 문의 해보세요 !"
                 placeholderTextColor={palette.gray2}
                 style={{ flex: 1 }}
@@ -166,7 +238,8 @@ export default function ProductDetail({ navigation }: any) {
                   width: 22.12,
                   height: 18.88,
                 }}
-              />
+              /> */}
+              <AddCommentInput onAddComment={addComment} />
             </View>
           </View>
         </KeyboardAvoidingView>
@@ -283,13 +356,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   commentInput: {
-    width: "100%",
-    backgroundColor: "#F3F3F3",
-    borderRadius: 12,
+    // width: "100%",
+    // backgroundColor: "#F3F3F3",
+    // borderRadius: 12,
     marginTop: 13,
-    paddingHorizontal: 14,
-    paddingVertical: 18,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    // paddingHorizontal: 14,
+    // paddingVertical: 18,
+    // flexDirection: "row",
+    // justifyContent: "space-between",
   },
 });

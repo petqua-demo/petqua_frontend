@@ -4,7 +4,7 @@ import BoldText from "./BoldText";
 import MediumText from "./MediumText";
 import palette from "../styles/ColorPalette";
 
-const Comment = ({ userName, commentContent, time, onPress }) => {
+const Comment = ({ userName, textValue, time, onRemove, onPress }) => {
   return (
     <View>
       {/* 구분선 */}
@@ -25,7 +25,7 @@ const Comment = ({ userName, commentContent, time, onPress }) => {
           />
           <BoldText style={styles.userName}>{userName}</BoldText>
         </View>
-        <MediumText style={styles.commentContent}>{commentContent}</MediumText>
+        <MediumText style={styles.textValue}>{textValue}</MediumText>
         <Text style={styles.time}>{time}</Text>
         <View style={styles.responseContainer}>
           <View style={styles.responseIconBox}>
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: palette.gray3,
   },
-  commentContent: {
+  textValue: {
     fontSize: 16,
     color: palette.gray3,
     marginTop: 8,
