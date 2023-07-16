@@ -26,7 +26,9 @@ export default function ProductDetail({ navigation }: any) {
   const isLoaded = useCachedResources();
 
   const [clickImage, setClickImage] = useState(false);
+  const [clickHeart, setClickHeart] = useState(false);
 
+  // 상세페이지 이미지 클릭 핸들러
   const clickImageHandler = () => {
     if (clickImage == false) {
       setClickImage(true);
@@ -35,6 +37,7 @@ export default function ProductDetail({ navigation }: any) {
     }
   };
 
+  // 이미 있는 댓글들 (임시) 나중에 서버에서 받아오기
   const [comments, setComments] = useState([
     {
       id: uuid(),
@@ -86,6 +89,7 @@ export default function ProductDetail({ navigation }: any) {
     },
   ] as any);
 
+  // 댓글 추가
   const addComment = (userName: any, text: any, time: any) => {
     setComments([
       ...comments,
@@ -93,11 +97,25 @@ export default function ProductDetail({ navigation }: any) {
     ]);
   };
 
+  // 댓글삭제
   const onRemove = (id: any) => (e: any) => {
     setComments(comments.filter((Comment: { id: any }) => Comment.id !== id));
   };
 
+  // 댓글 버튼 클릭
   const onPress = (id: any) => (e: any) => {};
+
+  // 찜 클릭시. 나중에 DB 저장하는 것 구현
+  const emptyHeart = require("../../../assets/images/heartIconLightGrey.png");
+  const filledHeart = require("../../../assets/images/heartIconFilled.png");
+
+  const onClickHeart = () => {
+    if (clickHeart == false) {
+      setClickHeart(true);
+    } else {
+      setClickHeart(false);
+    }
+  };
 
   if (isLoaded) {
     return (
@@ -152,54 +170,6 @@ export default function ProductDetail({ navigation }: any) {
                   onRemove={onRemove}
                   onPress={onPress}
                 />
-                {/* <Comment
-                  userName="펫쿠아"
-                  commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
-                  time="05/04 20:57"
-                  onPress={{}}
-                />
-                <Comment
-                  userName="펫쿠아"
-                  commentContent="가나다라마바사 아자차카"
-                  time="05/04 20:57"
-                  onPress={{}}
-                />
-                <CommentReply
-                  userName="익명 1"
-                  commentContent="가나다라마바사 아자차카"
-                  time="05/04 20:57"
-                  onPress={{}}
-                />
-                <CommentReply
-                  userName="익명 1"
-                  commentContent="가나다라마바사 아자차카"
-                  time="05/04 20:57"
-                  onPress={{}}
-                />
-                <Comment
-                  userName="펫쿠아"
-                  commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카아자차카가나다라마바사 아자차카 가나다라마바사 아자차카아자차카"
-                  time="05/04 20:57"
-                  onPress={{}}
-                />
-                <Comment
-                  userName="펫쿠아"
-                  commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
-                  time="05/04 20:57"
-                  onPress={{}}
-                />
-                <Comment
-                  userName="펫쿠아"
-                  commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
-                  time="05/04 20:57"
-                  onPress={{}}
-                />
-                <Comment
-                  userName="펫쿠아"
-                  commentContent="가나다라마바사 아자차카 가나다라마바사 아자차카"
-                  time="05/04 20:57"
-                  onPress={{}}
-                /> */}
               </View>
             </View>
           </ScrollView>
@@ -212,33 +182,23 @@ export default function ProductDetail({ navigation }: any) {
           {/* 가격, 댓글 컨테이너 */}
           <View style={styles.contactContainer}>
             <View style={{ flexDirection: "row" }}>
-              <Image
-                source={require("../../../assets/images/heartIconLightGrey.png")}
-                style={{
-                  width: 21.23,
-                  height: 19.3,
-                  marginLeft: 3,
-                  marginTop: 9,
-                }}
-              />
+              <Pressable onPress={onClickHeart}>
+                <Image
+                  source={clickHeart ? filledHeart : emptyHeart}
+                  style={{
+                    width: 21.23,
+                    height: 19.3,
+                    marginLeft: 3,
+                    marginTop: 9,
+                  }}
+                />
+              </Pressable>
               <View style={{ marginLeft: 44 }}>
                 <BoldText style={styles.productPrice}>12000원</BoldText>
                 <BoldText style={styles.bidding}>가격제안 불가</BoldText>
               </View>
             </View>
             <View style={styles.commentInput}>
-              {/* <TextInput
-                placeholder="댓글로 문의 해보세요 !"
-                placeholderTextColor={palette.gray2}
-                style={{ flex: 1 }}
-              />
-              <Image
-                source={require("../../../assets/images/sendIcon.png")}
-                style={{
-                  width: 22.12,
-                  height: 18.88,
-                }}
-              /> */}
               <AddCommentInput onAddComment={addComment} />
             </View>
           </View>
