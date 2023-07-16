@@ -3,6 +3,7 @@ import Text from "./DefaultText";
 import BoldText from "./BoldText";
 import LightText from "./LightText";
 import palette from "../styles/ColorPalette";
+import images from "./Images";
 
 const SellingListItem = ({
   ImageSrc,
@@ -30,19 +31,13 @@ const SellingListItem = ({
         </View>
         {/* response는 absolute position이기 때문에 itemInfo와 분리 */}
         <View style={styles.response}>
-          <Image
-            source={require("../../assets/images/commentIcon.png")}
-            style={styles.responseIcon}
-          />
+          <Image source={images.commentIcon} style={styles.responseIcon} />
           <LightText
             style={{ fontSize: 12, color: palette.gray4, marginRight: 10 }}
           >
             {comment}
           </LightText>
-          <Image
-            source={require("../../assets/images/heartIcon.png")}
-            style={styles.responseIcon}
-          />
+          <Image source={images.heartIcon} style={styles.responseIcon} />
           <LightText style={{ fontSize: 12, color: palette.gray4 }}>
             {heart}
           </LightText>

@@ -21,6 +21,7 @@ import Comment from "../../components/Comment";
 import CommentReply from "../../components/CommentReply";
 import AddCommentInput from "../../components/AddCommentInput";
 import CommentList from "../../components/CommentList";
+import images from "../../components/Images";
 
 export default function ProductDetail({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -106,8 +107,8 @@ export default function ProductDetail({ navigation }: any) {
   const onPress = (id: any) => (e: any) => {};
 
   // 찜 클릭시. 나중에 DB 저장하는 것 구현
-  const emptyHeart = require("../../../assets/images/heartIconLightGrey.png");
-  const filledHeart = require("../../../assets/images/heartIconFilled.png");
+  const emptyHeart = images.heartIconLightGrey;
+  const filledHeart = images.heartIconFilled;
 
   const onClickHeart = () => {
     if (clickHeart == false) {
@@ -131,7 +132,7 @@ export default function ProductDetail({ navigation }: any) {
               {/* 상세페이지 제품 이미지 */}
               <Pressable onPress={clickImageHandler}>
                 <Image
-                  source={require("../../../assets/images/productDetailImageExample.png")}
+                  source={images.productDetailImageExample}
                   style={{ width: "100%", height: 370 }}
                 />
               </Pressable>
@@ -139,7 +140,7 @@ export default function ProductDetail({ navigation }: any) {
                 <View style={styles.userInfo}>
                   {/* 나중에 서버에서 userInfo 받아와서 처리하기 */}
                   <Image
-                    source={require("../../../assets/images/itemImageExample.png")}
+                    source={images.itemImageExample}
                     style={styles.userProfile}
                   />
                   <BoldText style={styles.userName}>펫쿠아</BoldText>
@@ -215,7 +216,7 @@ export default function ProductDetail({ navigation }: any) {
             }}
           >
             <Image
-              source={require("../../../assets/images/productDetailImageExample.png")}
+              source={images.productDetailImageExample}
               style={{
                 width: "100%",
                 height: "100%",
@@ -227,7 +228,7 @@ export default function ProductDetail({ navigation }: any) {
               style={{ position: "absolute", right: 14, top: 60 }}
             >
               <Image
-                source={require("../../../assets/images/closeButtonIconBlack.png")}
+                source={images.closeButtonIconBlack}
                 style={{
                   width: 40,
                   height: 40,

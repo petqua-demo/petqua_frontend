@@ -3,6 +3,7 @@ import Text from "./DefaultText";
 import BoldText from "./BoldText";
 import MediumText from "./MediumText";
 import palette from "../styles/ColorPalette";
+import images from "./Images";
 
 const Comment = ({ userName, textValue, time, onRemove, onPress }) => {
   return (
@@ -19,10 +20,7 @@ const Comment = ({ userName, textValue, time, onRemove, onPress }) => {
       />
       <View style={styles.container}>
         <View style={styles.userInfo}>
-          <Image
-            source={require("../../assets/images/itemImageExample.png")}
-            style={styles.userProfile}
-          />
+          <Image source={images.itemImageExample} style={styles.userProfile} />
           <BoldText style={styles.userName}>{userName}</BoldText>
         </View>
         <MediumText style={styles.textValue}>{textValue}</MediumText>
@@ -30,19 +28,19 @@ const Comment = ({ userName, textValue, time, onRemove, onPress }) => {
         <View style={styles.responseContainer}>
           <View style={styles.responseIconBox}>
             <Image
-              source={require("../../assets/images/commentIconLightGrey.png")}
+              source={images.commentIconLightGrey}
               style={styles.responseIcon}
             />
           </View>
           <View style={styles.responseIconBox}>
             <Image
-              source={require("../../assets/images/recommendIcon.png")}
+              source={images.recommendIcon}
               style={[styles.responseIcon, { marginBottom: 1 }]}
             />
           </View>
           <View>
             <Image
-              source={require("../../assets/images/besidesIcon.png")}
+              source={images.besidesIcon}
               style={[styles.responseIcon, { paddingHorizontal: 17 }]}
             />
           </View>

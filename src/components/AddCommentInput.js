@@ -8,6 +8,7 @@ import {
   Image,
 } from "react-native";
 import palette from "../styles/ColorPalette";
+import images from "./Images";
 
 const AddCommentInput = ({ onAddComment }) => {
   const [newComment, setNewComment] = useState("");
@@ -62,7 +63,7 @@ const AddCommentInput = ({ onAddComment }) => {
       />
       <TouchableOpacity onPress={setDate} onPressOut={addCommentHandler}>
         <Image
-          source={require("../../assets/images/sendIcon.png")}
+          source={images.sendIcon}
           style={{
             width: 22.12,
             height: 18.88,

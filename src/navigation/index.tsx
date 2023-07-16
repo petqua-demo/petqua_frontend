@@ -11,6 +11,7 @@ import FishPosting from "../screens/posting/FishPosting";
 import GoodsPosting from "../screens/posting/GoodsPosting";
 import DiaryPosting from "../screens/posting/DiaryPosting";
 import ProductDetail from "../screens/selling/ProductDetail";
+import images from "../components/Images";
 
 const Stack = createNativeStackNavigator();
 
@@ -59,11 +60,7 @@ const BottomTabNav = () => (
         tabBarIcon: ({ focused }) => {
           return (
             <Image
-              source={
-                focused
-                  ? require("../../assets/images/selectedStarIcon.png")
-                  : require("../../assets/images/starIcon.png")
-              }
+              source={focused ? images.selectedStarIcon : images.starIcon}
               style={{ width: 25.01, height: 24.02 }}
             />
           );
@@ -79,11 +76,7 @@ const BottomTabNav = () => (
         tabBarIcon: ({ focused }) => {
           return (
             <Image
-              source={
-                focused
-                  ? require("../../assets/images/selectedHomeIcon.png")
-                  : require("../../assets/images/homeIcon.png")
-              }
+              source={focused ? images.selectedHomeIcon : images.homeIcon}
               style={{ width: 20, height: 22 }}
             />
           );
@@ -100,11 +93,7 @@ const BottomTabNav = () => (
         tabBarIcon: ({ focused }) => {
           return (
             <Image
-              source={
-                focused
-                  ? require("../../assets/images/selectedMyPageIcon.png")
-                  : require("../../assets/images/myPageIcon.png")
-              }
+              source={focused ? images.selectedMyPageIcon : images.myPageIcon}
               style={{ width: 22, height: 21 }}
             />
           );

@@ -16,6 +16,7 @@ import BoldText from "../../components/BoldText";
 import palette from "../../styles/ColorPalette";
 import TextInput from "../../components/RegularTextInput";
 import BlueButton from "../../components/BlueButton";
+import images from "../../components/Images";
 
 export default function DiaryPosting({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -32,7 +33,7 @@ export default function DiaryPosting({ navigation }: any) {
             <View style={styles.header}>
               <Pressable>
                 <Image
-                  source={require("../../../assets/images/closeButtonIcon.png")}
+                  source={images.closeButtonIcon}
                   style={{ width: 15, height: 15, marginLeft: 24 }}
                 />
               </Pressable>
@@ -64,7 +65,7 @@ export default function DiaryPosting({ navigation }: any) {
                 {/* 피그마에 이미지 목록들 어떻게 띄울지 제시되어있지 않아서 일단 View로 임시 처리 */}
                 <View style={styles.photoList}>
                   <Image
-                    source={require("../../../assets/images/takePhotoIcon.png")}
+                    source={images.takePhotoIcon}
                     style={{ width: 54, height: 54, marginTop: 23 }}
                   />
                 </View>

@@ -17,6 +17,7 @@ import ExtraBoldText from "../../components/BoldText";
 import PostingMenuItem from "../../components/PostingMenuItem";
 import SellingListItem from "../../components/SellingListItem";
 import palette from "../../styles/ColorPalette";
+import images from "../../components/Images";
 
 export const Categories = {
   ALL: "전체",
@@ -46,20 +47,20 @@ export default function Selling({ navigation }: any) {
         <StatusBar style="auto" />
         <View style={styles.header}>
           <Image
-            source={require("../../../assets/images/petqua_logo.png")}
+            source={images.petqua_logo}
             style={{ width: 84, height: 22 }}
           />
           <View style={{ flexDirection: "row" }}>
             <Image
-              source={require("../../../assets/images/searchIcon.png")}
+              source={images.searchIcon}
               style={{ width: 18, height: 20, marginRight: 21 }}
             />
             <Image
-              source={require("../../../assets/images/shoppingBasketIcon.png")}
+              source={images.shoppingBasketIcon}
               style={{ width: 22, height: 23, marginRight: 21 }}
             />
             <Image
-              source={require("../../../assets/images/notificationIcon.png")}
+              source={images.notificationIcon}
               style={{ width: 18, height: 24 }}
             />
           </View>
@@ -141,7 +142,7 @@ export default function Selling({ navigation }: any) {
                 <SellingListItem
                   ImageSrc={
                     <ImageBackground
-                      source={require("../../../assets/images/itemImageExample.png")}
+                      source={images.itemImageExample}
                       style={styles.itemImage}
                       imageStyle={{ opacity: 0.2 }}
                     >
@@ -166,7 +167,7 @@ export default function Selling({ navigation }: any) {
                 <SellingListItem
                   ImageSrc={
                     <Image
-                      source={require("../../../assets/images/itemImageExample.png")}
+                      source={images.itemImageExample}
                       style={styles.itemImage}
                     />
                   }
@@ -181,7 +182,7 @@ export default function Selling({ navigation }: any) {
                 <SellingListItem
                   ImageSrc={
                     <Image
-                      source={require("../../../assets/images/itemImageExample.png")}
+                      source={images.itemImageExample}
                       style={styles.itemImage}
                     />
                   }
@@ -196,7 +197,7 @@ export default function Selling({ navigation }: any) {
                 <SellingListItem
                   ImageSrc={
                     <Image
-                      source={require("../../../assets/images/itemImageExample.png")}
+                      source={images.itemImageExample}
                       style={styles.itemImage}
                     />
                   }
@@ -211,7 +212,7 @@ export default function Selling({ navigation }: any) {
                 <SellingListItem
                   ImageSrc={
                     <Image
-                      source={require("../../../assets/images/itemImageExample.png")}
+                      source={images.itemImageExample}
                       style={styles.itemImage}
                     />
                   }
@@ -226,7 +227,7 @@ export default function Selling({ navigation }: any) {
                 <SellingListItem
                   ImageSrc={
                     <Image
-                      source={require("../../../assets/images/itemImageExample.png")}
+                      source={images.itemImageExample}
                       style={styles.itemImage}
                     />
                   }
@@ -241,7 +242,7 @@ export default function Selling({ navigation }: any) {
                 <SellingListItem
                   ImageSrc={
                     <Image
-                      source={require("../../../assets/images/itemImageExample.png")}
+                      source={images.itemImageExample}
                       style={styles.itemImage}
                     />
                   }
@@ -264,7 +265,7 @@ export default function Selling({ navigation }: any) {
               <PostingMenuItem
                 ImageSrc={
                   <Image
-                    source={require("../../../assets/images/clearTextInputButton.png")}
+                    source={images.clearTextInputButton}
                     style={{ width: 20, height: 20 }}
                   />
                 }
@@ -274,7 +275,7 @@ export default function Selling({ navigation }: any) {
               <PostingMenuItem
                 ImageSrc={
                   <Image
-                    source={require("../../../assets/images/clearTextInputButton.png")}
+                    source={images.clearTextInputButton}
                     style={{ width: 20, height: 20 }}
                   />
                 }
@@ -284,7 +285,7 @@ export default function Selling({ navigation }: any) {
               <PostingMenuItem
                 ImageSrc={
                   <Image
-                    source={require("../../../assets/images/clearTextInputButton.png")}
+                    source={images.clearTextInputButton}
                     style={{ width: 20, height: 20 }}
                   />
                 }
@@ -297,16 +298,10 @@ export default function Selling({ navigation }: any) {
             activeOpacity={0.4}
             onPress={clickPostingBtnHandler}
           >
-            <Image
-              source={require("../../../assets/images/postingIcon.png")}
-              style={styles.floatingBTN}
-            />
+            <Image source={images.postingIcon} style={styles.floatingBTN} />
           </TouchableOpacity>
           <TouchableOpacity activeOpacity={0.4}>
-            <Image
-              source={require("../../../assets/images/channelTalkIcon.png")}
-              style={styles.floatingBTN}
-            />
+            <Image source={images.channelTalkIcon} style={styles.floatingBTN} />
           </TouchableOpacity>
         </View>
       </View>
