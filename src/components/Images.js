@@ -30,6 +30,7 @@ import takePhotoIcon from "../../assets/images/takePhotoIcon.png";
 import bottomWaterCommunityIcon from "../../assets/images/bottomWaterCommunityIcon.png";
 import bottomPostingIcon from "../../assets/images/bottomPostingIcon.png";
 import bottomSearchIcon from "../../assets/images/bottomSearchIcon.png";
+import salesPostingIcon from "../../assets/images/salesPostingIcon.png";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -64,6 +65,7 @@ const images = {
   bottomWaterCommunityIcon: bottomWaterCommunityIcon,
   bottomPostingIcon: bottomPostingIcon,
   bottomSearchIcon: bottomSearchIcon,
+  salesPostingIcon: salesPostingIcon,
 };
 
 export default images;

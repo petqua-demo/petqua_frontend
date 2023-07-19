@@ -50,23 +50,6 @@ const BottomTabNav = () => (
       tabBarStyle: styles.tabBar,
     }}
   >
-    {/* 나중에 연결 Component 바꿀 예정. 테스트를 위해 임시 Component 연결. */}
-    <BottomTab.Screen
-      name="Login"
-      component={Login}
-      options={{
-        tabBarLabel: "추천",
-        tabBarLabelStyle: styles.tabBarLable,
-        tabBarIcon: ({ focused }) => {
-          return (
-            <Image
-              source={focused ? images.selectedStarIcon : images.starIcon}
-              style={{ width: 25.01, height: 24.02 }}
-            />
-          );
-        },
-      }}
-    />
     <BottomTab.Screen
       name="Selling"
       component={Selling}
@@ -76,8 +59,8 @@ const BottomTabNav = () => (
         tabBarIcon: ({ focused }) => {
           return (
             <Image
-              source={focused ? images.selectedHomeIcon : images.homeIcon}
-              style={{ width: 20, height: 22 }}
+              source={focused ? images.selectedHomeIcon : images.bottomHomeIcon}
+              style={{ width: 23, height: 22 }}
             />
           );
         },
@@ -85,16 +68,58 @@ const BottomTabNav = () => (
     />
     {/* 나중에 연결 Component 바꿀 예정. 테스트를 위해 임시 Component 연결. */}
     <BottomTab.Screen
-      name="Join"
-      component={Join}
+      name="Login"
+      component={Login}
+      options={{
+        tabBarLabel: "검색",
+        tabBarLabelStyle: styles.tabBarLable,
+        tabBarIcon: ({ focused }) => {
+          return (
+            <Image
+              source={
+                focused ? images.bottomSearchIcon : images.bottomSearchIcon
+              }
+              style={{ width: 20, height: 22.22 }}
+            />
+          );
+        },
+      }}
+    />
+    {/* 나중에 연결 Component 바꿀 예정. 테스트를 위해 임시 Component 연결. */}
+    <BottomTab.Screen
+      name="GoodsPosting"
+      component={GoodsPosting}
+      options={{
+        tabBarLabel: "물생활",
+        tabBarLabelStyle: styles.tabBarLable,
+        tabBarIcon: ({ focused }) => {
+          return (
+            <Image
+              source={
+                focused
+                  ? images.bottomWaterCommunityIcon
+                  : images.bottomWaterCommunityIcon
+              }
+              style={{ width: 22, height: 20 }}
+            />
+          );
+        },
+      }}
+    />
+    {/* 나중에 연결 Component 바꿀 예정. 테스트를 위해 임시 Component 연결. */}
+    <BottomTab.Screen
+      name="DiaryPosting"
+      component={DiaryPosting}
       options={{
         tabBarLabel: "마이쿠아",
         tabBarLabelStyle: styles.tabBarLable,
         tabBarIcon: ({ focused }) => {
           return (
             <Image
-              source={focused ? images.selectedMyPageIcon : images.myPageIcon}
-              style={{ width: 22, height: 21 }}
+              source={
+                focused ? images.bottomMyPageIcon : images.bottomMyPageIcon
+              }
+              style={{ width: 22, height: 22 }}
             />
           );
         },
@@ -107,8 +132,8 @@ const styles = StyleSheet.create({
   tabBar: {
     height: 90,
     paddingTop: 15,
-    paddingLeft: 66,
-    paddingRight: 60,
+    paddingLeft: 30,
+    paddingRight: 30,
     backgroundColor: "#ffffff",
     // shadow 아직 안 넣음
   },

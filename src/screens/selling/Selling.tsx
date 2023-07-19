@@ -298,10 +298,10 @@ export default function Selling({ navigation }: any) {
             activeOpacity={0.4}
             onPress={clickPostingBtnHandler}
           >
-            <Image source={images.postingIcon} style={styles.floatingBTN} />
-          </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.4}>
-            <Image source={images.channelTalkIcon} style={styles.floatingBTN} />
+            <Image
+              source={images.salesPostingIcon}
+              style={styles.floatingBTN}
+            />
           </TouchableOpacity>
         </View>
       </View>
