@@ -31,6 +31,8 @@ import bottomWaterCommunityIcon from "../../assets/images/bottomWaterCommunityIc
 import bottomPostingIcon from "../../assets/images/bottomPostingIcon.png";
 import bottomSearchIcon from "../../assets/images/bottomSearchIcon.png";
 import salesPostingIcon from "../../assets/images/salesPostingIcon.png";
+import myPageSettingIcon from "../../assets/images/myPageSettingIcon.png";
+import takeProfilePictureIcon from "../../assets/images/takeProfilePictureIcon.png";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -66,6 +68,8 @@ const images = {
   bottomPostingIcon: bottomPostingIcon,
   bottomSearchIcon: bottomSearchIcon,
   salesPostingIcon: salesPostingIcon,
+  myPageSettingIcon: myPageSettingIcon,
+  takeProfilePictureIcon: takeProfilePictureIcon,
 };
 
 export default images;

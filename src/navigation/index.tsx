@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, Image } from "react-native";
 import useCachedResources from "../useCachedResources";
 
+import images from "../components/Images";
 import Join from "../screens/beginning/Join";
 import Login from "../screens/beginning/Login";
 import Selling from "../screens/selling/Selling";
@@ -11,7 +12,7 @@ import FishPosting from "../screens/posting/FishPosting";
 import GoodsPosting from "../screens/posting/GoodsPosting";
 import DiaryPosting from "../screens/posting/DiaryPosting";
 import ProductDetail from "../screens/selling/ProductDetail";
-import images from "../components/Images";
+import MyPage from "../screens/mypage/MyPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,7 @@ export default function Navigation() {
           <Stack.Screen name="GoodsPosting" component={GoodsPosting} />
           <Stack.Screen name="DiaryPosting" component={DiaryPosting} />
           <Stack.Screen name="ProductDetail" component={ProductDetail} />
+          <Stack.Screen name="MyPage" component={MyPage} />
         </Stack.Navigator>
       </NavigationContainer>
     );
@@ -108,8 +110,8 @@ const BottomTabNav = () => (
     />
     {/* 나중에 연결 Component 바꿀 예정. 테스트를 위해 임시 Component 연결. */}
     <BottomTab.Screen
-      name="DiaryPosting"
-      component={DiaryPosting}
+      name="MyPage"
+      component={MyPage}
       options={{
         tabBarLabel: "마이쿠아",
         tabBarLabelStyle: styles.tabBarLable,
