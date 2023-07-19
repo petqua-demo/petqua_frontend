@@ -52,15 +52,15 @@ export default function Selling({ navigation }: any) {
           />
           <View style={{ flexDirection: "row" }}>
             <Image
-              source={images.searchIcon}
+              source={images.topSearchIcon}
               style={{ width: 18, height: 20, marginRight: 21 }}
             />
             <Image
-              source={images.shoppingBasketIcon}
+              source={images.topShoppingBasketIcon}
               style={{ width: 22, height: 23, marginRight: 21 }}
             />
             <Image
-              source={images.notificationIcon}
+              source={images.topNotificationIcon}
               style={{ width: 18, height: 24 }}
             />
           </View>

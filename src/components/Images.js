@@ -9,24 +9,27 @@ import commentReplyIcon from "../../assets/images/commentReplyIcon.png";
 import heartIcon from "../../assets/images/heartIcon.png";
 import heartIconFilled from "../../assets/images/heartIconFilled.png";
 import heartIconLightGrey from "../../assets/images/heartIconLightGrey.png";
-import homeIcon from "../../assets/images/homeIcon.png";
+import bottomHomeIcon from "../../assets/images/bottomHomeIcon.png";
 import itemImageExample from "../../assets/images/itemImageExample.png";
-import myPageIcon from "../../assets/images/myPageIcon.png";
-import notificationIcon from "../../assets/images/notificationIcon.png";
+import bottomMyPageIcon from "../../assets/images/bottomMyPageIcon.png";
+import topNotificationIcon from "../../assets/images/topNotificationIcon.png";
 import notSelectedCheckbox from "../../assets/images/notSelectedCheckbox.png";
 import petqua_logo from "../../assets/images/petqua_logo.png";
 import postingIcon from "../../assets/images/postingIcon.png";
 import productDetailImageExample from "../../assets/images/productDetailImageExample.png";
 import recommendIcon from "../../assets/images/recommendIcon.png";
-import searchIcon from "../../assets/images/searchIcon.png";
+import topSearchIcon from "../../assets/images/topSearchIcon.png";
 import selectedCheckbox from "../../assets/images/selectedCheckbox.png";
 import selectedHomeIcon from "../../assets/images/selectedHomeIcon.png";
 import selectedMyPageIcon from "../../assets/images/selectedMyPageIcon.png";
 import selectedStarIcon from "../../assets/images/selectedStarIcon.png";
 import sendIcon from "../../assets/images/sendIcon.png";
-import shoppingBasketIcon from "../../assets/images/shoppingBasketIcon.png";
+import topShoppingBasketIcon from "../../assets/images/topShoppingBasketIcon.png";
 import starIcon from "../../assets/images/starIcon.png";
 import takePhotoIcon from "../../assets/images/takePhotoIcon.png";
+import bottomWaterCommunityIcon from "../../assets/images/bottomWaterCommunityIcon.png";
+import bottomPostingIcon from "../../assets/images/bottomPostingIcon.png";
+import bottomSearchIcon from "../../assets/images/bottomSearchIcon.png";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -40,24 +43,27 @@ const images = {
   heartIcon: heartIcon,
   heartIconFilled: heartIconFilled,
   heartIconLightGrey: heartIconLightGrey,
-  homeIcon: homeIcon,
+  bottomHomeIcon: bottomHomeIcon,
   itemImageExample: itemImageExample,
-  myPageIcon: myPageIcon,
-  notificationIcon: notificationIcon,
+  bottomMyPageIcon: bottomMyPageIcon,
+  topNotificationIcon: topNotificationIcon,
   notSelectedCheckbox: notSelectedCheckbox,
   petqua_logo: petqua_logo,
   postingIcon: postingIcon,
   productDetailImageExample: productDetailImageExample,
   recommendIcon: recommendIcon,
-  searchIcon: searchIcon,
+  topSearchIcon: topSearchIcon,
   selectedCheckbox: selectedCheckbox,
   selectedHomeIcon: selectedHomeIcon,
   selectedMyPageIcon: selectedMyPageIcon,
   selectedStarIcon: selectedStarIcon,
   sendIcon: sendIcon,
-  shoppingBasketIcon: shoppingBasketIcon,
+  topShoppingBasketIcon: topShoppingBasketIcon,
   starIcon: starIcon,
   takePhotoIcon: takePhotoIcon,
+  bottomWaterCommunityIcon: bottomWaterCommunityIcon,
+  bottomPostingIcon: bottomPostingIcon,
+  bottomSearchIcon: bottomSearchIcon,
 };
 
 export default images;
