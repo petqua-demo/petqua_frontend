@@ -16,6 +16,8 @@ import Text from "../../components/DefaultText";
 import BoldText from "../../components/BoldText";
 import palette from "../../styles/ColorPalette";
 import images from "../../components/Images";
+import MyPageProfile from "../../components/MyPageProfile";
+import MyFishbowlListItem from "../../components/MyFishbowlListItem";
 
 export default function FishPosting({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -53,19 +55,68 @@ export default function FishPosting({ navigation }: any) {
               />
             </Pressable>
           </View>
-          <ScrollView style={styles.content}>
-            {/* 프로필 */}
-            <View style={styles.profileInfo}></View>
-            {/* 등록된 어항 */}
-            <View>
-              <BoldText style={{ fontSize: 14, color: palette.gray4 }}>
-                등록된 어항
-              </BoldText>
-              <ScrollView style={styles.myFishList}></ScrollView>
+          <ScrollView>
+            <View style={styles.content}>
+              {/* 프로필 */}
+              <View style={styles.profileInfo}>
+                <MyPageProfile ImageSrc={images.itemImageExample} />
+                <BoldText style={styles.userName}>펫쿠아</BoldText>
+                <Pressable style={styles.viewProfileBTN}>
+                  <BoldText style={{ fontSize: 10, color: palette.gray3 }}>
+                    프로필 보기
+                  </BoldText>
+                </Pressable>
+              </View>
+              {/* 등록된 어항 */}
+              <View>
+                <BoldText style={styles.subTitle}>등록된 어항</BoldText>
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  {/* 어항 추가하기 버튼 */}
+                  <Pressable>
+                    <Image
+                      source={images.addFishbowlBTN}
+                      style={styles.fishbowlContent}
+                    />
+                  </Pressable>
+                  {/* onPress 누르면 해당 게시글로 이동하게 하기. */}
+                  <MyFishbowlListItem
+                    ImageSrc={images.productDetailImageExample}
+                    onPress={{}}
+                    containerStyle={styles.fishbowlContent}
+                  />
+                  <MyFishbowlListItem
+                    ImageSrc={images.productDetailImageExample}
+                    onPress={{}}
+                    containerStyle={styles.fishbowlContent}
+                  />
+                  <MyFishbowlListItem
+                    ImageSrc={images.productDetailImageExample}
+                    onPress={{}}
+                    containerStyle={styles.fishbowlContent}
+                  />
+                  <MyFishbowlListItem
+                    ImageSrc={images.productDetailImageExample}
+                    onPress={{}}
+                    containerStyle={styles.fishbowlContent}
+                  />
+                </ScrollView>
+              </View>
             </View>
+            {/* 구분선 */}
+            <View
+              style={{
+                marginTop: 67,
+                width: "100%",
+                height: 1,
+                backgroundColor: palette.gray1,
+              }}
+            />
             {/* 커뮤니티 목록 */}
             <View>
-              <BoldText style={{ fontSize: 14, color: palette.gray4 }}>
+              <BoldText style={[styles.subTitle, { marginBottom: 36 }]}>
                 커뮤니티 목록
               </BoldText>
               {/* 커뮤니티 목록 컴포넌트로 만들어 넣기 */}
@@ -105,8 +156,34 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     alignItems: "center",
+    marginBottom: 60,
   },
-  myFishList: {
-    flexDirection: "row",
+  userName: {
+    fontSize: 24,
+    color: palette.gray3,
+    marginLeft: 24,
+    flex: 1,
+  },
+  viewProfileBTN: {
+    width: 64,
+    height: 28,
+    borderRadius: 5,
+    borderWidth: 0.5,
+    borderColor: palette.gray3,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  subTitle: {
+    fontSize: 14,
+    color: palette.gray4,
+    marginBottom: 23,
+  },
+  fishbowlContent: {
+    width: 102,
+    height: 102,
+    borderRadius: 5,
+    borderWidth: 0.5,
+    borderColor: palette.gray3,
+    marginRight: 10,
   },
 });

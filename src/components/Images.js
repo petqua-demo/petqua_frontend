@@ -33,6 +33,7 @@ import bottomSearchIcon from "../../assets/images/bottomSearchIcon.png";
 import salesPostingIcon from "../../assets/images/salesPostingIcon.png";
 import myPageSettingIcon from "../../assets/images/myPageSettingIcon.png";
 import takeProfilePictureIcon from "../../assets/images/takeProfilePictureIcon.png";
+import addFishbowlBTN from "../../assets/images/addFishbowlBTN.png";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -70,6 +71,7 @@ const images = {
   salesPostingIcon: salesPostingIcon,
   myPageSettingIcon: myPageSettingIcon,
   takeProfilePictureIcon: takeProfilePictureIcon,
+  addFishbowlBTN: addFishbowlBTN,
 };
 
 export default images;
