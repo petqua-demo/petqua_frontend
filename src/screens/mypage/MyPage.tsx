@@ -18,6 +18,7 @@ import palette from "../../styles/ColorPalette";
 import images from "../../components/Images";
 import MyPageProfile from "../../components/MyPageProfile";
 import MyFishbowlListItem from "../../components/MyFishbowlListItem";
+import MyPagePostingListItem from "../../components/MyPagePostingListItem";
 
 export default function FishPosting({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -56,7 +57,7 @@ export default function FishPosting({ navigation }: any) {
             </Pressable>
           </View>
           <ScrollView>
-            <View style={styles.content}>
+            <View style={[styles.content, { marginTop: 50 }]}>
               {/* 프로필 */}
               <View style={styles.profileInfo}>
                 <MyPageProfile ImageSrc={images.itemImageExample} />
@@ -106,25 +107,32 @@ export default function FishPosting({ navigation }: any) {
               </View>
             </View>
             {/* 구분선 */}
-            <View
-              style={{
-                marginTop: 67,
-                width: "100%",
-                height: 1,
-                backgroundColor: palette.gray1,
-              }}
-            />
-            {/* 커뮤니티 목록 */}
-            <View>
-              <BoldText style={[styles.subTitle, { marginBottom: 36 }]}>
-                커뮤니티 목록
-              </BoldText>
-              {/* 커뮤니티 목록 컴포넌트로 만들어 넣기 */}
+            <View style={[styles.dividingLine, { marginTop: 47 }]} />
+            <View style={styles.content}>
+              {/* 커뮤니티 목록 */}
+              <View style={{ marginTop: 35 }}>
+                <BoldText style={styles.subTitle}>커뮤니티 목록</BoldText>
+                <MyPagePostingListItem title="내가 쓴 글/댓글" />
+                <MyPagePostingListItem title="내가 스크랩한 글" />
+              </View>
             </View>
-            {/* 봉달목록 */}
-            <View></View>
-            {/* 입양, 분양 내역 */}
-            <View></View>
+            {/* 구분선 */}
+            <View style={[styles.dividingLine, { marginVertical: 14 }]} />
+            <View style={styles.content}>
+              {/* 봉달목록 */}
+              <View>
+                <MyPagePostingListItem title="봉달 목록" />
+              </View>
+            </View>
+            {/* 구분선 */}
+            <View style={[styles.dividingLine, { marginVertical: 14 }]} />
+            <View style={styles.content}>
+              {/* 입양, 분양 내역 */}
+              <View>
+                <MyPagePostingListItem title="분양 내역" />
+                <MyPagePostingListItem title="입양 내역" />
+              </View>
+            </View>
           </ScrollView>
         </KeyboardAvoidingView>
       </Pressable>
@@ -150,7 +158,6 @@ const styles = StyleSheet.create({
   },
   content: {
     marginHorizontal: 15,
-    marginTop: 50,
   },
   profileInfo: {
     flexDirection: "row",
@@ -176,7 +183,7 @@ const styles = StyleSheet.create({
   subTitle: {
     fontSize: 14,
     color: palette.gray4,
-    marginBottom: 23,
+    marginBottom: 20,
   },
   fishbowlContent: {
     width: 102,
@@ -185,5 +192,10 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: palette.gray3,
     marginRight: 10,
+  },
+  dividingLine: {
+    width: "100%",
+    height: 1,
+    backgroundColor: palette.gray1,
   },
 });
