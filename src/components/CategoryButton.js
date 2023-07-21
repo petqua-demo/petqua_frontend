@@ -2,7 +2,7 @@ import { Pressable, StyleSheet } from "react-native";
 import palette from "../styles/ColorPalette";
 import MediumText from "./MediumText";
 
-const CategoryButton = ({ title, onPress, buttonStyle }) => {
+const CategoryButton = ({ title, onPress }) => {
   return (
     <Pressable
       style={({ pressed }) => [
@@ -13,7 +13,6 @@ const CategoryButton = ({ title, onPress, buttonStyle }) => {
         pressed && {
           backgroundColor: palette.body1,
         },
-        buttonStyle,
       ]}
       onPressOut={onPress}
     >
@@ -26,11 +25,12 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 12,
+    borderRadius: 40,
     borderWidth: 0.5,
     borderColor: palette.body1,
-    paddingHorizontal: 18,
-    height: 29,
+    paddingHorizontal: 19,
+    height: 34,
+    marginRight: 6,
     // 카테고리 아이템 줄 나뉘었을 때 간격을 위해 marginBottom 설정
     marginBottom: 15,
   },
