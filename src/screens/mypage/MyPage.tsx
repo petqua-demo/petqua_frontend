@@ -20,7 +20,7 @@ import MyPageProfile from "../../components/MyPageProfile";
 import MyFishbowlListItem from "../../components/MyFishbowlListItem";
 import MyPagePostingListItem from "../../components/MyPagePostingListItem";
 
-export default function FishPosting({ navigation }: any) {
+export default function MyPage({ navigation }: any) {
   const isLoaded = useCachedResources();
 
   if (isLoaded) {
