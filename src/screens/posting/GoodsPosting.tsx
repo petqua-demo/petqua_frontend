@@ -22,6 +22,20 @@ import CategoryButton from "../../components/CategoryButton";
 import BlueButton from "../../components/BlueButton";
 import images from "../../components/Images";
 
+export const Categories = {
+  waterTank: "수조",
+  filter: "여과기",
+  heater: "히터",
+  light: "조명",
+  flooring: "바닥재",
+  hideout: "은신처",
+  ornament: "장식품",
+  feed: "사료",
+  waterQuality: "수질용품",
+  filterMedia: "여과재",
+  other: "기타",
+};
+
 export default function GoodsPosting({ navigation }: any) {
   const isLoaded = useCachedResources();
   const [checkBox, setCheckBox] = useState(false);
@@ -132,59 +146,48 @@ export default function GoodsPosting({ navigation }: any) {
                 <MediumText style={styles.subTitle}>카테고리 입력</MediumText>
                 <View style={styles.categoryContainer}>
                   <CategoryButton
-                    title="수조"
-                    onPress={() => setCategory("수조")}
-                    buttonStyle={[styles.category, { paddingHorizontal: 23 }]}
+                    title={Categories.waterTank}
+                    onPress={() => setCategory(Categories.waterTank)}
                   />
                   <CategoryButton
-                    title="여과기"
-                    onPress={() => setCategory("여과기")}
-                    buttonStyle={styles.category}
+                    title={Categories.filter}
+                    onPress={() => setCategory(Categories.filter)}
                   />
                   <CategoryButton
-                    title="히터"
-                    onPress={() => setCategory("히터")}
-                    buttonStyle={[styles.category, { paddingHorizontal: 23 }]}
+                    title={Categories.heater}
+                    onPress={() => setCategory(Categories.heater)}
                   />
                   <CategoryButton
-                    title="조명"
-                    onPress={() => setCategory("조명")}
-                    buttonStyle={[styles.category, { paddingHorizontal: 23 }]}
+                    title={Categories.light}
+                    onPress={() => setCategory(Categories.light)}
                   />
                   <CategoryButton
-                    title="바닥재"
-                    onPress={() => setCategory("바닥재")}
-                    buttonStyle={styles.category}
+                    title={Categories.flooring}
+                    onPress={() => setCategory(Categories.flooring)}
                   />
                   <CategoryButton
-                    title="은신처"
-                    onPress={() => setCategory("은신처")}
-                    buttonStyle={styles.category}
+                    title={Categories.hideout}
+                    onPress={() => setCategory(Categories.hideout)}
                   />
                   <CategoryButton
-                    title="장식품"
-                    onPress={() => setCategory("장식품")}
-                    buttonStyle={styles.category}
+                    title={Categories.ornament}
+                    onPress={() => setCategory(Categories.ornament)}
                   />
                   <CategoryButton
-                    title="사료"
-                    onPress={() => setCategory("사료")}
-                    buttonStyle={[styles.category, { paddingHorizontal: 23 }]}
+                    title={Categories.feed}
+                    onPress={() => setCategory(Categories.feed)}
                   />
                   <CategoryButton
-                    title="수질용품"
-                    onPress={() => setCategory("수질용품")}
-                    buttonStyle={[styles.category, { paddingHorizontal: 13 }]}
+                    title={Categories.waterQuality}
+                    onPress={() => setCategory(Categories.waterQuality)}
                   />
                   <CategoryButton
-                    title="여과재"
-                    onPress={() => setCategory("여과재")}
-                    buttonStyle={styles.category}
+                    title={Categories.filterMedia}
+                    onPress={() => setCategory(Categories.filterMedia)}
                   />
                   <CategoryButton
-                    title="기타"
-                    onPress={() => setCategory("기타")}
-                    buttonStyle={[styles.category, { paddingHorizontal: 23 }]}
+                    title={Categories.other}
+                    onPress={() => setCategory(Categories.other)}
                   />
                 </View>
               </View>
@@ -261,7 +264,6 @@ const styles = StyleSheet.create({
   categoryContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-between",
     marginTop: 30,
   },
   category: {

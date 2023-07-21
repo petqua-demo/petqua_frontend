@@ -22,6 +22,17 @@ import CategoryButton from "../../components/CategoryButton";
 import BlueButton from "../../components/BlueButton";
 import images from "../../components/Images";
 
+export const Categories = {
+  tropical: "열대어",
+  bigAndRare: "대형어/희귀어",
+  semiaquatic: "반수생",
+  snail: "스네일",
+  carpAndGold: "잉어/금붕어",
+  saltwater: "해수어",
+  shrimp: "새우",
+  waterweed: "수초",
+};
+
 export default function FishPosting({ navigation }: any) {
   const isLoaded = useCachedResources();
   const [checkBox, setCheckBox] = useState(false);
@@ -132,44 +143,36 @@ export default function FishPosting({ navigation }: any) {
               <MediumText style={styles.subTitle}>카테고리 입력</MediumText>
               <View style={styles.categoryContainer}>
                 <CategoryButton
-                  title="열대어"
-                  onPress={() => setCategory("열대어")}
-                  buttonStyle={{ width: 67 }}
+                  title={Categories.tropical}
+                  onPress={() => setCategory(Categories.tropical)}
                 />
                 <CategoryButton
-                  title="대형어/희귀어"
-                  onPress={() => setCategory("대형어/희귀어")}
-                  buttonStyle={{ width: 91, paddingHorizontal: 13 }}
+                  title={Categories.bigAndRare}
+                  onPress={() => setCategory(Categories.bigAndRare)}
                 />
                 <CategoryButton
-                  title="스네일"
-                  onPress={() => setCategory("스네일")}
-                  buttonStyle={{ width: 67 }}
+                  title={Categories.semiaquatic}
+                  onPress={() => setCategory(Categories.semiaquatic)}
                 />
                 <CategoryButton
-                  title="새우"
-                  onPress={() => setCategory("새우")}
-                  buttonStyle={{ width: 60 }}
+                  title={Categories.snail}
+                  onPress={() => setCategory(Categories.snail)}
                 />
                 <CategoryButton
-                  title="잉어/금붕어"
-                  onPress={() => setCategory("잉어/금붕어")}
-                  buttonStyle={{ width: 77, paddingHorizontal: 11 }}
+                  title={Categories.carpAndGold}
+                  onPress={() => setCategory(Categories.carpAndGold)}
                 />
                 <CategoryButton
-                  title="해수어"
-                  onPress={() => setCategory("해수어")}
-                  buttonStyle={{ width: 67 }}
+                  title={Categories.saltwater}
+                  onPress={() => setCategory(Categories.saltwater)}
                 />
                 <CategoryButton
-                  title="반수생"
-                  onPress={() => setCategory("반수생")}
-                  buttonStyle={{ width: 67 }}
+                  title={Categories.shrimp}
+                  onPress={() => setCategory(Categories.shrimp)}
                 />
                 <CategoryButton
-                  title="수초"
-                  onPress={() => setCategory("수초")}
-                  buttonStyle={{ width: 60 }}
+                  title={Categories.waterweed}
+                  onPress={() => setCategory(Categories.waterweed)}
                 />
               </View>
             </View>
@@ -246,7 +249,6 @@ const styles = StyleSheet.create({
   categoryContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-between",
     marginTop: 30,
   },
   postingDetailInput: {
