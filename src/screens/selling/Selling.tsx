@@ -20,15 +20,15 @@ import palette from "../../styles/ColorPalette";
 import images from "../../components/Images";
 
 export const Categories = {
-  ALL: "전체",
-  FISH: "반려어",
-  GOODS: "용품",
+  all: "전체",
+  fish: "반려어",
+  goods: "용품",
 };
 
 export default function Selling({ navigation }: any) {
   const isLoaded = useCachedResources();
 
-  const [selectedCategory, setSelectedCategory] = useState(Categories.ALL);
+  const [selectedCategory, setSelectedCategory] = useState(Categories.all);
   const [clickPostingBtn, setClickPostingBtn] = useState(false);
 
   const clickPostingBtnHandler = () => {
@@ -69,67 +69,56 @@ export default function Selling({ navigation }: any) {
           <View style={styles.tab}>
             {/* Top tab으로 처리 안 하고 일단 Pressable, useState 이용해서 구현 */}
             <Pressable
-              style={{
-                flex: 1,
-                alignItems: "center",
-              }}
+              style={[
+                selectedCategory == Categories.all
+                  ? styles.selectedTabItems
+                  : styles.tabItems,
+              ]}
               onPress={() => {
-                setSelectedCategory(Categories.ALL);
+                setSelectedCategory(Categories.all);
               }}
             >
-              <View
-                style={[
-                  selectedCategory == Categories.ALL
-                    ? styles.selectedTabItems
-                    : {},
-                ]}
-              >
-                <Text style={{ width: 38, textAlign: "center" }}>
-                  {Categories.ALL}
-                </Text>
-              </View>
+              {/* Text에 배열로 style을 넘기면 오류가 나서 일단 다음과 같이 구현 */}
+              {(selectedCategory == Categories.all && (
+                <Text style={styles.selectedTabText}>{Categories.all}</Text>
+              )) ||
+                (selectedCategory != Categories.all && (
+                  <Text style={styles.tabText}>{Categories.all}</Text>
+                ))}
             </Pressable>
             <Pressable
-              style={{
-                flex: 1,
-                alignItems: "center",
-              }}
+              style={[
+                selectedCategory == Categories.fish
+                  ? styles.selectedTabItems
+                  : styles.tabItems,
+              ]}
               onPress={() => {
-                setSelectedCategory(Categories.FISH);
+                setSelectedCategory(Categories.fish);
               }}
             >
-              <View
-                style={
-                  selectedCategory == Categories.FISH
-                    ? styles.selectedTabItems
-                    : {}
-                }
-              >
-                <Text style={{ width: 58, textAlign: "center" }}>
-                  {Categories.FISH}
-                </Text>
-              </View>
+              {(selectedCategory == Categories.fish && (
+                <Text style={styles.selectedTabText}>{Categories.fish}</Text>
+              )) ||
+                (selectedCategory != Categories.fish && (
+                  <Text style={styles.tabText}>{Categories.fish}</Text>
+                ))}
             </Pressable>
             <Pressable
-              style={{
-                flex: 1,
-                alignItems: "center",
-              }}
+              style={[
+                selectedCategory == Categories.goods
+                  ? styles.selectedTabItems
+                  : styles.tabItems,
+              ]}
               onPress={() => {
-                setSelectedCategory(Categories.GOODS);
+                setSelectedCategory(Categories.goods);
               }}
             >
-              <View
-                style={[
-                  selectedCategory == Categories.GOODS
-                    ? styles.selectedTabItems
-                    : {},
-                ]}
-              >
-                <Text style={{ width: 38, textAlign: "center" }}>
-                  {Categories.GOODS}
-                </Text>
-              </View>
+              {(selectedCategory == Categories.goods && (
+                <Text style={styles.selectedTabText}>{Categories.goods}</Text>
+              )) ||
+                (selectedCategory != Categories.goods && (
+                  <Text style={styles.tabText}>{Categories.goods}</Text>
+                ))}
             </Pressable>
           </View>
           <View style={styles.list}>
@@ -332,10 +321,24 @@ const styles = StyleSheet.create({
     borderBottomColor: palette.body1,
     borderBottomWidth: 0.25,
   },
+  tabItems: {
+    flex: 1,
+    alignItems: "center",
+  },
   selectedTabItems: {
+    flex: 1,
+    alignItems: "center",
     borderBottomWidth: 1,
     borderBottomColor: palette.gray4,
     paddingBottom: 7,
+  },
+  tabText: {
+    fontSize: 16,
+    color: palette.body1,
+  },
+  selectedTabText: {
+    fontSize: 16,
+    color: palette.gray4,
   },
   list: {
     marginHorizontal: 24,
