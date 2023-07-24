@@ -112,8 +112,11 @@ export default function MyPage({ navigation }: any) {
               {/* 커뮤니티 목록 */}
               <View style={{ marginTop: 35 }}>
                 <BoldText style={styles.subTitle}>커뮤니티 목록</BoldText>
-                <MyPagePostingListItem title="내가 쓴 글/댓글" />
-                <MyPagePostingListItem title="내가 스크랩한 글" />
+                <MyPagePostingListItem
+                  title="내가 쓴 글/댓글"
+                  onPress={() => navigation.navigate("MyPostingAndComment")}
+                />
+                <MyPagePostingListItem title="내가 스크랩한 글" onPress={{}} />
               </View>
             </View>
             {/* 구분선 */}
@@ -121,7 +124,7 @@ export default function MyPage({ navigation }: any) {
             <View style={styles.content}>
               {/* 봉달목록 */}
               <View>
-                <MyPagePostingListItem title="봉달 목록" />
+                <MyPagePostingListItem title="봉달 목록" onPress={{}} />
               </View>
             </View>
             {/* 구분선 */}
@@ -129,8 +132,8 @@ export default function MyPage({ navigation }: any) {
             <View style={styles.content}>
               {/* 입양, 분양 내역 */}
               <View>
-                <MyPagePostingListItem title="분양 내역" />
-                <MyPagePostingListItem title="입양 내역" />
+                <MyPagePostingListItem title="분양 내역" onPress={{}} />
+                <MyPagePostingListItem title="입양 내역" onPress={{}} />
               </View>
             </View>
           </ScrollView>

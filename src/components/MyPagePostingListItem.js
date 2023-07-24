@@ -3,9 +3,9 @@ import images from "./Images";
 import MediumText from "./MediumText";
 import palette from "../styles/ColorPalette";
 
-const MyPagePostingListItem = ({ title }) => {
+const MyPagePostingListItem = ({ title, onPress }) => {
   return (
-    <Pressable style={styles.container}>
+    <Pressable style={styles.container} onPress={onPress}>
       <Image
         source={images.myPageSettingIcon}
         style={{ width: 23, height: 23.3 }}

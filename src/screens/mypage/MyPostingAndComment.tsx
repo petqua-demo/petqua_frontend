@@ -13,7 +13,7 @@ export const Categories = {
   comment: "용품",
 };
 
-export default function Selling({ navigation }: any) {
+export default function MyPostingAndComment({ navigation }: any) {
   const isLoaded = useCachedResources();
 
   const [selectedCategory, setSelectedCategory] = useState(Categories.all);
