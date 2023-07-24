@@ -65,8 +65,8 @@ const AddCommentInput = ({ onAddComment }) => {
         <Image
           source={images.sendIcon}
           style={{
-            width: 22.12,
-            height: 18.88,
+            width: 22,
+            height: 18,
           }}
         />
       </TouchableOpacity>

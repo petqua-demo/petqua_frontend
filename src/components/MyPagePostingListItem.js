@@ -8,7 +8,7 @@ const MyPagePostingListItem = ({ title, onPress }) => {
     <Pressable style={styles.container} onPress={onPress}>
       <Image
         source={images.myPageSettingIcon}
-        style={{ width: 23, height: 23.3 }}
+        style={{ width: 23, height: 23 }}
       />
       <MediumText style={styles.title}>{title}</MediumText>
     </Pressable>

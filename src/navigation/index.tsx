@@ -86,7 +86,7 @@ const BottomTabNav = () => (
               source={
                 focused ? images.bottomSearchIcon : images.bottomSearchIcon
               }
-              style={{ width: 20, height: 22.22 }}
+              style={{ width: 20, height: 22 }}
             />
           );
         },

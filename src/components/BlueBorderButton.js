@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 9.23,
-    borderWidth: 0.91,
+    borderRadius: 8,
+    borderWidth: 1,
     borderColor: palette.mainColor,
   },
   title: {
