@@ -1,11 +1,19 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Pressable } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Pressable,
+  SafeAreaView,
+  FlatList,
+} from "react-native";
 import useCachedResources from "../../useCachedResources";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import uuid from "react-uuid";
 
 import Text from "../../components/DefaultText";
 import palette from "../../styles/ColorPalette";
 import BoldText from "../../components/BoldText";
+import CommunityPostingItem from "../../components/CommunityPostingItem";
 
 export const Categories = {
   all: "전체",
@@ -17,6 +25,70 @@ export default function MyPostingAndComment({ navigation }: any) {
   const isLoaded = useCachedResources();
 
   const [selectedCategory, setSelectedCategory] = useState(Categories.all);
+  // 나중에 DB 연결 후 posting 목록 가져오기
+  const [data, setData] = useState([
+    {
+      id: uuid(),
+      title: "구피100마리",
+      content:
+        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
+      date: "07/12",
+      howLong: "2주전",
+      comment: "129",
+      heart: "9",
+      scrap: "123",
+      onPress: {},
+    },
+    {
+      id: uuid(),
+      title: "구피100마리",
+      content:
+        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
+      date: "07/12",
+      howLong: "2주전",
+      comment: "129",
+      heart: "9",
+      scrap: "123",
+      onPress: {},
+    },
+    {
+      id: uuid(),
+      title: "구피100마리",
+      content:
+        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
+      date: "07/12",
+      howLong: "2주전",
+      comment: "129",
+      heart: "9",
+      scrap: "123",
+      onPress: {},
+    },
+  ]);
+  const getData = () => {
+    // 데이터 가져오기
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const renderItem = useCallback(
+    ({ item }: { item: any }) => (
+      <CommunityPostingItem
+        id={item.id}
+        title={item.title}
+        content={item.content}
+        date={item.date}
+        howLong={item.howLong}
+        comment={item.comment}
+        heart={item.heart}
+        scrap={item.scrap}
+        onPress={{}}
+        // onPress -> 해당 글로 이동
+      />
+    ),
+    []
+  );
+  const keyExtractor = useCallback((item: any) => item.id, []);
 
   if (isLoaded) {
     return (
@@ -80,7 +152,29 @@ export default function MyPostingAndComment({ navigation }: any) {
               ))}
           </Pressable>
         </View>
-        <View style={styles.content}>{/* Flatlist로 구현 */}</View>
+        <SafeAreaView style={styles.content}>
+          {(data.length == 0 && (
+            <View
+              style={{
+                width: "100%",
+                height: "78%",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <BoldText style={{ fontSize: 14, color: palette.gray3 }}>
+                작성한 글이 없어요.
+              </BoldText>
+            </View>
+          )) ||
+            (data.length != 0 && (
+              <FlatList
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={keyExtractor}
+              />
+            ))}
+        </SafeAreaView>
       </View>
     );
   } else {
@@ -96,6 +190,7 @@ const styles = StyleSheet.create({
   header: {
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 60,
   },
   headerText: {
     fontSize: 16,

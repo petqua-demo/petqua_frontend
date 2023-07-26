@@ -6,6 +6,7 @@ import palette from "../styles/ColorPalette";
 import images from "./Images";
 
 const CommunityPostingItem = ({
+  id,
   title,
   content,
   date,
