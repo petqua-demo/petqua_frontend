@@ -10,16 +10,27 @@ import {
   Platform,
 } from "react-native";
 import useCachedResources from "../../useCachedResources";
+import { useState } from "react";
 
 import Text from "../../components/DefaultText";
 import BoldText from "../../components/BoldText";
 import palette from "../../styles/ColorPalette";
 import TextInput from "../../components/RegularTextInput";
 import BlueButton from "../../components/BlueButton";
+import CategoryButton from "../../components/CategoryButton";
 import images from "../../components/Images";
+
+export const Categories = {
+  disease: "질병",
+  medicine: "약품 투여",
+  changeWater: "환수",
+  buyingGoods: "용품 구매",
+  buyingFish: "입양",
+};
 
 export default function DiaryPosting({ navigation }: any) {
   const isLoaded = useCachedResources();
+  const [category, setCategory] = useState("");
 
   if (isLoaded) {
     return (
@@ -31,12 +42,15 @@ export default function DiaryPosting({ navigation }: any) {
           <ScrollView style={{ marginBottom: 70 }}>
             <StatusBar style="auto" />
             <View style={styles.header}>
+              {/* 닫기 버튼 */}
               <Pressable>
                 <Image
                   source={images.closeButtonIcon}
                   style={{ width: 15, height: 15, marginLeft: 24 }}
                 />
               </Pressable>
+              {/* 페이지 제목.
+              닫기 버튼과 관계 없이 화면 중앙에 배치하기 위해 View로 감쌈. */}
               <View
                 style={{
                   width: "100%",
@@ -79,6 +93,32 @@ export default function DiaryPosting({ navigation }: any) {
                   placeholderTextColor={palette.gray3}
                   // value={value}
                 />
+              </View>
+              {/* 카테고리 입력 */}
+              <View style={{ marginTop: 60 }}>
+                <BoldText style={styles.subTitle}>카테고리 입력</BoldText>
+                <View style={styles.categoryContainer}>
+                  <CategoryButton
+                    title={Categories.disease}
+                    onPress={() => setCategory(Categories.disease)}
+                  />
+                  <CategoryButton
+                    title={Categories.medicine}
+                    onPress={() => setCategory(Categories.medicine)}
+                  />
+                  <CategoryButton
+                    title={Categories.changeWater}
+                    onPress={() => setCategory(Categories.changeWater)}
+                  />
+                  <CategoryButton
+                    title={Categories.buyingGoods}
+                    onPress={() => setCategory(Categories.buyingGoods)}
+                  />
+                  <CategoryButton
+                    title={Categories.buyingFish}
+                    onPress={() => setCategory(Categories.buyingFish)}
+                  />
+                </View>
               </View>
               {/* 상세글 입력 */}
               <View style={{ marginTop: 40, marginBottom: 70 }}>
@@ -144,6 +184,11 @@ const styles = StyleSheet.create({
     borderColor: "#D9D9D9",
     paddingHorizontal: 15,
     marginTop: 11,
+  },
+  categoryContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginTop: 13,
   },
   postingDetailInput: {
     flex: 1,
