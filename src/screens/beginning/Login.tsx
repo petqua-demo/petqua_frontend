@@ -19,10 +19,12 @@ export default function Login({ navigation }: any) {
         <View style={styles.container}>
           <StatusBar style="auto" />
           <View style={styles.content}>
+            {/* 페이지 제목 */}
             <BoldText style={styles.subtitle}>로그인</BoldText>
+            {/* 안내 문구 */}
             <Text style={styles.command}>휴대폰번호를{"\n"}입력해주세요</Text>
+            {/* 휴대폰 번호 입력 칸 */}
             <View style={styles.inputItem}>
-              {/* <Text style={styles.textInputTitle}>휴대폰번호</Text> */}
               <InputBox
                 placeholder="휴대폰번호"
                 keyboardType="numeric"
@@ -32,6 +34,7 @@ export default function Login({ navigation }: any) {
                 clearText={() => setPhoneNum("")}
               />
             </View>
+            {/* 로그인, 회원가입 버튼 */}
             <View style={styles.buttonBox}>
               <BlueButton
                 title="로그인"
@@ -74,11 +77,6 @@ const styles = StyleSheet.create({
   inputItem: {
     marginTop: 41,
   },
-  // textInputTitle: {
-  //   marginBottom: 13,
-  //   fontSize: 12,
-  //   color: palette.lightGray,
-  // },
   buttonBox: {
     marginTop: 82,
     justifyContent: "space-between",

@@ -32,12 +32,15 @@ export default function MyPage({ navigation }: any) {
         >
           <StatusBar style="auto" />
           <View style={styles.header}>
+            {/* 닫기 버튼 */}
             <Pressable>
               <Image
                 source={images.closeButtonIcon}
                 style={{ width: 15, height: 15, marginLeft: 24 }}
               />
             </Pressable>
+            {/* 페이지 제목.
+            닫기 버튼, 설정 버튼과 관계 없이 화면 중앙에 배치하기 위해 View로 감쌈. */}
             <View
               style={{
                 width: "100%",
@@ -49,6 +52,7 @@ export default function MyPage({ navigation }: any) {
                 마이페이지
               </BoldText>
             </View>
+            {/* 설정 버튼 */}
             <Pressable>
               <Image
                 source={images.myPageSettingIcon}
@@ -82,7 +86,8 @@ export default function MyPage({ navigation }: any) {
                       style={styles.fishbowlContent}
                     />
                   </Pressable>
-                  {/* onPress 누르면 해당 게시글로 이동하게 하기. */}
+                  {/* 등록된 어항 목록 아이템.
+                  onPress 누르면 해당 게시글로 이동하게 하기. */}
                   <MyFishbowlListItem
                     ImageSrc={images.productDetailImageExample}
                     onPress={{}}

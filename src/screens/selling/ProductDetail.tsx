@@ -138,19 +138,24 @@ export default function ProductDetail({ navigation }: any) {
               </Pressable>
               <View style={styles.content}>
                 <View style={styles.userInfo}>
-                  {/* 나중에 서버에서 userInfo 받아와서 처리하기 */}
+                  {/* (글 작성자) 회원 정보
+                  나중에 서버에서 userInfo 받아와서 처리하기 */}
                   <Image
+                    // 프로필 사진
                     source={images.itemImageExample}
                     style={styles.userProfile}
                   />
                   <BoldText style={styles.userName}>펫쿠아</BoldText>
                 </View>
+                {/* 상품 정보 */}
                 <View style={styles.productInfo}>
                   <BoldText style={styles.productName}>구피</BoldText>
+                  {/* 카테고리, 업로드 시간 정보 */}
                   <View style={{ flexDirection: "row", marginBottom: 19 }}>
                     <Text style={styles.postingDetail}>열대어/소형어</Text>
                     <Text style={styles.postingDetail}>1시간전</Text>
                   </View>
+                  {/* 상품 설명 */}
                   <Text style={styles.productExplanation}>
                     구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구피구구피구구피구피구구피구피구구피구피구구피구피구
                   </Text>
@@ -164,6 +169,7 @@ export default function ProductDetail({ navigation }: any) {
                   height: 8,
                 }}
               />
+              {/* 댓글 목록 */}
               <View style={styles.content}>
                 <BoldText style={styles.commentHeader}>댓글</BoldText>
                 <CommentList
@@ -180,9 +186,10 @@ export default function ProductDetail({ navigation }: any) {
           behavior={"position"}
           enabled
         >
-          {/* 가격, 댓글 컨테이너 */}
+          {/* 가격, 댓글 입력칸 컨테이너 */}
           <View style={styles.contactContainer}>
             <View style={{ flexDirection: "row" }}>
+              {/* 봉달 버튼 */}
               <Pressable onPress={onClickHeart}>
                 <Image
                   source={clickHeart ? filledHeart : emptyHeart}
@@ -199,12 +206,13 @@ export default function ProductDetail({ navigation }: any) {
                 <BoldText style={styles.bidding}>가격제안 불가</BoldText>
               </View>
             </View>
+            {/* 댓글 입력칸 */}
             <View style={styles.commentInput}>
               <AddCommentInput onAddComment={addComment} />
             </View>
           </View>
         </KeyboardAvoidingView>
-        {/* 상세이미지 클릭하면 화면 꽉 채우게 이미지 보여주기 */}
+        {/* 상세이미지 클릭하면 화면 꽉 채워 보여줄 이미지 */}
         {clickImage && (
           <View
             style={{
@@ -223,6 +231,7 @@ export default function ProductDetail({ navigation }: any) {
                 resizeMode: "contain",
               }}
             />
+            {/* 닫기 버튼 */}
             <Pressable
               onPress={clickImageHandler}
               style={{ position: "absolute", right: 14, top: 60 }}

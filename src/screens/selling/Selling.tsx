@@ -29,15 +29,14 @@ export default function Selling({ navigation }: any) {
   const isLoaded = useCachedResources();
 
   const [selectedCategory, setSelectedCategory] = useState(Categories.all);
+  // floating button (상품 판매하기) 에 대한 useState
   const [clickPostingBtn, setClickPostingBtn] = useState(false);
 
   const clickPostingBtnHandler = () => {
     if (clickPostingBtn == false) {
       setClickPostingBtn(true);
-      // displayPostingMenu()
     } else {
       setClickPostingBtn(false);
-      // alert("닫았습니다.");
     }
   };
 
@@ -46,10 +45,12 @@ export default function Selling({ navigation }: any) {
       <View style={styles.container}>
         <StatusBar style="auto" />
         <View style={styles.header}>
+          {/* 펫쿠아 로고 */}
           <Image
             source={images.petqua_logo}
             style={{ width: 84, height: 22 }}
           />
+          {/* 검색, 봉달, 알림 아이콘 */}
           <View style={{ flexDirection: "row" }}>
             <Image
               source={images.topSearchIcon}
@@ -66,8 +67,10 @@ export default function Selling({ navigation }: any) {
           </View>
         </View>
         <View style={styles.content}>
+          {/* 전체, 반려어, 용품 나누는 상단 탭.
+            Top tab으로 처리 안 하고 일단 Pressable, useState 이용해서 구현 */}
           <View style={styles.tab}>
-            {/* Top tab으로 처리 안 하고 일단 Pressable, useState 이용해서 구현 */}
+            {/* 전체 */}
             <Pressable
               style={[
                 selectedCategory == Categories.all
@@ -86,6 +89,7 @@ export default function Selling({ navigation }: any) {
                   <Text style={styles.tabText}>{Categories.all}</Text>
                 ))}
             </Pressable>
+            {/* 반려어 */}
             <Pressable
               style={[
                 selectedCategory == Categories.fish
@@ -103,6 +107,7 @@ export default function Selling({ navigation }: any) {
                   <Text style={styles.tabText}>{Categories.fish}</Text>
                 ))}
             </Pressable>
+            {/* 용품 */}
             <Pressable
               style={[
                 selectedCategory == Categories.goods
@@ -121,6 +126,7 @@ export default function Selling({ navigation }: any) {
                 ))}
             </Pressable>
           </View>
+          {/* 판매중인 상품들 목록 */}
           <View style={styles.list}>
             <SafeAreaView style={styles.listItems}>
               {/* 추후 ScrollView -> FlatList로 바꿔야 함 */}
@@ -247,8 +253,9 @@ export default function Selling({ navigation }: any) {
             </SafeAreaView>
           </View>
         </View>
+        {/* floating button (상품 판매하기 버튼), 세부 메뉴 */}
         <View style={styles.floatingBTNContainer}>
-          {clickPostingBtn && (
+          {clickPostingBtn && ( // 버튼을 누르면 메뉴 펼치기
             <View style={styles.postingMenu}>
               {/* 나중에 PostingMenu도 컴포넌트로 따로 빼기 */}
               <PostingMenuItem
@@ -283,6 +290,7 @@ export default function Selling({ navigation }: any) {
               />
             </View>
           )}
+          {/* 상품 판매하기 버튼 */}
           <TouchableOpacity
             activeOpacity={0.4}
             onPress={clickPostingBtnHandler}
