@@ -25,8 +25,9 @@ export default function MyPostingAndComment({ navigation }: any) {
   const isLoaded = useCachedResources();
 
   const [selectedCategory, setSelectedCategory] = useState(Categories.all);
+
   // 나중에 DB 연결 후 posting 목록 가져오기
-  const [data, setData] = useState([
+  const [allData, setAllData] = useState([
     {
       id: uuid(),
       title: "구피100마리",
@@ -64,12 +65,45 @@ export default function MyPostingAndComment({ navigation }: any) {
       onPress: {},
     },
   ]);
-  const getData = () => {
+
+  const getAllData = () => {
     // 데이터 가져오기
   };
   useEffect(() => {
-    getData();
+    getAllData();
   }, []);
+
+  const [postingData, setPostingData] = useState([
+    {
+      id: uuid(),
+      title: "구피100마리",
+      content:
+        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
+      date: "07/12",
+      howLong: "2주전",
+      comment: "129",
+      heart: "9",
+      scrap: "123",
+      onPress: {},
+    },
+    {
+      id: uuid(),
+      title: "구피100마리",
+      content:
+        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
+      date: "07/12",
+      howLong: "2주전",
+      comment: "129",
+      heart: "9",
+      scrap: "123",
+      onPress: {},
+    },
+  ]);
+
+  const [commentData, setCommentData] = useState([]);
+
+  // 카테고리 버튼 선택할 때마다 가져오는 Data 설정하기
+  const [selectedData, setSelectedData] = useState(allData);
 
   const renderItem = useCallback(
     ({ item }: { item: any }) => (
@@ -94,11 +128,14 @@ export default function MyPostingAndComment({ navigation }: any) {
     return (
       <View style={styles.container}>
         <StatusBar style="auto" />
+        {/* 페이지 제목 */}
         <View style={styles.header}>
           <BoldText style={styles.headerText}>내가 쓴 글/댓글</BoldText>
         </View>
+        {/* 전체, 글, 댓글 나누는 상단 탭.
+        Top tab으로 처리 안 하고 일단 Pressable, useState 이용해서 구현 */}
         <View style={styles.tab}>
-          {/* Top tab으로 처리 안 하고 일단 Pressable, useState 이용해서 구현 */}
+          {/* 전체 */}
           <Pressable
             style={[
               selectedCategory == Categories.all
@@ -106,10 +143,11 @@ export default function MyPostingAndComment({ navigation }: any) {
                 : styles.tabItems,
             ]}
             onPress={() => {
-              setSelectedCategory(Categories.all);
+              [setSelectedCategory(Categories.all), setSelectedData(allData)];
             }}
           >
-            {/* Text에 배열로 style을 넘기면 오류가 나서 일단 다음과 같이 구현 */}
+            {/* 선택된 탭은 Text style 바꾸기.
+            Text에 배열로 style을 넘기면 오류가 나서 일단 다음과 같이 구현. */}
             {(selectedCategory == Categories.all && (
               <Text style={styles.selectedTabText}>{Categories.all}</Text>
             )) ||
@@ -117,6 +155,7 @@ export default function MyPostingAndComment({ navigation }: any) {
                 <Text style={styles.tabText}>{Categories.all}</Text>
               ))}
           </Pressable>
+          {/* 글 */}
           <Pressable
             style={[
               selectedCategory == Categories.posting
@@ -124,7 +163,10 @@ export default function MyPostingAndComment({ navigation }: any) {
                 : styles.tabItems,
             ]}
             onPress={() => {
-              setSelectedCategory(Categories.posting);
+              [
+                setSelectedCategory(Categories.posting),
+                setSelectedData(postingData),
+              ];
             }}
           >
             {(selectedCategory == Categories.posting && (
@@ -134,6 +176,7 @@ export default function MyPostingAndComment({ navigation }: any) {
                 <Text style={styles.tabText}>{Categories.posting}</Text>
               ))}
           </Pressable>
+          {/* 댓글 */}
           <Pressable
             style={[
               selectedCategory == Categories.comment
@@ -141,7 +184,10 @@ export default function MyPostingAndComment({ navigation }: any) {
                 : styles.tabItems,
             ]}
             onPress={() => {
-              setSelectedCategory(Categories.comment);
+              [
+                setSelectedCategory(Categories.comment),
+                setSelectedData(commentData),
+              ];
             }}
           >
             {(selectedCategory == Categories.comment && (
@@ -152,8 +198,9 @@ export default function MyPostingAndComment({ navigation }: any) {
               ))}
           </Pressable>
         </View>
+        {/* 내가 쓴 글/댓글 리스트 */}
         <SafeAreaView style={styles.content}>
-          {(data.length == 0 && (
+          {(selectedData.length == 0 && ( // Data가 없는 경우
             <View
               style={{
                 width: "100%",
@@ -167,9 +214,9 @@ export default function MyPostingAndComment({ navigation }: any) {
               </BoldText>
             </View>
           )) ||
-            (data.length != 0 && (
+            (selectedData.length != 0 && ( // Data가 있는 경우
               <FlatList
-                data={data}
+                data={selectedData}
                 renderItem={renderItem}
                 keyExtractor={keyExtractor}
               />
