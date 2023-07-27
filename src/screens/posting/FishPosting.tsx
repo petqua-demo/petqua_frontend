@@ -15,7 +15,6 @@ import { useState } from "react";
 
 import Text from "../../components/DefaultText";
 import BoldText from "../../components/BoldText";
-import MediumText from "../../components/MediumText";
 import palette from "../../styles/ColorPalette";
 import TextInput from "../../components/RegularTextInput";
 import CategoryButton from "../../components/CategoryButton";
@@ -45,15 +44,17 @@ export default function FishPosting({ navigation }: any) {
           style={styles.container}
           behavior={Platform.select({ ios: "padding" })}
         >
-          {/* <ScrollView style={{ marginBottom: 70 }}> */}
           <StatusBar style="auto" />
           <View style={styles.header}>
+            {/* 닫기 버튼 */}
             <Pressable>
               <Image
                 source={images.closeButtonIcon}
                 style={{ width: 15, height: 15, marginLeft: 24 }}
               />
             </Pressable>
+            {/* 페이지 제목.
+              닫기 버튼과 관계 없이 화면 중앙에 배치하기 위해 View로 감쌈. */}
             <View
               style={{
                 width: "100%",
@@ -115,14 +116,17 @@ export default function FishPosting({ navigation }: any) {
                     alignItems: "center",
                   }}
                 >
+                  {/* 책임분양 체크박스 */}
                   <CheckBox
                     checkedIcon={
+                      // 체크한 경우
                       <Image
                         source={images.selectedCheckbox}
                         style={{ width: 21, height: 21 }}
                       />
                     }
                     uncheckedIcon={
+                      // 체크하지 않은 경우
                       <Image
                         source={images.notSelectedCheckbox}
                         style={{ width: 21, height: 21 }}
@@ -133,14 +137,14 @@ export default function FishPosting({ navigation }: any) {
                     containerStyle={{ marginRight: 0, marginVertical: -10 }}
                   />
                   <Text style={{ fontSize: 14, color: palette.gray4 }}>
-                    나눔
+                    책임
                   </Text>
                 </View>
               </View>
             </View>
             {/* 카테고리 입력 */}
             <View style={{ marginTop: 38 }}>
-              <MediumText style={styles.subTitle}>카테고리 입력</MediumText>
+              <BoldText style={styles.subTitle}>카테고리 입력</BoldText>
               <View style={styles.categoryContainer}>
                 <CategoryButton
                   title={Categories.tropical}
@@ -182,7 +186,6 @@ export default function FishPosting({ navigation }: any) {
               <TextInput style={styles.postingDetailInput} multiline={true} />
             </View>
           </ScrollView>
-          {/* </ScrollView> */}
           {/* 등록하기 버튼 */}
           <View style={{ marginHorizontal: 24 }}>
             <BlueButton
@@ -249,7 +252,7 @@ const styles = StyleSheet.create({
   categoryContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 30,
+    marginTop: 13,
   },
   postingDetailInput: {
     flex: 1,

@@ -51,12 +51,15 @@ export default function GoodsPosting({ navigation }: any) {
           <ScrollView style={{ marginBottom: 70 }}>
             <StatusBar style="auto" />
             <View style={styles.header}>
+              {/* 닫기 버튼 */}
               <Pressable>
                 <Image
                   source={images.closeButtonIcon}
                   style={{ width: 15, height: 15, marginLeft: 24 }}
                 />
               </Pressable>
+              {/* 페이지 제목.
+              닫기 버튼과 관계 없이 화면 중앙에 배치하기 위해 View로 감쌈. */}
               <View
                 style={{
                   width: "100%",
@@ -118,14 +121,17 @@ export default function GoodsPosting({ navigation }: any) {
                       alignItems: "center",
                     }}
                   >
+                    {/* 책임분양 체크박스 */}
                     <CheckBox
                       checkedIcon={
+                        // 체크한 경우
                         <Image
                           source={images.selectedCheckbox}
                           style={{ width: 21, height: 21 }}
                         />
                       }
                       uncheckedIcon={
+                        // 체크하지 않은 경우
                         <Image
                           source={images.notSelectedCheckbox}
                           style={{ width: 21, height: 21 }}
@@ -143,7 +149,7 @@ export default function GoodsPosting({ navigation }: any) {
               </View>
               {/* 카테고리 입력 */}
               <View style={{ marginTop: 38 }}>
-                <MediumText style={styles.subTitle}>카테고리 입력</MediumText>
+                <BoldText style={styles.subTitle}>카테고리 입력</BoldText>
                 <View style={styles.categoryContainer}>
                   <CategoryButton
                     title={Categories.waterTank}
@@ -264,7 +270,7 @@ const styles = StyleSheet.create({
   categoryContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 30,
+    marginTop: 13,
   },
   category: {
     width: 67,
