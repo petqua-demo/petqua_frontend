@@ -2,7 +2,7 @@ import { Pressable, StyleSheet } from "react-native";
 import palette from "../styles/ColorPalette";
 import Text from "./DefaultText";
 
-const CategoryButton = ({ title, onPress }) => {
+const SellingCategoryButton = ({ title, onPress }) => {
   return (
     <Pressable
       style={({ pressed }) => [
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CategoryButton;
+export default SellingCategoryButton;

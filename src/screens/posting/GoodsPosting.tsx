@@ -18,7 +18,7 @@ import BoldText from "../../components/BoldText";
 import MediumText from "../../components/MediumText";
 import palette from "../../styles/ColorPalette";
 import TextInput from "../../components/RegularTextInput";
-import CategoryButton from "../../components/CategoryButton";
+import CategoryButton from "../../components/SellingCategoryButton";
 import BlueButton from "../../components/BlueButton";
 import images from "../../components/Images";
 

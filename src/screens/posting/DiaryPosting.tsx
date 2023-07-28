@@ -17,7 +17,7 @@ import BoldText from "../../components/BoldText";
 import palette from "../../styles/ColorPalette";
 import TextInput from "../../components/RegularTextInput";
 import BlueButton from "../../components/BlueButton";
-import CategoryButton from "../../components/CategoryButton";
+import CategoryButton from "../../components/SellingCategoryButton";
 import images from "../../components/Images";
 
 export const Categories = {
