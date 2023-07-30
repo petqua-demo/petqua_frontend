@@ -133,7 +133,10 @@ export default function MyPage({ navigation }: any) {
             <View style={styles.content}>
               {/* 봉달목록 */}
               <View>
-                <MyPagePostingListItem title="봉달 목록" onPress={{}} />
+                <MyPagePostingListItem
+                  title="봉달 목록"
+                  onPress={() => navigation.navigate("MyShoppingBasket")}
+                />
               </View>
             </View>
             {/* 구분선 */}

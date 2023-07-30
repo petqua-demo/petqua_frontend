@@ -15,6 +15,7 @@ import ProductDetail from "../screens/selling/ProductDetail";
 import MyPage from "../screens/mypage/MyPage";
 import MyPostingAndComment from "../screens/mypage/MyPostingAndComment";
 import MyClipping from "../screens/mypage/MyClipping";
+import MyShoppingBasket from "../screens/mypage/MyShoppingBasket";
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,7 @@ export default function Navigation() {
             component={MyPostingAndComment}
           />
           <Stack.Screen name="MyClipping" component={MyClipping} />
+          <Stack.Screen name="MyShoppingBasket" component={MyShoppingBasket} />
         </Stack.Navigator>
       </NavigationContainer>
     );
