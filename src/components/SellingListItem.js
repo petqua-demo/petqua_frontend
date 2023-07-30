@@ -6,24 +6,25 @@ import palette from "../styles/ColorPalette";
 import images from "./Images";
 
 const SellingListItem = ({
-  ImageSrc,
+  id,
+  imageSrc,
   title,
   itemCategory,
-  uploadTime,
+  howLong,
   price,
   comment,
-  heart,
+  shoppingBasket,
   onPress,
 }) => {
   return (
     <Pressable onPress={onPress}>
       <View style={styles.container}>
-        {ImageSrc}
+        {imageSrc}
         <View style={styles.itemInfo}>
           <Text style={styles.title}>{title}</Text>
           <View style={styles.itemDetail}>
             <Text style={styles.itemDetailContent}>{itemCategory}</Text>
-            <Text style={styles.itemDetailContent}>{uploadTime}</Text>
+            <Text style={styles.itemDetailContent}>{howLong}</Text>
           </View>
           <BoldText style={{ fontSize: 16, color: palette.body1 }}>
             {price}
@@ -39,7 +40,7 @@ const SellingListItem = ({
           </LightText>
           <Image source={images.heartIcon} style={styles.responseIcon} />
           <LightText style={{ fontSize: 12, color: palette.gray4 }}>
-            {heart}
+            {shoppingBasket}
           </LightText>
         </View>
       </View>
