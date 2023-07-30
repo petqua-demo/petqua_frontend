@@ -18,7 +18,7 @@ import CommunityPostingItem from "../../components/CommunityPostingItem";
 export const Categories = {
   all: "전체",
   posting: "글",
-  comment: "용품",
+  comment: "댓글",
 };
 
 export default function MyPostingAndComment({ navigation }: any) {
