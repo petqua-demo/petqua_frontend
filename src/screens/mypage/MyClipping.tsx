@@ -16,17 +16,7 @@ import Text from "../../components/DefaultText";
 import BoldText from "../../components/BoldText";
 import CommunityPostingItem from "../../components/CommunityPostingItem";
 import CommunityCategoryButton from "../../components/CommunityCategoryButton";
-
-export const Categories = {
-  disease: "질병",
-  introductory: "입문",
-  waterManagement: "여과/수질",
-  raise: "사육/번식",
-  goods: "용품/사료",
-  species: "어종",
-  report: "신고/제보",
-  other: "기타",
-};
+import Categories from "../../enum/CommunityPostingCategories";
 
 export default function MyClipping({ navigation }: any) {
   const isLoaded = useCachedResources();

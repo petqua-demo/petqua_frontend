@@ -19,14 +19,7 @@ import TextInput from "../../components/RegularTextInput";
 import BlueButton from "../../components/BlueButton";
 import CategoryButton from "../../components/SellingCategoryButton";
 import images from "../../enum/Images";
-
-export const Categories = {
-  disease: "질병",
-  medicine: "약품 투여",
-  changeWater: "환수",
-  buyingGoods: "용품 구매",
-  buyingFish: "입양",
-};
+import Categories from "../../enum/DiaryCategories";
 
 export default function DiaryPosting({ navigation }: any) {
   const isLoaded = useCachedResources();

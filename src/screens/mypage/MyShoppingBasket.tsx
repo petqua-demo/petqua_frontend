@@ -15,22 +15,12 @@ import Text from "../../components/DefaultText";
 import palette from "../../styles/ColorPalette";
 import BoldText from "../../components/BoldText";
 import SellingListItem from "../../components/SellingListItem";
+import FishCategories from "../../enum/FishCategories";
 
 export const Categories = {
   all: "전체",
   fish: "반려어",
   goods: "용품",
-};
-
-export const FishCategories = {
-  tropical: "열대어",
-  bigAndRare: "대형어/희귀어",
-  semiaquatic: "반수생",
-  snail: "스네일",
-  carpAndGold: "잉어/금붕어",
-  saltwater: "해수어",
-  shrimp: "새우",
-  waterweed: "수초",
 };
 
 export default function MyShoppingBasket({ navigation }: any) {

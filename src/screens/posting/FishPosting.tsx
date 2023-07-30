@@ -20,17 +20,7 @@ import TextInput from "../../components/RegularTextInput";
 import CategoryButton from "../../components/SellingCategoryButton";
 import BlueButton from "../../components/BlueButton";
 import images from "../../enum/Images";
-
-export const Categories = {
-  tropical: "열대어",
-  bigAndRare: "대형어/희귀어",
-  semiaquatic: "반수생",
-  snail: "스네일",
-  carpAndGold: "잉어/금붕어",
-  saltwater: "해수어",
-  shrimp: "새우",
-  waterweed: "수초",
-};
+import Categories from "../../enum/FishCategories";
 
 export default function FishPosting({ navigation }: any) {
   const isLoaded = useCachedResources();
