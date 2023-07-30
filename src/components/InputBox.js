@@ -1,7 +1,7 @@
 import { StyleSheet, Pressable, Image, View } from "react-native";
 import palette from "../styles/ColorPalette";
 import TextInput from "./RegularTextInput";
-import images from "./Images";
+import images from "../enum/Images";
 
 const InputBox = ({ placeholder, value, clearText, ...props }) => {
   return (

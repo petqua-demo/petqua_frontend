@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, Image } from "react-native";
 import useCachedResources from "../useCachedResources";
 
-import images from "../components/Images";
+import images from "../enum/Images";
 import Join from "../screens/beginning/Join";
 import Login from "../screens/beginning/Login";
 import Selling from "../screens/selling/Selling";

@@ -8,7 +8,7 @@ import {
   Image,
 } from "react-native";
 import palette from "../styles/ColorPalette";
-import images from "./Images";
+import images from "../enum/Images";
 
 const AddCommentInput = ({ onAddComment }) => {
   const [newComment, setNewComment] = useState("");

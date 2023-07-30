@@ -3,7 +3,7 @@ import Text from "./DefaultText";
 import BoldText from "./BoldText";
 import MediumText from "./MediumText";
 import palette from "../styles/ColorPalette";
-import images from "./Images";
+import images from "../enum/Images";
 
 const Comment = ({ userName, textValue, time, onRemove, onPress }) => {
   return (

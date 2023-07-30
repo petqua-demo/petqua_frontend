@@ -10,7 +10,7 @@ import useCachedResources from "../../useCachedResources";
 import { useCallback, useEffect, useState } from "react";
 import uuid from "react-uuid";
 
-import images from "../../components/Images";
+import images from "../../enum/Images";
 import Text from "../../components/DefaultText";
 import palette from "../../styles/ColorPalette";
 import BoldText from "../../components/BoldText";

@@ -20,7 +20,7 @@ import palette from "../../styles/ColorPalette";
 import TextInput from "../../components/RegularTextInput";
 import CategoryButton from "../../components/SellingCategoryButton";
 import BlueButton from "../../components/BlueButton";
-import images from "../../components/Images";
+import images from "../../enum/Images";
 
 export const Categories = {
   waterTank: "수조",

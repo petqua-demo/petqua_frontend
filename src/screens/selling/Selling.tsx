@@ -17,7 +17,7 @@ import ExtraBoldText from "../../components/BoldText";
 import PostingMenuItem from "../../components/PostingMenuItem";
 import SellingListItem from "../../components/SellingListItem";
 import palette from "../../styles/ColorPalette";
-import images from "../../components/Images";
+import images from "../../enum/Images";
 
 export const Categories = {
   all: "전체",

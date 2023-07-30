@@ -1,5 +1,5 @@
 import { Pressable, Image, StyleSheet } from "react-native";
-import images from "./Images";
+import images from "../enum/Images";
 
 const MyPageProfile = ({ ImageSrc }) => {
   return (

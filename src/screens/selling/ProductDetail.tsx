@@ -21,7 +21,7 @@ import Comment from "../../components/Comment";
 import CommentReply from "../../components/CommentReply";
 import AddCommentInput from "../../components/AddCommentInput";
 import CommentList from "../../components/CommentList";
-import images from "../../components/Images";
+import images from "../../enum/Images";
 
 export default function ProductDetail({ navigation }: any) {
   const isLoaded = useCachedResources();

@@ -15,7 +15,7 @@ import { useState } from "react";
 import Text from "../../components/DefaultText";
 import BoldText from "../../components/BoldText";
 import palette from "../../styles/ColorPalette";
-import images from "../../components/Images";
+import images from "../../enum/Images";
 import MyPageProfile from "../../components/MyPageProfile";
 import MyFishbowlListItem from "../../components/MyFishbowlListItem";
 import MyPagePostingListItem from "../../components/MyPagePostingListItem";
