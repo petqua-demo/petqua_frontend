@@ -78,6 +78,7 @@ export default function MyPage({ navigation }: any) {
                 <ScrollView
                   horizontal={true}
                   showsHorizontalScrollIndicator={false}
+                  style={{ marginRight: -15 }}
                 >
                   {/* 어항 추가하기 버튼 */}
                   <Pressable>
@@ -121,7 +122,10 @@ export default function MyPage({ navigation }: any) {
                   title="내가 쓴 글/댓글"
                   onPress={() => navigation.navigate("MyPostingAndComment")}
                 />
-                <MyPagePostingListItem title="내가 스크랩한 글" onPress={{}} />
+                <MyPagePostingListItem
+                  title="내가 스크랩한 글"
+                  onPress={() => navigation.navigate("MyClipping")}
+                />
               </View>
             </View>
             {/* 구분선 */}
