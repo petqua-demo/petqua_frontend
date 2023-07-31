@@ -16,6 +16,7 @@ import palette from "../../styles/ColorPalette";
 import BoldText from "../../components/BoldText";
 import SellingListItem from "../../components/SellingListItem";
 import FishCategories from "../../enum/FishCategories";
+import SellingProgress from "../../enum/SellingProgress";
 
 export const Categories = {
   all: "전체",
@@ -33,34 +34,37 @@ export default function MyShoppingBasket({ navigation }: any) {
     {
       id: uuid(),
       imageSrc: images.itemImageExample,
-      title: "구피100마리",
-      itemCategory: FishCategories.tropical,
+      progress: SellingProgress.ing,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
       howLong: "1시간전",
       price: "5000원",
-      comment: "129",
-      shoppingBasket: "9",
+      comment: "9",
+      shoppingBasket: "12",
       onPress: {},
     },
     {
       id: uuid(),
       imageSrc: images.itemImageExample,
-      title: "구피100마리",
-      itemCategory: FishCategories.tropical,
+      progress: SellingProgress.sold,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
       howLong: "1시간전",
       price: "5000원",
-      comment: "129",
-      shoppingBasket: "9",
+      comment: "9",
+      shoppingBasket: "12",
       onPress: {},
     },
     {
       id: uuid(),
       imageSrc: images.itemImageExample,
-      title: "구피100마리",
-      itemCategory: FishCategories.tropical,
+      progress: SellingProgress.none,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
       howLong: "1시간전",
       price: "5000원",
-      comment: "129",
-      shoppingBasket: "9",
+      comment: "9",
+      shoppingBasket: "12",
       onPress: {},
     },
   ]);
@@ -76,23 +80,25 @@ export default function MyShoppingBasket({ navigation }: any) {
     {
       id: uuid(),
       imageSrc: images.itemImageExample,
-      title: "구피100마리",
-      itemCategory: FishCategories.tropical,
+      progress: SellingProgress.ing,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
       howLong: "1시간전",
       price: "5000원",
-      comment: "129",
-      shoppingBasket: "9",
+      comment: "9",
+      shoppingBasket: "12",
       onPress: {},
     },
     {
       id: uuid(),
       imageSrc: images.itemImageExample,
-      title: "구피100마리",
-      itemCategory: FishCategories.tropical,
+      progress: SellingProgress.sold,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
       howLong: "1시간전",
       price: "5000원",
-      comment: "129",
-      shoppingBasket: "9",
+      comment: "9",
+      shoppingBasket: "12",
       onPress: {},
     },
   ]);
@@ -107,6 +113,7 @@ export default function MyShoppingBasket({ navigation }: any) {
       <SellingListItem
         id={item.id}
         imageSrc={item.imageSrc}
+        progress={item.progress}
         title={item.title}
         itemCategory={item.itemCategory}
         howLong={item.howLong}
