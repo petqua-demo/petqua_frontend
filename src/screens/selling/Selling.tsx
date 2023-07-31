@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useState } from "react";
+import uuid from "react-uuid";
 
 import Text from "../../components/DefaultText";
 import ExtraBoldText from "../../components/BoldText";
@@ -18,6 +19,7 @@ import PostingMenuItem from "../../components/PostingMenuItem";
 import SellingListItem from "../../components/SellingListItem";
 import palette from "../../styles/ColorPalette";
 import images from "../../enum/Images";
+import SellingProgress from "../../enum/SellingProgress";
 
 export const Categories = {
   all: "전체",
@@ -135,118 +137,87 @@ export default function Selling({ navigation }: any) {
                 showsVerticalScrollIndicator={false}
               >
                 <SellingListItem
-                  ImageSrc={
-                    <ImageBackground
-                      source={images.itemImageExample}
-                      style={styles.itemImage}
-                      imageStyle={{ opacity: 0.2 }}
-                    >
-                      <ExtraBoldText
-                        style={{
-                          fontSize: 16,
-                          color: "#ffffff",
-                        }}
-                      >
-                        분양완료
-                      </ExtraBoldText>
-                    </ImageBackground>
-                  }
+                  id={uuid()}
+                  imageSrc={images.itemImageExample}
+                  progress={SellingProgress.ing}
                   title="구피구피구피구피구피구피구피구피구피구피구피구피"
                   itemCategory="열대어"
-                  uploadTime="1시간전"
+                  howLong="1시간전"
                   price="5000원"
                   comment="9"
-                  heart="12"
+                  shoppingBasket="12"
                   onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
                 <SellingListItem
-                  ImageSrc={
-                    <Image
-                      source={images.itemImageExample}
-                      style={styles.itemImage}
-                    />
-                  }
+                  id={uuid()}
+                  imageSrc={images.itemImageExample}
+                  progress={SellingProgress.sold}
                   title="구피구피구피구피"
                   itemCategory="열대어"
-                  uploadTime="1시간전"
+                  howLong="1시간전"
                   price="5000원"
                   comment="9"
-                  heart="12"
+                  shoppingBasket="12"
                   onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
                 <SellingListItem
-                  ImageSrc={
-                    <Image
-                      source={images.itemImageExample}
-                      style={styles.itemImage}
-                    />
-                  }
+                  id={uuid()}
+                  imageSrc={images.itemImageExample}
+                  progress={SellingProgress.none}
                   title="구피구피구피구피구피구피구피"
                   itemCategory="열대어"
-                  uploadTime="1시간전"
+                  howLong="1시간전"
                   price="5000원"
                   comment="9"
-                  heart="12"
+                  shoppingBasket="12"
                   onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
                 <SellingListItem
-                  ImageSrc={
-                    <Image
-                      source={images.itemImageExample}
-                      style={styles.itemImage}
-                    />
-                  }
+                  id={uuid()}
+                  imageSrc={images.itemImageExample}
+                  progress={SellingProgress.none}
                   title="구피구피구피구피구피구피구피구피구피구피구피구피"
                   itemCategory="열대어"
-                  uploadTime="1시간전"
+                  howLong="1시간전"
                   price="5000원"
                   comment="9"
-                  heart="12"
+                  shoppingBasket="12"
                   onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
                 <SellingListItem
-                  ImageSrc={
-                    <Image
-                      source={images.itemImageExample}
-                      style={styles.itemImage}
-                    />
-                  }
+                  id={uuid()}
+                  imageSrc={images.itemImageExample}
+                  progress={SellingProgress.none}
                   title="구피구피구피구피구피구피구피구피구피구피구피구피"
                   itemCategory="열대어"
-                  uploadTime="1시간전"
+                  howLong="1시간전"
                   price="5000원"
                   comment="9"
-                  heart="12"
+                  shoppingBasket="12"
                   onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
                 <SellingListItem
-                  ImageSrc={
-                    <Image
-                      source={images.itemImageExample}
-                      style={styles.itemImage}
-                    />
-                  }
+                  id={uuid()}
+                  imageSrc={images.itemImageExample}
+                  progress={SellingProgress.none}
                   title="구피구피구피구피구피구피구피구피구피구피구피구피"
                   itemCategory="열대어"
-                  uploadTime="1시간전"
+                  howLong="1시간전"
                   price="5000원"
                   comment="9"
-                  heart="12"
+                  shoppingBasket="12"
                   onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
                 <SellingListItem
-                  ImageSrc={
-                    <Image
-                      source={images.itemImageExample}
-                      style={styles.itemImage}
-                    />
-                  }
+                  id={uuid()}
+                  imageSrc={images.itemImageExample}
+                  progress={SellingProgress.none}
                   title="구피구피구피구피구피구피구피구피구피구피구피구피"
                   itemCategory="열대어"
-                  uploadTime="1시간전"
+                  howLong="1시간전"
                   price="5000원"
                   comment="9"
-                  heart="12"
+                  shoppingBasket="12"
                   onPress={() => navigation.navigate("ProductDetail")}
                 ></SellingListItem>
               </ScrollView>

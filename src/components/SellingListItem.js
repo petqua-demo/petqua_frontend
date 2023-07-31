@@ -1,13 +1,23 @@
-import { Pressable, StyleSheet, Image, View } from "react-native";
+import {
+  Pressable,
+  StyleSheet,
+  Image,
+  ImageBackground,
+  View,
+} from "react-native";
+
 import Text from "./DefaultText";
 import BoldText from "./BoldText";
+import ExtraBoldText from "./BoldText";
 import LightText from "./LightText";
 import palette from "../styles/ColorPalette";
 import images from "../enum/Images";
+import SellingProgress from "../enum/SellingProgress";
 
 const SellingListItem = ({
   id,
   imageSrc,
+  progress,
   title,
   itemCategory,
   howLong,
@@ -19,7 +29,22 @@ const SellingListItem = ({
   return (
     <Pressable onPress={onPress}>
       <View style={styles.container}>
-        {imageSrc}
+        {(progress != SellingProgress.none && (
+          <ImageBackground
+            source={imageSrc}
+            style={styles.itemImage}
+            imageStyle={{ opacity: 0.2 }}
+          >
+            <ExtraBoldText
+              style={{
+                fontSize: 16,
+                color: "#ffffff",
+              }}
+            >
+              {progress}
+            </ExtraBoldText>
+          </ImageBackground>
+        )) || <Image source={imageSrc} style={styles.itemImage} />}
         <View style={styles.itemInfo}>
           <Text style={styles.title}>{title}</Text>
           <View style={styles.itemDetail}>
@@ -53,6 +78,14 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     flexDirection: "row",
     width: "100%",
+  },
+  itemImage: {
+    width: 108,
+    height: 108,
+    borderRadius: 8,
+    backgroundColor: palette.gray4,
+    justifyContent: "center",
+    alignItems: "center",
   },
   itemInfo: {
     marginLeft: 16,
