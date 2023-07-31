@@ -4,9 +4,11 @@ import BoldText from "./BoldText";
 import LightText from "./LightText";
 import palette from "../styles/ColorPalette";
 import images from "../enum/Images";
+import CommunityCategoryRect from "./CommunityCategoryRect";
 
 const CommunityPostingItem = ({
   id,
+  category,
   title,
   content,
   date,
@@ -18,9 +20,14 @@ const CommunityPostingItem = ({
 }) => {
   return (
     <Pressable style={styles.container} onPress={onPress}>
-      <BoldText style={styles.mainText}>{title}</BoldText>
+      <View style={{ flexDirection: "row", marginBottom: 14 }}>
+        <View style={{ marginRight: 10 }}>
+          <CommunityCategoryRect title={category} />
+        </View>
+        <BoldText style={styles.mainText}>{title}</BoldText>
+      </View>
       <LightText style={styles.mainText}>{content}</LightText>
-      <View style={[styles.subInfo, { marginTop: 6 }]}>
+      <View style={[styles.subInfo, { marginTop: 17 }]}>
         <View style={styles.subInfo}>
           <Text style={styles.textSubInfo}>{date}</Text>
           {/* 구분선 */}
@@ -82,8 +89,7 @@ const styles = StyleSheet.create({
   },
   mainText: {
     fontSize: 16,
-    color: palette.gray3,
-    marginBottom: 14,
+    color: palette.gray4,
   },
   subInfo: {
     flexDirection: "row",

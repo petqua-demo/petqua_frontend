@@ -16,7 +16,7 @@ import Text from "../../components/DefaultText";
 import BoldText from "../../components/BoldText";
 import CommunityPostingItem from "../../components/CommunityPostingItem";
 import CommunityCategoryButton from "../../components/CommunityCategoryButton";
-import Categories from "../../enum/CommunityPostingCategories";
+import CommunityPostingCategories from "../../enum/CommunityPostingCategories";
 
 export default function MyClipping({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -26,6 +26,7 @@ export default function MyClipping({ navigation }: any) {
   const [data, setData] = useState([
     {
       id: uuid(),
+      category: CommunityPostingCategories.disease,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -38,6 +39,7 @@ export default function MyClipping({ navigation }: any) {
     },
     {
       id: uuid(),
+      category: CommunityPostingCategories.disease,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -50,6 +52,7 @@ export default function MyClipping({ navigation }: any) {
     },
     {
       id: uuid(),
+      category: CommunityPostingCategories.goods,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -76,6 +79,7 @@ export default function MyClipping({ navigation }: any) {
     ({ item }: { item: any }) => (
       <CommunityPostingItem
         id={item.id}
+        category={item.category}
         title={item.title}
         content={item.content}
         date={item.date}
@@ -107,36 +111,40 @@ export default function MyClipping({ navigation }: any) {
             style={{ marginRight: -15 }}
           >
             <CommunityCategoryButton
-              title={Categories.disease}
-              onPress={() => setCategory(Categories.disease)}
+              title={CommunityPostingCategories.disease}
+              onPress={() => setCategory(CommunityPostingCategories.disease)}
             />
             <CommunityCategoryButton
-              title={Categories.introductory}
-              onPress={() => setCategory(Categories.introductory)}
+              title={CommunityPostingCategories.introductory}
+              onPress={() =>
+                setCategory(CommunityPostingCategories.introductory)
+              }
             />
             <CommunityCategoryButton
-              title={Categories.waterManagement}
-              onPress={() => setCategory(Categories.waterManagement)}
+              title={CommunityPostingCategories.waterManagement}
+              onPress={() =>
+                setCategory(CommunityPostingCategories.waterManagement)
+              }
             />
             <CommunityCategoryButton
-              title={Categories.raise}
-              onPress={() => setCategory(Categories.raise)}
+              title={CommunityPostingCategories.raise}
+              onPress={() => setCategory(CommunityPostingCategories.raise)}
             />
             <CommunityCategoryButton
-              title={Categories.goods}
-              onPress={() => setCategory(Categories.goods)}
+              title={CommunityPostingCategories.goods}
+              onPress={() => setCategory(CommunityPostingCategories.goods)}
             />
             <CommunityCategoryButton
-              title={Categories.species}
-              onPress={() => setCategory(Categories.species)}
+              title={CommunityPostingCategories.species}
+              onPress={() => setCategory(CommunityPostingCategories.species)}
             />
             <CommunityCategoryButton
-              title={Categories.report}
-              onPress={() => setCategory(Categories.report)}
+              title={CommunityPostingCategories.report}
+              onPress={() => setCategory(CommunityPostingCategories.report)}
             />
             <CommunityCategoryButton
-              title={Categories.other}
-              onPress={() => setCategory(Categories.other)}
+              title={CommunityPostingCategories.other}
+              onPress={() => setCategory(CommunityPostingCategories.other)}
             />
           </ScrollView>
           {/* 내가 쓴 글/댓글 리스트 */}
