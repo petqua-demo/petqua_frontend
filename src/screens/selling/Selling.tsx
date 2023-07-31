@@ -3,18 +3,16 @@ import {
   StyleSheet,
   View,
   Image,
-  ImageBackground,
   SafeAreaView,
-  ScrollView,
+  FlatList,
   Pressable,
   TouchableOpacity,
 } from "react-native";
 import useCachedResources from "../../useCachedResources";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import uuid from "react-uuid";
 
 import Text from "../../components/DefaultText";
-import ExtraBoldText from "../../components/BoldText";
 import PostingMenuItem from "../../components/PostingMenuItem";
 import SellingListItem from "../../components/SellingListItem";
 import palette from "../../styles/ColorPalette";
@@ -41,6 +39,152 @@ export default function Selling({ navigation }: any) {
       setClickPostingBtn(false);
     }
   };
+
+  // 나중에 DB 연결 후 posting 목록 가져오기
+  const [allData, setAllData] = useState([
+    {
+      id: uuid(),
+      imageSrc: images.itemImageExample,
+      progress: SellingProgress.ing,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
+      howLong: "1시간전",
+      price: "5000원",
+      comment: "9",
+      shoppingBasket: "12",
+      onPress: {},
+    },
+    {
+      id: uuid(),
+      imageSrc: images.itemImageExample,
+      progress: SellingProgress.sold,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
+      howLong: "1시간전",
+      price: "5000원",
+      comment: "9",
+      shoppingBasket: "12",
+      onPress: {},
+    },
+    {
+      id: uuid(),
+      imageSrc: images.itemImageExample,
+      progress: SellingProgress.none,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
+      howLong: "1시간전",
+      price: "5000원",
+      comment: "9",
+      shoppingBasket: "12",
+      onPress: {},
+    },
+    {
+      id: uuid(),
+      imageSrc: images.itemImageExample,
+      progress: SellingProgress.none,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
+      howLong: "1시간전",
+      price: "5000원",
+      comment: "9",
+      shoppingBasket: "12",
+      onPress: {},
+    },
+    {
+      id: uuid(),
+      imageSrc: images.itemImageExample,
+      progress: SellingProgress.none,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
+      howLong: "1시간전",
+      price: "5000원",
+      comment: "9",
+      shoppingBasket: "12",
+      onPress: {},
+    },
+    {
+      id: uuid(),
+      imageSrc: images.itemImageExample,
+      progress: SellingProgress.none,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
+      howLong: "1시간전",
+      price: "5000원",
+      comment: "9",
+      shoppingBasket: "12",
+      onPress: {},
+    },
+    {
+      id: uuid(),
+      imageSrc: images.itemImageExample,
+      progress: SellingProgress.none,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
+      howLong: "1시간전",
+      price: "5000원",
+      comment: "9",
+      shoppingBasket: "12",
+      onPress: {},
+    },
+  ]);
+
+  const getAllData = () => {
+    // 데이터 가져오기
+  };
+  useEffect(() => {
+    getAllData();
+  }, []);
+
+  const [fishData, setFishData] = useState([
+    {
+      id: uuid(),
+      imageSrc: images.itemImageExample,
+      progress: SellingProgress.sold,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
+      howLong: "1시간전",
+      price: "5000원",
+      comment: "9",
+      shoppingBasket: "12",
+      onPress: {},
+    },
+    {
+      id: uuid(),
+      imageSrc: images.itemImageExample,
+      progress: SellingProgress.none,
+      title: "구피구피구피구피구피구피구피구피구피구피구피구피",
+      itemCategory: "열대어",
+      howLong: "1시간전",
+      price: "5000원",
+      comment: "9",
+      shoppingBasket: "12",
+      onPress: {},
+    },
+  ]);
+
+  const [goodsData, setGoodsData] = useState([]);
+
+  // 카테고리 버튼 선택할 때마다 가져오는 Data 설정하기
+  const [selectedData, setSelectedData] = useState(allData);
+
+  const renderItem = useCallback(
+    ({ item }: { item: any }) => (
+      <SellingListItem
+        id={item.id}
+        imageSrc={item.imageSrc}
+        progress={item.progress}
+        title={item.title}
+        itemCategory={item.itemCategory}
+        howLong={item.howLong}
+        price={item.price}
+        comment={item.comment}
+        shoppingBasket={item.shoppingBasket}
+        onPress={{}}
+      />
+    ),
+    []
+  );
+  const keyExtractor = useCallback((item: any) => item.id, []);
 
   if (isLoaded) {
     return (
@@ -80,7 +224,7 @@ export default function Selling({ navigation }: any) {
                   : styles.tabItems,
               ]}
               onPress={() => {
-                setSelectedCategory(Categories.all);
+                [setSelectedCategory(Categories.all), setSelectedData(allData)];
               }}
             >
               {/* Text에 배열로 style을 넘기면 오류가 나서 일단 다음과 같이 구현 */}
@@ -99,7 +243,10 @@ export default function Selling({ navigation }: any) {
                   : styles.tabItems,
               ]}
               onPress={() => {
-                setSelectedCategory(Categories.fish);
+                [
+                  setSelectedCategory(Categories.fish),
+                  setSelectedData(fishData),
+                ];
               }}
             >
               {(selectedCategory == Categories.fish && (
@@ -117,7 +264,10 @@ export default function Selling({ navigation }: any) {
                   : styles.tabItems,
               ]}
               onPress={() => {
-                setSelectedCategory(Categories.goods);
+                [
+                  setSelectedCategory(Categories.goods),
+                  setSelectedData(goodsData),
+                ];
               }}
             >
               {(selectedCategory == Categories.goods && (
@@ -131,96 +281,11 @@ export default function Selling({ navigation }: any) {
           {/* 판매중인 상품들 목록 */}
           <View style={styles.list}>
             <SafeAreaView style={styles.listItems}>
-              {/* 추후 ScrollView -> FlatList로 바꿔야 함 */}
-              <ScrollView
-                style={styles.scrollView}
-                showsVerticalScrollIndicator={false}
-              >
-                <SellingListItem
-                  id={uuid()}
-                  imageSrc={images.itemImageExample}
-                  progress={SellingProgress.ing}
-                  title="구피구피구피구피구피구피구피구피구피구피구피구피"
-                  itemCategory="열대어"
-                  howLong="1시간전"
-                  price="5000원"
-                  comment="9"
-                  shoppingBasket="12"
-                  onPress={() => navigation.navigate("ProductDetail")}
-                ></SellingListItem>
-                <SellingListItem
-                  id={uuid()}
-                  imageSrc={images.itemImageExample}
-                  progress={SellingProgress.sold}
-                  title="구피구피구피구피"
-                  itemCategory="열대어"
-                  howLong="1시간전"
-                  price="5000원"
-                  comment="9"
-                  shoppingBasket="12"
-                  onPress={() => navigation.navigate("ProductDetail")}
-                ></SellingListItem>
-                <SellingListItem
-                  id={uuid()}
-                  imageSrc={images.itemImageExample}
-                  progress={SellingProgress.none}
-                  title="구피구피구피구피구피구피구피"
-                  itemCategory="열대어"
-                  howLong="1시간전"
-                  price="5000원"
-                  comment="9"
-                  shoppingBasket="12"
-                  onPress={() => navigation.navigate("ProductDetail")}
-                ></SellingListItem>
-                <SellingListItem
-                  id={uuid()}
-                  imageSrc={images.itemImageExample}
-                  progress={SellingProgress.none}
-                  title="구피구피구피구피구피구피구피구피구피구피구피구피"
-                  itemCategory="열대어"
-                  howLong="1시간전"
-                  price="5000원"
-                  comment="9"
-                  shoppingBasket="12"
-                  onPress={() => navigation.navigate("ProductDetail")}
-                ></SellingListItem>
-                <SellingListItem
-                  id={uuid()}
-                  imageSrc={images.itemImageExample}
-                  progress={SellingProgress.none}
-                  title="구피구피구피구피구피구피구피구피구피구피구피구피"
-                  itemCategory="열대어"
-                  howLong="1시간전"
-                  price="5000원"
-                  comment="9"
-                  shoppingBasket="12"
-                  onPress={() => navigation.navigate("ProductDetail")}
-                ></SellingListItem>
-                <SellingListItem
-                  id={uuid()}
-                  imageSrc={images.itemImageExample}
-                  progress={SellingProgress.none}
-                  title="구피구피구피구피구피구피구피구피구피구피구피구피"
-                  itemCategory="열대어"
-                  howLong="1시간전"
-                  price="5000원"
-                  comment="9"
-                  shoppingBasket="12"
-                  onPress={() => navigation.navigate("ProductDetail")}
-                ></SellingListItem>
-                <SellingListItem
-                  id={uuid()}
-                  imageSrc={images.itemImageExample}
-                  progress={SellingProgress.none}
-                  title="구피구피구피구피구피구피구피구피구피구피구피구피"
-                  itemCategory="열대어"
-                  howLong="1시간전"
-                  price="5000원"
-                  comment="9"
-                  shoppingBasket="12"
-                  onPress={() => navigation.navigate("ProductDetail")}
-                ></SellingListItem>
-              </ScrollView>
+              <FlatList
+                data={selectedData}
+                renderItem={renderItem}
+                keyExtractor={keyExtractor}
+              />
             </SafeAreaView>
           </View>
         </View>
