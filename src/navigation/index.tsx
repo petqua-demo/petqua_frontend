@@ -128,7 +128,7 @@ const BottomTabNav = () => (
           return (
             <Image
               source={
-                focused ? images.bottomMyPageIcon : images.bottomMyPageIcon
+                focused ? images.selectedMyPageIcon : images.bottomMyPageIcon
               }
               style={{ width: 22, height: 22 }}
             />
