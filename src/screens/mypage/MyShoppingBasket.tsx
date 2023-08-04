@@ -136,7 +136,7 @@ export default function MyShoppingBasket({ navigation }: any) {
         <View style={styles.header}>
           <BoldText style={styles.headerText}>나의 봉달 목록</BoldText>
         </View>
-        {/* 전체, 글, 댓글 나누는 상단 탭.
+        {/* 전체, 반려어, 용품 나누는 상단 탭.
         Top tab으로 처리 안 하고 일단 Pressable, useState 이용해서 구현 */}
         <View style={styles.tab}>
           {/* 전체 */}
@@ -159,7 +159,7 @@ export default function MyShoppingBasket({ navigation }: any) {
                 <Text style={styles.tabText}>{Categories.all}</Text>
               ))}
           </Pressable>
-          {/* 글 */}
+          {/* 반려어 */}
           <Pressable
             style={[
               selectedCategory == Categories.fish
@@ -177,7 +177,7 @@ export default function MyShoppingBasket({ navigation }: any) {
                 <Text style={styles.tabText}>{Categories.fish}</Text>
               ))}
           </Pressable>
-          {/* 댓글 */}
+          {/* 용품 */}
           <Pressable
             style={[
               selectedCategory == Categories.goods
@@ -199,7 +199,7 @@ export default function MyShoppingBasket({ navigation }: any) {
               ))}
           </Pressable>
         </View>
-        {/* 내가 쓴 글/댓글 리스트 */}
+        {/* 나의 봉달 리스트 */}
         <SafeAreaView style={styles.content}>
           {(selectedData.length == 0 && ( // Data가 없는 경우
             <View

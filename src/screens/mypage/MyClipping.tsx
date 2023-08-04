@@ -147,7 +147,7 @@ export default function MyClipping({ navigation }: any) {
               onPress={() => setCategory(CommunityPostingCategories.other)}
             />
           </ScrollView>
-          {/* 내가 쓴 글/댓글 리스트 */}
+          {/* 내가 스크랩한 글 리스트 */}
           {(selectedData.length == 0 && ( // Data가 없는 경우
             <View
               style={{
