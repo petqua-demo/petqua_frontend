@@ -144,7 +144,10 @@ export default function MyPage({ navigation }: any) {
             <View style={styles.content}>
               {/* 입양, 분양 내역 */}
               <View>
-                <MyPagePostingListItem title="분양 내역" onPress={{}} />
+                <MyPagePostingListItem
+                  title="분양 내역"
+                  onPress={() => navigation.navigate("MySellingPosting")}
+                />
                 <MyPagePostingListItem title="입양 내역" onPress={{}} />
               </View>
             </View>
