@@ -204,7 +204,7 @@ export default function Selling({ navigation }: any) {
             />
             <Image
               source={images.topShoppingBasketIcon}
-              style={{ width: 23, height: 23, marginRight: 21 }}
+              style={{ width: 17, height: 25, marginRight: 21 }}
             />
             <Image
               source={images.topNotificationIcon}
