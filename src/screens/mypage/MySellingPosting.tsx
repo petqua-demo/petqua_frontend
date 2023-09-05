@@ -75,7 +75,7 @@ export default function MySellingPosting({ navigation }: any) {
     getAllData();
   }, []);
 
-  const [fishData, setFishData] = useState([
+  const [ingData, setIngData] = useState([
     {
       id: uuid(),
       imageSrc: images.itemImageExample,
@@ -102,7 +102,7 @@ export default function MySellingPosting({ navigation }: any) {
     },
   ]);
 
-  const [goodsData, setGoodsData] = useState([]);
+  const [soldData, setSoldData] = useState([]);
 
   // 카테고리 버튼 선택할 때마다 가져오는 Data 설정하기
   const [selectedData, setSelectedData] = useState(allData);
@@ -166,7 +166,7 @@ export default function MySellingPosting({ navigation }: any) {
                 : styles.tabItems,
             ]}
             onPress={() => {
-              [setSelectedCategory(Categories.ing), setSelectedData(fishData)];
+              [setSelectedCategory(Categories.ing), setSelectedData(ingData)];
             }}
           >
             {(selectedCategory == Categories.ing && (
@@ -184,10 +184,7 @@ export default function MySellingPosting({ navigation }: any) {
                 : styles.tabItems,
             ]}
             onPress={() => {
-              [
-                setSelectedCategory(Categories.sold),
-                setSelectedData(goodsData),
-              ];
+              [setSelectedCategory(Categories.sold), setSelectedData(soldData)];
             }}
           >
             {(selectedCategory == Categories.sold && (
