@@ -18,6 +18,7 @@ import MyClipping from "../screens/mypage/MyClipping";
 import MyShoppingBasket from "../screens/mypage/MyShoppingBasket";
 import MySellingPosting from "../screens/mypage/MySellingPosting";
 import MyBuying from "../screens/mypage/MyBuying";
+import WaterCommunityHome from "../screens/community/WaterCommunityHome";
 
 const Stack = createNativeStackNavigator();
 
@@ -100,10 +101,9 @@ const BottomTabNav = () => (
         },
       }}
     />
-    {/* 나중에 연결 Component 바꿀 예정. 테스트를 위해 임시 Component 연결. */}
     <BottomTab.Screen
-      name="GoodsPosting"
-      component={GoodsPosting}
+      name="WaterCommunityHome"
+      component={WaterCommunityHome}
       options={{
         tabBarLabel: "물생활",
         tabBarLabelStyle: styles.tabBarLable,
@@ -121,7 +121,6 @@ const BottomTabNav = () => (
         },
       }}
     />
-    {/* 나중에 연결 Component 바꿀 예정. 테스트를 위해 임시 Component 연결. */}
     <BottomTab.Screen
       name="MyPage"
       component={MyPage}
