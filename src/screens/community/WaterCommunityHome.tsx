@@ -5,7 +5,6 @@ import {
   Pressable,
   Keyboard,
   Image,
-  ScrollView,
   KeyboardAvoidingView,
   Platform,
   SafeAreaView,
@@ -27,6 +26,45 @@ export default function WaterCommunityHome({ navigation }: any) {
 
   // 나중에 DB 연결 후 인기글 목록 가져오기
   const [bestPostingData, setBestPostingData] = useState([
+    {
+      id: uuid(),
+      category: CommunityPostingCategories.disease,
+      title: "구피100마리",
+      content:
+        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
+      date: "07/12",
+      howLong: "2주전",
+      comment: "129",
+      heart: "9",
+      scrap: "123",
+      onPress: {},
+    },
+    {
+      id: uuid(),
+      category: CommunityPostingCategories.disease,
+      title: "구피100마리",
+      content:
+        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
+      date: "07/12",
+      howLong: "2주전",
+      comment: "129",
+      heart: "9",
+      scrap: "123",
+      onPress: {},
+    },
+    {
+      id: uuid(),
+      category: CommunityPostingCategories.goods,
+      title: "구피100마리",
+      content:
+        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
+      date: "07/12",
+      howLong: "2주전",
+      comment: "129",
+      heart: "9",
+      scrap: "123",
+      onPress: {},
+    },
     {
       id: uuid(),
       category: CommunityPostingCategories.disease,
@@ -134,7 +172,7 @@ export default function WaterCommunityHome({ navigation }: any) {
               </Pressable>
             </View>
           </View>
-          <ScrollView style={styles.content}>
+          <View style={styles.content}>
             {/* 카테고리 */}
             <View style={styles.imageCategoryContainer}></View>
             {/* 배너 광고 */}
@@ -148,19 +186,19 @@ export default function WaterCommunityHome({ navigation }: any) {
               }}
             />
             {/* 인기글 */}
-            <View>
-              <BoldText style={{ fontSize: 14, color: palette.gray4 }}>
-                인기글
-              </BoldText>
-              <SafeAreaView>
-                <FlatList
-                  data={bestPostingData}
-                  renderItem={renderItem}
-                  keyExtractor={keyExtractor}
-                />
-              </SafeAreaView>
-            </View>
-          </ScrollView>
+            <SafeAreaView style={{ marginTop: 25, marginBottom: 50 }}>
+              <FlatList
+                data={bestPostingData}
+                renderItem={renderItem}
+                keyExtractor={keyExtractor}
+              >
+                <BoldText style={{ fontSize: 14, color: palette.gray4 }}>
+                  인기글
+                </BoldText>
+              </FlatList>
+              {/* /> */}
+            </SafeAreaView>
+          </View>
         </KeyboardAvoidingView>
       </Pressable>
     );
@@ -186,7 +224,7 @@ const styles = StyleSheet.create({
   content: {
     marginHorizontal: 15,
     marginTop: 26,
-    backgroundColor: "yellow",
+    marginBottom: 60,
   },
   imageCategoryContainer: {},
 });
