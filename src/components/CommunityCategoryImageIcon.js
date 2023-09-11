@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "space-between",
     alignItems: "center",
+    marginBottom: 16,
   },
   iconImage: {
     width: 70,

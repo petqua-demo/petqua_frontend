@@ -20,9 +20,73 @@ import palette from "../../styles/ColorPalette";
 import images from "../../enum/Images";
 import CommunityPostingItem from "../../components/CommunityPostingItem";
 import CommunityPostingCategories from "../../enum/CommunityPostingCategories";
+import CommunityCategoryImageIcon from "../../components/CommunityCategoryImageIcon";
 
 export default function WaterCommunityHome({ navigation }: any) {
   const isLoaded = useCachedResources();
+
+  // 한 줄에 배치하는 카테고리 수
+  const numColumns = 4;
+
+  // 커뮤니티 카테고리 목록
+  const CategoryData = [
+    {
+      onPress: {},
+      imageSrc: images.itemImageExample,
+      title: CommunityPostingCategories.disease,
+    },
+    {
+      onPress: {},
+      imageSrc: images.itemImageExample,
+      title: CommunityPostingCategories.introductory,
+    },
+    {
+      onPress: {},
+      imageSrc: images.itemImageExample,
+      title: CommunityPostingCategories.waterManagement,
+    },
+    {
+      onPress: {},
+      imageSrc: images.itemImageExample,
+      title: CommunityPostingCategories.species,
+    },
+    {
+      onPress: {},
+      imageSrc: images.itemImageExample,
+      title: CommunityPostingCategories.goods,
+    },
+    {
+      onPress: {},
+      imageSrc: images.itemImageExample,
+      title: CommunityPostingCategories.raise,
+    },
+    {
+      onPress: {},
+      imageSrc: images.itemImageExample,
+      title: CommunityPostingCategories.report,
+    },
+    {
+      onPress: {},
+      imageSrc: images.itemImageExample,
+      title: CommunityPostingCategories.other,
+    },
+  ];
+
+  const CategoryItem = ({
+    onPress,
+    imageSrc,
+    title,
+  }: {
+    onPress: any;
+    imageSrc: any;
+    title: any;
+  }) => (
+    <CommunityCategoryImageIcon
+      onPress={onPress}
+      imageSrc={imageSrc}
+      title={title}
+    />
+  );
 
   // 나중에 DB 연결 후 인기글 목록 가져오기
   const [bestPostingData, setBestPostingData] = useState([
@@ -174,7 +238,22 @@ export default function WaterCommunityHome({ navigation }: any) {
           </View>
           <View style={styles.content}>
             {/* 카테고리 */}
-            <View style={styles.imageCategoryContainer}></View>
+            <View style={styles.imageCategoryContainer}>
+              <FlatList
+                data={CategoryData}
+                // 레이아웃이 만들어졌을 때, 현재 요소가 가지고 있는 width 크기 가져오기
+                // onLayout={e => setContainerWidth(e.nativeEvent.layout.width)}
+                renderItem={({ item }) => (
+                  <CategoryItem
+                    onPress={item.onPress}
+                    imageSrc={item.imageSrc}
+                    title={item.title}
+                  />
+                )}
+                numColumns={numColumns}
+                columnWrapperStyle={{ justifyContent: "space-between" }}
+              />
+            </View>
             {/* 배너 광고 */}
             <View></View>
             {/* 구분선 */}
@@ -226,5 +305,8 @@ const styles = StyleSheet.create({
     marginTop: 26,
     marginBottom: 60,
   },
-  imageCategoryContainer: {},
+  imageCategoryContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
 });
