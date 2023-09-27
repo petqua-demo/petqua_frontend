@@ -27,7 +27,12 @@ export default function Join_PhoneNum({ navigation }: any) {
   };
 
   // 휴대폰번호 입력 -> 확인 버튼 클릭 시
-  const onClick = () => {};
+  const onClick = () => {
+    console.log(phoneNum);
+    // xxx-xxxx-xxxx 형식 맞는지 확인
+    let regexp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
+    console.log(regexp.test(phoneNum));
+  };
 
   if (isLoaded) {
     return (
