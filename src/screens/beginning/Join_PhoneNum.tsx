@@ -14,6 +14,17 @@ export default function Join_PhoneNum({ navigation }: any) {
   const isLoaded = useCachedResources();
   const [phoneNum, setPhoneNum] = useState("");
   const [clickVerifyBtn, setClickVerifyBtn] = useState(false);
+  // const [keyboardDisplay, setKeyboardDisplay] = useState(false);
+
+  // 휴대폰번호 입력시 자동 하이픈(-) 생성
+  const autoHyphen = (value: any) => {
+    setPhoneNum(
+      value
+        .replace(/[^0-9]/g, "")
+        .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
+        .replace(/(\-{1,2})$/g, "")
+    );
+  };
 
   // 휴대폰번호 입력 -> 확인 버튼 클릭 시
   const onClick = () => {};
@@ -38,7 +49,7 @@ export default function Join_PhoneNum({ navigation }: any) {
                 maxLength={13}
                 returnKeyType="done"
                 value={phoneNum}
-                onChangeText={(value: any) => setPhoneNum(value)}
+                onChangeText={(value: any) => autoHyphen(value)}
                 clearText={() => setPhoneNum("")}
               />
             </View>
