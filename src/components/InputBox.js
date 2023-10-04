@@ -7,11 +7,11 @@ const InputBox = ({ placeholder, value, clearText, ...props }) => {
   return (
     <View style={styles.container}>
       <TextInput
-        {...props}
         style={styles.textInput}
         placeholder={placeholder}
         placeholderTextColor={palette.gray2}
         value={value}
+        {...props}
       ></TextInput>
       <Pressable onPress={clearText}>
         <Image
@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     fontSize: 20,
-    // fontFamily: "pretendard-regular",
   },
   clearButton: {
     width: 21,

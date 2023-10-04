@@ -13,8 +13,19 @@ import palette from "../../styles/ColorPalette";
 export default function Join_PhoneNum({ navigation }: any) {
   const isLoaded = useCachedResources();
   const [phoneNum, setPhoneNum] = useState("");
-  const [clickVerifyBtn, setClickVerifyBtn] = useState(false);
-  // const [keyboardDisplay, setKeyboardDisplay] = useState(false);
+  const [displayInputTitle, setDisplayInputTitle] = useState(false);
+  // const [clickVerifyBtn, setClickVerifyBtn] = useState(false);
+
+  // 휴대폰번호 textInput에 placeholder로 들어갈 텍스트
+  const placeholderText = {
+    defaultText: "휴대폰번호",
+    warningText: "잘못된 번호 형식입니다.",
+  };
+
+  const [placeholder, setPlaceholder] = useState(placeholderText.defaultText);
+  const [placeholderTextColor, setPlaceholderTextColor] = useState(
+    palette.gray2
+  );
 
   // 휴대폰번호 입력시 자동 하이픈(-) 생성
   const autoHyphen = (value: any) => {
@@ -31,7 +42,21 @@ export default function Join_PhoneNum({ navigation }: any) {
     console.log(phoneNum);
     // xxx-xxxx-xxxx 형식 맞는지 확인
     let regexp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
-    console.log(regexp.test(phoneNum));
+    let rightRegexp = regexp.test(phoneNum);
+    console.log(rightRegexp);
+    // 형식이 틀리면 경고 메시지 띄우기
+    if (!rightRegexp) {
+      setPhoneNum(""); // 번호 지우기
+      setPlaceholder(placeholderText.warningText);
+      setPlaceholderTextColor(palette.warning);
+    }
+  };
+
+  const onFocusTextInput = () => {
+    // textInput에 onFocus되면 placeholder 없애기
+    setPlaceholder("");
+    // 한 번 textInput에 onFocus되고 나면 계속 InputTitle 띄워놓기
+    setDisplayInputTitle(true);
   };
 
   if (isLoaded) {
@@ -42,20 +67,22 @@ export default function Join_PhoneNum({ navigation }: any) {
           <View style={styles.content}>
             <Text style={styles.command}>휴대폰 번호를{"\n"}입력해주세요</Text>
             <View style={styles.inputItem}>
-              {phoneNum != "" ? (
+              {displayInputTitle ? (
                 <Text style={styles.textInputTitle}>휴대폰번호</Text>
               ) : (
                 // 입력칸 위 "휴대폰 번호" 글자 생성 시 입력칸 밀리는 현상 방지, 미리 공간 할당하기
                 <Text style={styles.textInputTitle2}></Text>
               )}
               <InputBox
-                placeholder="휴대폰번호"
+                placeholder={placeholder}
+                placeholderTextColor={placeholderTextColor}
                 keyboardType="numeric"
                 maxLength={13}
                 returnKeyType="done"
                 value={phoneNum}
                 onChangeText={(value: any) => autoHyphen(value)}
                 clearText={() => setPhoneNum("")}
+                onFocus={onFocusTextInput}
               />
             </View>
           </View>
