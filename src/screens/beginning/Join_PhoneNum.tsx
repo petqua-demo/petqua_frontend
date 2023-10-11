@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Pressable, Keyboard } from "react-native";
+import { StyleSheet, View, Pressable, Keyboard, Modal } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useState } from "react";
 
@@ -26,6 +26,8 @@ export default function Join_PhoneNum({ navigation }: any) {
   const [placeholderTextColor, setPlaceholderTextColor] = useState(
     palette.gray2
   );
+  // 약관 설명 modal창 띄울 것인지 boolean 값
+  const [displayModal, setDisplayModal] = useState(false);
 
   // 휴대폰번호 입력시 자동 하이픈(-) 생성
   const autoHyphen = (value: any) => {
@@ -49,6 +51,10 @@ export default function Join_PhoneNum({ navigation }: any) {
       setPhoneNum(""); // 번호 지우기
       setPlaceholder(placeholderText.warningText);
       setPlaceholderTextColor(palette.warning);
+      setDisplayModal(false);
+    } else {
+      // 형식이 올바르면 약관 동의 Modal 띄우기
+      setDisplayModal(true);
     }
   };
 
@@ -64,6 +70,31 @@ export default function Join_PhoneNum({ navigation }: any) {
       <Pressable style={{ flex: 1 }} onPress={() => Keyboard.dismiss()}>
         <View style={styles.container}>
           <StatusBar style="auto" />
+          {/* 모달 뒷배경 어둡게 처리하는 것 때문에 이중으로 모달 사용.
+          슬라이드 모달 안에 View로 배경 처리하면 어두운 배경이 같이 슬라이딩됨.  */}
+          <Modal
+            transparent={true}
+            visible={displayModal}
+            onRequestClose={() => {
+              setDisplayModal(!displayModal);
+            }}
+          >
+            {/* 반투명 배경 */}
+            <View
+              style={styles.translucentBackground}
+              onTouchEnd={() => setDisplayModal(false)}
+            >
+              {/* 약관동의 모달 */}
+              <Modal
+                animationType="slide"
+                transparent={true}
+                visible={displayModal}
+              >
+                <View style={styles.modalContainer}></View>
+              </Modal>
+            </View>
+          </Modal>
+
           <View style={styles.content}>
             <Text style={styles.command}>휴대폰 번호를{"\n"}입력해주세요</Text>
             <View style={styles.inputItem}>
@@ -105,6 +136,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  translucentBackground: {
+    flex: 1,
+    backgroundColor: "#000000",
+    opacity: 0.5,
+  },
+  modalContainer: {
+    width: "100%",
+    position: "absolute",
+    bottom: 0,
+    backgroundColor: "#fff",
+    paddingTop: 24,
+    paddingHorizontal: 21,
+    paddingBottom: 50,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
   content: {
     marginHorizontal: 24,

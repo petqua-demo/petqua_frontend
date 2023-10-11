@@ -7,6 +7,7 @@ const palette = {
   gray3: "#777777",
   gray4: "#333333",
   black: "#0B0D0F",
+  warning: "#E72A00",
 };
 
 export default palette;
