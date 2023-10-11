@@ -1,10 +1,11 @@
 import { View } from "react-native";
+import UseAgreementListItem from "./UseAgreementListItem";
 
 const UseAgreementList = ({ UseAgreements, onPress, onToggle }) => {
   return (
     <View>
       {UseAgreements.map((UseAgreement) => (
-        <TodoListItem
+        <UseAgreementListItem
           key={UseAgreement.id}
           {...UseAgreement}
           onPress={onPress}
