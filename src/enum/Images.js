@@ -35,6 +35,10 @@ import myPageSettingIcon from "../../assets/images/myPageSettingIcon.png";
 import takeProfilePictureIcon from "../../assets/images/takeProfilePictureIcon.png";
 import addFishbowlBTN from "../../assets/images/addFishbowlBTN.png";
 import scrapIcon from "../../assets/images/scrapIcon.png";
+import useAgreementCheckBoxUnchecked from "../../assets/images/useAgreementCheckBoxUnchecked.png";
+import useAgreementCheckBoxChecked from "../../assets/images/useAgreementCheckBoxChecked.png";
+import useAgreementBigCheckBoxUnchecked from "../../assets/images/useAgreementBigCheckBoxUnchecked.png";
+import useAgreementBigCheckBoxChecked from "../../assets/images/useAgreementBigCheckBoxChecked.png";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -74,6 +78,10 @@ const images = {
   takeProfilePictureIcon: takeProfilePictureIcon,
   addFishbowlBTN: addFishbowlBTN,
   scrapIcon: scrapIcon,
+  useAgreementCheckBoxUnchecked: useAgreementCheckBoxUnchecked,
+  useAgreementCheckBoxChecked: useAgreementCheckBoxChecked,
+  useAgreementBigCheckBoxUnchecked: useAgreementBigCheckBoxUnchecked,
+  useAgreementBigCheckBoxChecked: useAgreementBigCheckBoxChecked,
 };
 
 export default images;
