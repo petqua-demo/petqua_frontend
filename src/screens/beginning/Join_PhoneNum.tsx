@@ -2,11 +2,14 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, Pressable, Keyboard, Modal } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useState } from "react";
+import uuid from "react-uuid";
 
 import Text from "../../components/DefaultText";
 import BlueButton from "../../components/BlueButton";
 import InputBox from "../../components/InputBox";
 import palette from "../../styles/ColorPalette";
+import UseAgreementList from "../../components/UseAgreementList";
+import UseAgreementsTitle from "../../enum/UseAgreementsTitle";
 
 // 인증번호 입력 창에서는 핸드폰번호를 다시 입력할 수 있게 하는 버튼이 없어서
 // 뒤로가기를 하면 핸드폰번호 입력 창으로 돌아갈 수 있도록 화면 분리함.
@@ -14,7 +17,6 @@ export default function Join_PhoneNum({ navigation }: any) {
   const isLoaded = useCachedResources();
   const [phoneNum, setPhoneNum] = useState("");
   const [displayInputTitle, setDisplayInputTitle] = useState(false);
-  // const [clickVerifyBtn, setClickVerifyBtn] = useState(false);
 
   // 휴대폰번호 textInput에 placeholder로 들어갈 텍스트
   const placeholderText = {
@@ -26,8 +28,46 @@ export default function Join_PhoneNum({ navigation }: any) {
   const [placeholderTextColor, setPlaceholderTextColor] = useState(
     palette.gray2
   );
+
+  const onFocusTextInput = () => {
+    // textInput에 onFocus되면 placeholder 없애기
+    setPlaceholder("");
+    // 한 번 textInput에 onFocus되고 나면 계속 InputTitle 띄워놓기
+    setDisplayInputTitle(true);
+  };
+
   // 약관 설명 modal창 띄울 것인지 boolean 값
   const [displayModal, setDisplayModal] = useState(false);
+
+  // 이용약관 리스트
+  const [UseAgreements, setUseAgreements] = useState([
+    {
+      id: uuid(),
+      title: UseAgreementsTitle.required,
+      checked: false,
+    },
+    {
+      id: uuid(),
+      title: UseAgreementsTitle.requiredIdentificationService,
+      checked: false,
+    },
+    {
+      id: uuid(),
+      title: UseAgreementsTitle.personalizedService,
+      checked: false,
+    },
+    { id: uuid(), title: UseAgreementsTitle.marketingInfo, checked: false },
+  ]);
+
+  const onToggle = (id: any) => (e: any) => {
+    const check = UseAgreements.map((UseAgreement) =>
+      UseAgreement.id === id
+        ? { ...UseAgreement, checked: !UseAgreement.checked }
+        : UseAgreement
+    );
+    setUseAgreements(check);
+    console.log(check);
+  };
 
   // 휴대폰번호 입력시 자동 하이픈(-) 생성
   const autoHyphen = (value: any) => {
@@ -58,13 +98,6 @@ export default function Join_PhoneNum({ navigation }: any) {
     }
   };
 
-  const onFocusTextInput = () => {
-    // textInput에 onFocus되면 placeholder 없애기
-    setPlaceholder("");
-    // 한 번 textInput에 onFocus되고 나면 계속 InputTitle 띄워놓기
-    setDisplayInputTitle(true);
-  };
-
   if (isLoaded) {
     return (
       <Pressable style={{ flex: 1 }} onPress={() => Keyboard.dismiss()}>
@@ -82,7 +115,7 @@ export default function Join_PhoneNum({ navigation }: any) {
             {/* 반투명 배경 */}
             <View
               style={styles.translucentBackground}
-              onTouchEnd={() => setDisplayModal(false)}
+              onTouchEnd={() => setDisplayModal(false)} // 모달 바깥 부분 클릭 시 모달 닫기
             >
               {/* 약관동의 모달 */}
               <Modal
@@ -90,7 +123,13 @@ export default function Join_PhoneNum({ navigation }: any) {
                 transparent={true}
                 visible={displayModal}
               >
-                <View style={styles.modalContainer}></View>
+                <View style={styles.modalContainer}>
+                  <UseAgreementList
+                    UseAgreements={UseAgreements}
+                    onPress={{}} // onPress는 title 누르면 약관 내용 화면으로 이동
+                    onToggle={onToggle} // onToggle은 체크박스 선택/해제
+                  />
+                </View>
               </Modal>
             </View>
           </Modal>
