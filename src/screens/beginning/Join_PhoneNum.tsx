@@ -123,7 +123,10 @@ export default function Join_PhoneNum({ navigation }: any) {
                 transparent={true}
                 visible={displayModal}
               >
-                <View style={styles.modalContainer}>
+                <View
+                  style={styles.modalContainer}
+                  onTouchEnd={(e) => e.stopPropagation()} // 이벤트 버블링 방지 (모달 클릭해도 모달 닫히는 현상 방지)
+                >
                   <UseAgreementList
                     UseAgreements={UseAgreements}
                     onPress={{}} // onPress는 title 누르면 약관 내용 화면으로 이동
