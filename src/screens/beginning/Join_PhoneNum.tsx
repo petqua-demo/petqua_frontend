@@ -19,6 +19,7 @@ import UseAgreementList from "../../components/UseAgreementList";
 import UseAgreementsTitle from "../../enum/UseAgreementsTitle";
 import images from "../../enum/Images";
 import BoldText from "../../components/BoldText";
+import BlueButtonUnable from "../../components/BlueButtonUnable";
 
 // 인증번호 입력 창에서는 핸드폰번호를 다시 입력할 수 있게 하는 버튼이 없어서
 // 뒤로가기를 하면 핸드폰번호 입력 창으로 돌아갈 수 있도록 화면 분리함.
@@ -45,8 +46,37 @@ export default function Join_PhoneNum({ navigation }: any) {
     setDisplayInputTitle(true);
   };
 
-  // 약관 설명 modal창 띄울 것인지 boolean 값
-  const [displayModal, setDisplayModal] = useState(false);
+  // 휴대폰번호 입력시 자동 하이픈(-) 생성
+  const autoHyphen = (value: any) => {
+    setPhoneNum(
+      value
+        .replace(/[^0-9]/g, "")
+        .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
+        .replace(/(\-{1,2})$/g, "")
+    );
+  };
+
+  // 휴대폰번호 입력 -> 확인 버튼 클릭 시
+  const onClick = () => {
+    console.log(phoneNum);
+    // xxx-xxxx-xxxx 형식 맞는지 확인
+    let regexp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
+    let rightRegexp = regexp.test(phoneNum);
+    console.log(rightRegexp);
+    // 형식이 틀리면 경고 메시지 띄우기
+    if (!rightRegexp) {
+      setPhoneNum(""); // 번호 지우기
+      setPlaceholder(placeholderText.warningText);
+      setPlaceholderTextColor(palette.warning);
+      setDisplayModal(false);
+    } else {
+      // 형식이 올바르면 약관 동의 Modal 띄우기
+      setDisplayModal(true);
+    }
+  };
+
+  const [displayModal, setDisplayModal] = useState(false); // 약관 설명 모달창 띄울 것인지 여부
+  const [agreeOKBtnClickable, setAgreeOKBtnClickable] = useState(false); // 모달 확인 버튼 활성화 여부
 
   // 이용약관 리스트
   const [UseAgreements, setUseAgreements] = useState([
@@ -78,6 +108,8 @@ export default function Join_PhoneNum({ navigation }: any) {
     });
     setUseAgreements(check);
     setAllChecked(!allChecked);
+    // 확인 버튼 활성화할 것인지
+    onToggleOKBtn(check);
   };
 
   const onToggle = (id: any) => (e: any) => {
@@ -94,40 +126,31 @@ export default function Join_PhoneNum({ navigation }: any) {
     check.map((UseAgreement) =>
       UseAgreement.checked ? unchecked : unchecked++
     );
-    console.log(unchecked);
     // 체크가 안 된 항목이 없으면 모두 동의도 체크되게 하기
     if (unchecked == 0) setAllChecked(true);
     // 모두 동의였는데 어떤 항목을 체크 해제할 경우 모두 동의 체크박스 해제
     else setAllChecked(false);
+
+    // 확인 버튼 활성화할 것인지
+    onToggleOKBtn(check);
   };
 
-  // 휴대폰번호 입력시 자동 하이픈(-) 생성
-  const autoHyphen = (value: any) => {
-    setPhoneNum(
-      value
-        .replace(/[^0-9]/g, "")
-        .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
-        .replace(/(\-{1,2})$/g, "")
-    );
-  };
-
-  // 휴대폰번호 입력 -> 확인 버튼 클릭 시
-  const onClick = () => {
-    console.log(phoneNum);
-    // xxx-xxxx-xxxx 형식 맞는지 확인
-    let regexp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
-    let rightRegexp = regexp.test(phoneNum);
-    console.log(rightRegexp);
-    // 형식이 틀리면 경고 메시지 띄우기
-    if (!rightRegexp) {
-      setPhoneNum(""); // 번호 지우기
-      setPlaceholder(placeholderText.warningText);
-      setPlaceholderTextColor(palette.warning);
-      setDisplayModal(false);
-    } else {
-      // 형식이 올바르면 약관 동의 Modal 띄우기
-      setDisplayModal(true);
-    }
+  const onToggleOKBtn = (
+    check: { id: string; title: string; checked: boolean }[]
+  ) => {
+    // 필수 항목 중 체크가 안 된 것의 개수 확인
+    var uncheckedRequired = 0;
+    check.map((UseAgreement) => {
+      // title이 (선택) > 로 끝나지 않은 것들 중 (즉, 필수인 것들 중)
+      if (!UseAgreement.title.endsWith("(선택) >")) {
+        // check되어있지 않으면 uncheckedRequired + 1
+        if (!UseAgreement.checked) uncheckedRequired++;
+      }
+    });
+    console.log(uncheckedRequired);
+    // 필수 항목이 모두 체크되어 있으면 확인 버튼 활성화
+    if (uncheckedRequired == 0) setAgreeOKBtnClickable(true);
+    else setAgreeOKBtnClickable(false);
   };
 
   if (isLoaded) {
@@ -187,6 +210,22 @@ export default function Join_PhoneNum({ navigation }: any) {
                       onPress={{}} // onPress는 title 누르면 약관 내용 화면으로 이동
                       onToggle={onToggle} // onToggle은 체크박스 선택/해제
                     />
+                  </View>
+
+                  {/* 확인 버튼 */}
+                  <View style={{ marginTop: 24 }}>
+                    {agreeOKBtnClickable ? (
+                      <BlueButton
+                        title="확인"
+                        onPress={{}}
+                        buttonStyle={{ width: "100%", height: 50 }}
+                      />
+                    ) : (
+                      <BlueButtonUnable
+                        title="확인"
+                        buttonStyle={{ width: "100%", height: 50 }}
+                      />
+                    )}
                   </View>
                 </View>
               </Modal>
