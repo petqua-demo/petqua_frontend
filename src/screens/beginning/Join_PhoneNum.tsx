@@ -1,5 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Pressable, Keyboard, Modal } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Pressable,
+  Keyboard,
+  Modal,
+  Image,
+} from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useState } from "react";
 import uuid from "react-uuid";
@@ -10,6 +17,8 @@ import InputBox from "../../components/InputBox";
 import palette from "../../styles/ColorPalette";
 import UseAgreementList from "../../components/UseAgreementList";
 import UseAgreementsTitle from "../../enum/UseAgreementsTitle";
+import images from "../../enum/Images";
+import BoldText from "../../components/BoldText";
 
 // 인증번호 입력 창에서는 핸드폰번호를 다시 입력할 수 있게 하는 버튼이 없어서
 // 뒤로가기를 하면 핸드폰번호 입력 창으로 돌아갈 수 있도록 화면 분리함.
@@ -59,14 +68,37 @@ export default function Join_PhoneNum({ navigation }: any) {
     { id: uuid(), title: UseAgreementsTitle.marketingInfo, checked: false },
   ]);
 
+  // 모두 동의 체크 여부
+  const [allChecked, setAllChecked] = useState(false);
+
+  // 모두 동의하기 클릭 시
+  const agreeAll = () => {
+    const check = UseAgreements.map((UseAgreement) => {
+      return { ...UseAgreement, checked: !allChecked };
+    });
+    setUseAgreements(check);
+    setAllChecked(!allChecked);
+  };
+
   const onToggle = (id: any) => (e: any) => {
+    // 선택한 항목의 id 받아와서 해당 항목 체크
     const check = UseAgreements.map((UseAgreement) =>
       UseAgreement.id === id
         ? { ...UseAgreement, checked: !UseAgreement.checked }
         : UseAgreement
     );
     setUseAgreements(check);
-    console.log(check);
+
+    // 체크가 안 된 항목의 개수 확인
+    var unchecked = 0;
+    check.map((UseAgreement) =>
+      UseAgreement.checked ? unchecked : unchecked++
+    );
+    console.log(unchecked);
+    // 체크가 안 된 항목이 없으면 모두 동의도 체크되게 하기
+    if (unchecked == 0) setAllChecked(true);
+    // 모두 동의였는데 어떤 항목을 체크 해제할 경우 모두 동의 체크박스 해제
+    else setAllChecked(false);
   };
 
   // 휴대폰번호 입력시 자동 하이픈(-) 생성
@@ -127,11 +159,35 @@ export default function Join_PhoneNum({ navigation }: any) {
                   style={styles.modalContainer}
                   onTouchEnd={(e) => e.stopPropagation()} // 이벤트 버블링 방지 (모달 클릭해도 모달 닫히는 현상 방지)
                 >
-                  <UseAgreementList
-                    UseAgreements={UseAgreements}
-                    onPress={{}} // onPress는 title 누르면 약관 내용 화면으로 이동
-                    onToggle={onToggle} // onToggle은 체크박스 선택/해제
-                  />
+                  {/* 모두 동의 */}
+                  <View
+                    onTouchEnd={() => agreeAll()}
+                    style={styles.allAgreeContainer}
+                  >
+                    {allChecked ? (
+                      <Image
+                        source={images.useAgreementBigCheckBoxChecked}
+                        style={{ width: 48, height: 48, marginRight: 18 }}
+                      />
+                    ) : (
+                      <Image
+                        source={images.useAgreementBigCheckBoxUnchecked}
+                        style={{ width: 48, height: 48, marginRight: 18 }}
+                      />
+                    )}
+                    <BoldText style={{ fontSize: 16 }}>
+                      약관에 모두 동의
+                    </BoldText>
+                  </View>
+
+                  {/* 약관 리스트 */}
+                  <View style={{ marginHorizontal: 8 }}>
+                    <UseAgreementList
+                      UseAgreements={UseAgreements}
+                      onPress={{}} // onPress는 title 누르면 약관 내용 화면으로 이동
+                      onToggle={onToggle} // onToggle은 체크박스 선택/해제
+                    />
+                  </View>
                 </View>
               </Modal>
             </View>
@@ -190,10 +246,22 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: "#fff",
     paddingTop: 24,
-    paddingHorizontal: 21,
+    paddingHorizontal: 15,
     paddingBottom: 50,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
+  },
+  allAgreeContainer: {
+    marginHorizontal: 6,
+    marginBottom: 26,
+    paddingVertical: 18,
+    paddingHorizontal: 14,
+    alignItems: "center",
+    flexDirection: "row",
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: palette.lightGray,
+    backgroundColor: "#ffffff",
   },
   content: {
     marginHorizontal: 24,
