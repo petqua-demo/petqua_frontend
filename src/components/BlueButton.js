@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet } from "react-native";
 import palette from "../styles/ColorPalette";
-import Text from "./DefaultText";
+import BoldText from "./BoldText";
 
 const BlueButton = ({ title, onPress, buttonStyle }) => {
   return (
@@ -17,7 +17,7 @@ const BlueButton = ({ title, onPress, buttonStyle }) => {
       ]}
       onPressOut={onPress}
     >
-      <Text style={styles.title}>{title}</Text>
+      <BoldText style={styles.title}>{title}</BoldText>
     </Pressable>
   );
 };
