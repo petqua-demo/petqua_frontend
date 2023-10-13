@@ -153,6 +153,11 @@ export default function Join_PhoneNum({ navigation }: any) {
     else setAgreeOKBtnClickable(false);
   };
 
+  const movePage = () => {
+    setDisplayModal(false);
+    navigation.navigate("Join_VerificationNum");
+  };
+
   if (isLoaded) {
     return (
       <Pressable style={{ flex: 1 }} onPress={() => Keyboard.dismiss()}>
@@ -217,7 +222,7 @@ export default function Join_PhoneNum({ navigation }: any) {
                     {agreeOKBtnClickable ? (
                       <BlueButton
                         title="확인"
-                        onPress={{}}
+                        onPress={movePage}
                         buttonStyle={{ width: "100%", height: 50 }}
                       />
                     ) : (

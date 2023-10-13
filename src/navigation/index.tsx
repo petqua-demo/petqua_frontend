@@ -5,7 +5,9 @@ import { StyleSheet, Image } from "react-native";
 import useCachedResources from "../useCachedResources";
 
 import images from "../enum/Images";
-import Join from "../screens/beginning/Join";
+// import Join from "../screens/beginning/Join";
+import Join_PhoneNum from "../screens/beginning/Join_PhoneNum";
+import Join_VerificationNum from "../screens/beginning/Join_VerificationNum";
 import Login from "../screens/beginning/Login";
 import Selling from "../screens/selling/Selling";
 import FishPosting from "../screens/posting/FishPosting";
@@ -28,11 +30,16 @@ export default function Navigation() {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="BottomTabNav"
+          initialRouteName="Join_PhoneNum"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Join" component={Join} />
+          {/* <Stack.Screen name="Join" component={Join} /> */}
+          <Stack.Screen name="Join_PhoneNum" component={Join_PhoneNum} />
+          <Stack.Screen
+            name="Join_VerificationNum"
+            component={Join_VerificationNum}
+          />
           <Stack.Screen name="BottomTabNav" component={BottomTabNav} />
           <Stack.Screen name="FishPosting" component={FishPosting} />
           <Stack.Screen name="GoodsPosting" component={GoodsPosting} />
