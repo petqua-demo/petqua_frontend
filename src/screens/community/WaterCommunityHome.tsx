@@ -9,6 +9,7 @@ import {
   Platform,
   SafeAreaView,
   FlatList,
+  ScrollView,
 } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useCallback, useEffect, useState } from "react";
@@ -21,6 +22,7 @@ import images from "../../enum/Images";
 import CommunityPostingItem from "../../components/CommunityPostingItem";
 import CommunityPostingCategories from "../../enum/CommunityPostingCategories";
 import CommunityCategoryImageIcon from "../../components/CommunityCategoryImageIcon";
+import CommunityCategoryList from "../../components/CommunityCategoryList";
 
 export default function WaterCommunityHome({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -31,42 +33,34 @@ export default function WaterCommunityHome({ navigation }: any) {
   // 커뮤니티 카테고리 목록
   const CategoryData = [
     {
-      onPress: {},
       imageSrc: images.itemImageExample,
       title: CommunityPostingCategories.disease,
     },
     {
-      onPress: {},
       imageSrc: images.itemImageExample,
       title: CommunityPostingCategories.introductory,
     },
     {
-      onPress: {},
       imageSrc: images.itemImageExample,
       title: CommunityPostingCategories.waterManagement,
     },
     {
-      onPress: {},
       imageSrc: images.itemImageExample,
       title: CommunityPostingCategories.species,
     },
     {
-      onPress: {},
       imageSrc: images.itemImageExample,
       title: CommunityPostingCategories.goods,
     },
     {
-      onPress: {},
       imageSrc: images.itemImageExample,
       title: CommunityPostingCategories.raise,
     },
     {
-      onPress: {},
       imageSrc: images.itemImageExample,
       title: CommunityPostingCategories.report,
     },
     {
-      onPress: {},
       imageSrc: images.itemImageExample,
       title: CommunityPostingCategories.other,
     },
@@ -101,7 +95,6 @@ export default function WaterCommunityHome({ navigation }: any) {
       comment: "129",
       heart: "9",
       scrap: "123",
-      onPress: {},
     },
     {
       id: uuid(),
@@ -114,7 +107,6 @@ export default function WaterCommunityHome({ navigation }: any) {
       comment: "129",
       heart: "9",
       scrap: "123",
-      onPress: {},
     },
     {
       id: uuid(),
@@ -127,7 +119,6 @@ export default function WaterCommunityHome({ navigation }: any) {
       comment: "129",
       heart: "9",
       scrap: "123",
-      onPress: {},
     },
     {
       id: uuid(),
@@ -140,7 +131,6 @@ export default function WaterCommunityHome({ navigation }: any) {
       comment: "129",
       heart: "9",
       scrap: "123",
-      onPress: {},
     },
     {
       id: uuid(),
@@ -153,7 +143,6 @@ export default function WaterCommunityHome({ navigation }: any) {
       comment: "129",
       heart: "9",
       scrap: "123",
-      onPress: {},
     },
     {
       id: uuid(),
@@ -166,7 +155,6 @@ export default function WaterCommunityHome({ navigation }: any) {
       comment: "129",
       heart: "9",
       scrap: "123",
-      onPress: {},
     },
   ]);
 
@@ -236,48 +224,37 @@ export default function WaterCommunityHome({ navigation }: any) {
               </Pressable>
             </View>
           </View>
-          <View style={styles.content}>
-            {/* 카테고리 */}
-            <View style={styles.imageCategoryContainer}>
-              <FlatList
-                data={CategoryData}
-                // 레이아웃이 만들어졌을 때, 현재 요소가 가지고 있는 width 크기 가져오기
-                // onLayout={e => setContainerWidth(e.nativeEvent.layout.width)}
-                renderItem={({ item }) => (
-                  <CategoryItem
-                    onPress={item.onPress}
-                    imageSrc={item.imageSrc}
-                    title={item.title}
-                  />
-                )}
-                numColumns={numColumns}
-                columnWrapperStyle={{ justifyContent: "space-between" }}
+          <SafeAreaView style={{ marginTop: 25, marginBottom: 50 }}>
+            <ScrollView style={styles.content}>
+              {/* 카테고리 */}
+              <View style={styles.imageCategoryContainer}>
+                <CommunityCategoryList
+                  CommunityCategories={CategoryData}
+                  onPress={{}} // onPress -> 해당 글로 이동
+                />
+              </View>
+              {/* 배너 광고 */}
+              <Image source={images.petqua_logo} style={styles.bannerAD} />
+              {/* 구분선 */}
+              <View
+                style={{
+                  backgroundColor: "#F5F5F5",
+                  width: "120%",
+                  height: 1,
+                  marginHorizontal: -15,
+                }}
               />
-            </View>
-            {/* 배너 광고 */}
-            <View></View>
-            {/* 구분선 */}
-            <View
-              style={{
-                backgroundColor: "#F5F5F5",
-                width: "100%",
-                height: 1,
-              }}
-            />
-            {/* 인기글 */}
-            <SafeAreaView style={{ marginTop: 25, marginBottom: 50 }}>
+              {/* 인기글 */}
+              <BoldText style={{ fontSize: 14, color: palette.gray4 }}>
+                인기글
+              </BoldText>
               <FlatList
                 data={bestPostingData}
                 renderItem={renderItem}
                 keyExtractor={keyExtractor}
-              >
-                <BoldText style={{ fontSize: 14, color: palette.gray4 }}>
-                  인기글
-                </BoldText>
-              </FlatList>
-              {/* /> */}
-            </SafeAreaView>
-          </View>
+              />
+            </ScrollView>
+          </SafeAreaView>
         </KeyboardAvoidingView>
       </Pressable>
     );
@@ -308,5 +285,12 @@ const styles = StyleSheet.create({
   imageCategoryContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
+  },
+  bannerAD: {
+    width: "100%",
+    height: 65,
+    marginTop: 31,
+    marginBottom: 28,
+    borderRadius: 5,
   },
 });
