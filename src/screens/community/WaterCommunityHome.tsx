@@ -19,9 +19,9 @@ import Text from "../../components/DefaultText";
 import BoldText from "../../components/BoldText";
 import palette from "../../styles/ColorPalette";
 import images from "../../enum/Images";
-import CommunityPostingItem from "../../components/CommunityPostingItem";
 import CommunityPostingCategories from "../../enum/CommunityPostingCategories";
 import CommunityCategoryImageIcon from "../../components/CommunityCategoryImageIcon";
+import BestPostingList from "../../components/BestPostingList";
 import CommunityCategoryList from "../../components/CommunityCategoryList";
 
 export default function WaterCommunityHome({ navigation }: any) {
@@ -165,24 +165,6 @@ export default function WaterCommunityHome({ navigation }: any) {
     getBestPostingData();
   }, []);
 
-  const renderItem = useCallback(
-    ({ item }: { item: any }) => (
-      <CommunityPostingItem
-        id={item.id}
-        category={item.category}
-        title={item.title}
-        content={item.content}
-        date={item.date}
-        howLong={item.howLong}
-        comment={item.comment}
-        heart={item.heart}
-        scrap={item.scrap}
-        onPress={{}}
-        // onPress -> 해당 글로 이동
-      />
-    ),
-    []
-  );
   const keyExtractor = useCallback((item: any) => item.id, []);
 
   if (isLoaded) {
@@ -248,10 +230,9 @@ export default function WaterCommunityHome({ navigation }: any) {
               <BoldText style={{ fontSize: 14, color: palette.gray4 }}>
                 인기글
               </BoldText>
-              <FlatList
-                data={bestPostingData}
-                renderItem={renderItem}
-                keyExtractor={keyExtractor}
+              <BestPostingList
+                BestPostings={bestPostingData}
+                onPress={{}} // onPress -> 해당 글로 이동
               />
             </ScrollView>
           </SafeAreaView>
