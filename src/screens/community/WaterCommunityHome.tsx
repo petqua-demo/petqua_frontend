@@ -207,34 +207,57 @@ export default function WaterCommunityHome({ navigation }: any) {
               </Pressable>
             </View>
           </View>
-          <SafeAreaView style={{ marginTop: 25, marginBottom: 50 }}>
-            <ScrollView style={styles.content}>
-              {/* 카테고리 */}
-              <View style={styles.imageCategoryContainer}>
-                <CommunityCategoryList
-                  CommunityCategories={CategoryData}
-                  onPress={{}} // onPress -> 해당 글로 이동
-                />
+          <SafeAreaView style={{ marginBottom: 100 }}>
+            <ScrollView>
+              <View style={[styles.contentMargin, { marginTop: 30 }]}>
+                {/* 카테고리 */}
+                <View style={styles.imageCategoryContainer}>
+                  <CommunityCategoryList
+                    CommunityCategories={CategoryData}
+                    onPress={{}} // onPress -> 해당 글로 이동
+                  />
+                </View>
               </View>
-              {/* 배너 광고 */}
-              <Image source={images.petqua_logo} style={styles.bannerAD} />
-              {/* 구분선 */}
-              <View
+              <View // 구분선
                 style={{
                   backgroundColor: "#F5F5F5",
                   width: "120%",
                   height: 1,
-                  marginHorizontal: -15,
+                  marginTop: 8,
+                }}
+              />
+              {/* 배너 광고 */}
+              <View style={styles.contentMargin}>
+                <Text
+                  style={{
+                    fontSize: 12,
+                    color: palette.gray4,
+                    marginVertical: 12,
+                  }}
+                >
+                  펫쿠아 소식 더보기 {">"}
+                </Text>
+                <Image source={images.petqua_logo} style={styles.bannerAD} />
+              </View>
+              <View // 구분선
+                style={{
+                  backgroundColor: "#F5F5F5",
+                  width: "120%",
+                  height: 1,
                 }}
               />
               {/* 인기글 */}
-              <BoldText style={{ fontSize: 14, color: palette.gray4 }}>
-                인기글
-              </BoldText>
-              <BestPostingList
-                BestPostings={bestPostingData}
-                onPress={{}} // onPress -> 해당 글로 이동
-              />
+              <View style={styles.contentMargin}>
+                <BoldText
+                  style={{ fontSize: 14, color: palette.gray4, marginTop: 25 }}
+                >
+                  인기글
+                </BoldText>
+                <BestPostingList
+                  BestPostings={bestPostingData}
+                  onPress={{}} // onPress -> 해당 글로 이동
+                />
+              </View>
             </ScrollView>
           </SafeAreaView>
         </KeyboardAvoidingView>
@@ -259,10 +282,8 @@ const styles = StyleSheet.create({
     borderBottomColor: palette.gray2,
     borderBottomWidth: 0.5,
   },
-  content: {
+  contentMargin: {
     marginHorizontal: 15,
-    marginTop: 26,
-    marginBottom: 60,
   },
   imageCategoryContainer: {
     flexDirection: "row",
@@ -271,8 +292,7 @@ const styles = StyleSheet.create({
   bannerAD: {
     width: "100%",
     height: 65,
-    marginTop: 31,
-    marginBottom: 28,
+    marginBottom: 20,
     borderRadius: 5,
   },
 });
