@@ -1,4 +1,4 @@
-const CommunityPostingCategories = {
+const CommunityPostingCategoriesTitle = {
   all: "전체",
   disease: "질병",
   waterManagement: "여과/수질",
@@ -9,4 +9,4 @@ const CommunityPostingCategories = {
   free: "자유게시판",
 };
 
-export default CommunityPostingCategories;
+export default CommunityPostingCategoriesTitle;

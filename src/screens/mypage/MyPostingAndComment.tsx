@@ -14,7 +14,7 @@ import Text from "../../components/DefaultText";
 import palette from "../../styles/ColorPalette";
 import BoldText from "../../components/BoldText";
 import CommunityPostingItem from "../../components/CommunityPostingItem";
-import CommunityPostingCategories from "../../enum/CommunityPostingCategories";
+import CommunityPostingCategoriesTitle from "../../enum/CommunityPostingCategoriesTitle";
 
 export const Categories = {
   all: "전체",
@@ -31,7 +31,7 @@ export default function MyPostingAndComment({ navigation }: any) {
   const [allData, setAllData] = useState([
     {
       id: uuid(),
-      category: CommunityPostingCategories.disease,
+      category: CommunityPostingCategoriesTitle.disease,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -44,7 +44,7 @@ export default function MyPostingAndComment({ navigation }: any) {
     },
     {
       id: uuid(),
-      category: CommunityPostingCategories.disease,
+      category: CommunityPostingCategoriesTitle.disease,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -57,7 +57,7 @@ export default function MyPostingAndComment({ navigation }: any) {
     },
     {
       id: uuid(),
-      category: CommunityPostingCategories.goods,
+      category: CommunityPostingCategoriesTitle.goods,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -80,7 +80,7 @@ export default function MyPostingAndComment({ navigation }: any) {
   const [postingData, setPostingData] = useState([
     {
       id: uuid(),
-      category: CommunityPostingCategories.disease,
+      category: CommunityPostingCategoriesTitle.disease,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -93,7 +93,7 @@ export default function MyPostingAndComment({ navigation }: any) {
     },
     {
       id: uuid(),
-      category: CommunityPostingCategories.disease,
+      category: CommunityPostingCategoriesTitle.disease,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",

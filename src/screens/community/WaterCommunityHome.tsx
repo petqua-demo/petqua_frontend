@@ -19,7 +19,7 @@ import Text from "../../components/DefaultText";
 import BoldText from "../../components/BoldText";
 import palette from "../../styles/ColorPalette";
 import images from "../../enum/Images";
-import CommunityPostingCategories from "../../enum/CommunityPostingCategories";
+import CommunityPostingCategoriesTitle from "../../enum/CommunityPostingCategoriesTitle";
 import CommunityCategoryImageIcon from "../../components/CommunityCategoryImageIcon";
 import BestPostingList from "../../components/BestPostingList";
 import CommunityCategoryList from "../../components/CommunityCategoryList";
@@ -34,35 +34,35 @@ export default function WaterCommunityHome({ navigation }: any) {
   const CategoryData = [
     {
       imageSrc: images.itemImageExample,
-      title: CommunityPostingCategories.all,
+      title: CommunityPostingCategoriesTitle.all,
     },
     {
       imageSrc: images.itemImageExample,
-      title: CommunityPostingCategories.disease,
+      title: CommunityPostingCategoriesTitle.disease,
     },
     {
       imageSrc: images.itemImageExample,
-      title: CommunityPostingCategories.waterManagement,
+      title: CommunityPostingCategoriesTitle.waterManagement,
     },
     {
       imageSrc: images.itemImageExample,
-      title: CommunityPostingCategories.species,
+      title: CommunityPostingCategoriesTitle.species,
     },
     {
       imageSrc: images.itemImageExample,
-      title: CommunityPostingCategories.goods,
+      title: CommunityPostingCategoriesTitle.goods,
     },
     {
       imageSrc: images.itemImageExample,
-      title: CommunityPostingCategories.raise,
+      title: CommunityPostingCategoriesTitle.raise,
     },
     {
       imageSrc: images.itemImageExample,
-      title: CommunityPostingCategories.feed,
+      title: CommunityPostingCategoriesTitle.feed,
     },
     {
       imageSrc: images.itemImageExample,
-      title: CommunityPostingCategories.free,
+      title: CommunityPostingCategoriesTitle.free,
     },
   ];
 
@@ -86,7 +86,7 @@ export default function WaterCommunityHome({ navigation }: any) {
   const [bestPostingData, setBestPostingData] = useState([
     {
       id: uuid(),
-      category: CommunityPostingCategories.disease,
+      category: CommunityPostingCategoriesTitle.disease,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -98,7 +98,7 @@ export default function WaterCommunityHome({ navigation }: any) {
     },
     {
       id: uuid(),
-      category: CommunityPostingCategories.disease,
+      category: CommunityPostingCategoriesTitle.disease,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -110,7 +110,7 @@ export default function WaterCommunityHome({ navigation }: any) {
     },
     {
       id: uuid(),
-      category: CommunityPostingCategories.goods,
+      category: CommunityPostingCategoriesTitle.goods,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -122,7 +122,7 @@ export default function WaterCommunityHome({ navigation }: any) {
     },
     {
       id: uuid(),
-      category: CommunityPostingCategories.disease,
+      category: CommunityPostingCategoriesTitle.disease,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -134,7 +134,7 @@ export default function WaterCommunityHome({ navigation }: any) {
     },
     {
       id: uuid(),
-      category: CommunityPostingCategories.disease,
+      category: CommunityPostingCategoriesTitle.disease,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -146,7 +146,7 @@ export default function WaterCommunityHome({ navigation }: any) {
     },
     {
       id: uuid(),
-      category: CommunityPostingCategories.goods,
+      category: CommunityPostingCategoriesTitle.goods,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
