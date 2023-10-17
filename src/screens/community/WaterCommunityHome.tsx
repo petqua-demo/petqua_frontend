@@ -183,6 +183,7 @@ export default function WaterCommunityHome({ navigation }: any) {
                 width: "100%",
                 position: "absolute",
                 alignItems: "center",
+                paddingBottom: 20,
               }}
             >
               <BoldText style={{ fontSize: 16, color: palette.gray3 }}>
@@ -251,11 +252,11 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: "row",
-    height: 50,
+    paddingBottom: 20,
     marginTop: 55,
     justifyContent: "flex-end",
     alignItems: "center",
-    borderBottomColor: palette.gray4,
+    borderBottomColor: palette.gray2,
     borderBottomWidth: 0.5,
   },
   content: {
