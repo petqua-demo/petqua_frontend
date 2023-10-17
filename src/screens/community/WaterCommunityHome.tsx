@@ -23,64 +23,13 @@ import CommunityPostingCategoriesTitle from "../../enum/CommunityPostingCategori
 import CommunityCategoryImageIcon from "../../components/CommunityCategoryImageIcon";
 import BestPostingList from "../../components/BestPostingList";
 import CommunityCategoryList from "../../components/CommunityCategoryList";
+import CategoryData from "../../enum/CommunityPostingCategoryData";
 
 export default function WaterCommunityHome({ navigation }: any) {
   const isLoaded = useCachedResources();
 
   // 한 줄에 배치하는 카테고리 수
   const numColumns = 4;
-
-  // 커뮤니티 카테고리 목록
-  const CategoryData = [
-    {
-      imageSrc: images.itemImageExample,
-      title: CommunityPostingCategoriesTitle.all,
-    },
-    {
-      imageSrc: images.itemImageExample,
-      title: CommunityPostingCategoriesTitle.disease,
-    },
-    {
-      imageSrc: images.itemImageExample,
-      title: CommunityPostingCategoriesTitle.waterManagement,
-    },
-    {
-      imageSrc: images.itemImageExample,
-      title: CommunityPostingCategoriesTitle.species,
-    },
-    {
-      imageSrc: images.itemImageExample,
-      title: CommunityPostingCategoriesTitle.goods,
-    },
-    {
-      imageSrc: images.itemImageExample,
-      title: CommunityPostingCategoriesTitle.raise,
-    },
-    {
-      imageSrc: images.itemImageExample,
-      title: CommunityPostingCategoriesTitle.feed,
-    },
-    {
-      imageSrc: images.itemImageExample,
-      title: CommunityPostingCategoriesTitle.free,
-    },
-  ];
-
-  const CategoryItem = ({
-    onPress,
-    imageSrc,
-    title,
-  }: {
-    onPress: any;
-    imageSrc: any;
-    title: any;
-  }) => (
-    <CommunityCategoryImageIcon
-      onPress={onPress}
-      imageSrc={imageSrc}
-      title={title}
-    />
-  );
 
   // 나중에 DB 연결 후 인기글 목록 가져오기
   const [bestPostingData, setBestPostingData] = useState([
