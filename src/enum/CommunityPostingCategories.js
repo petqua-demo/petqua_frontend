@@ -1,12 +1,12 @@
 const CommunityPostingCategories = {
+  all: "전체",
   disease: "질병",
-  introductory: "입문",
   waterManagement: "여과/수질",
   raise: "사육/번식",
-  goods: "용품/사료",
+  goods: "용품",
   species: "어종",
-  report: "신고/제보",
-  other: "기타",
+  feed: "사료",
+  free: "자유게시판",
 };
 
 export default CommunityPostingCategories;

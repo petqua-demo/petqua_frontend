@@ -34,11 +34,11 @@ export default function WaterCommunityHome({ navigation }: any) {
   const CategoryData = [
     {
       imageSrc: images.itemImageExample,
-      title: CommunityPostingCategories.disease,
+      title: CommunityPostingCategories.all,
     },
     {
       imageSrc: images.itemImageExample,
-      title: CommunityPostingCategories.introductory,
+      title: CommunityPostingCategories.disease,
     },
     {
       imageSrc: images.itemImageExample,
@@ -58,11 +58,11 @@ export default function WaterCommunityHome({ navigation }: any) {
     },
     {
       imageSrc: images.itemImageExample,
-      title: CommunityPostingCategories.report,
+      title: CommunityPostingCategories.feed,
     },
     {
       imageSrc: images.itemImageExample,
-      title: CommunityPostingCategories.other,
+      title: CommunityPostingCategories.free,
     },
   ];
 

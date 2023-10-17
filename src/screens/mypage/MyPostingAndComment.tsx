@@ -80,7 +80,7 @@ export default function MyPostingAndComment({ navigation }: any) {
   const [postingData, setPostingData] = useState([
     {
       id: uuid(),
-      category: CommunityPostingCategories.introductory,
+      category: CommunityPostingCategories.disease,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
@@ -93,7 +93,7 @@ export default function MyPostingAndComment({ navigation }: any) {
     },
     {
       id: uuid(),
-      category: CommunityPostingCategories.introductory,
+      category: CommunityPostingCategories.disease,
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",

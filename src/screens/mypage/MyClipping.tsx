@@ -111,14 +111,12 @@ export default function MyClipping({ navigation }: any) {
             style={{ marginRight: -15 }}
           >
             <CommunityCategoryButton
-              title={CommunityPostingCategories.disease}
-              onPress={() => setCategory(CommunityPostingCategories.disease)}
+              title={CommunityPostingCategories.all}
+              onPress={() => setCategory(CommunityPostingCategories.all)}
             />
             <CommunityCategoryButton
-              title={CommunityPostingCategories.introductory}
-              onPress={() =>
-                setCategory(CommunityPostingCategories.introductory)
-              }
+              title={CommunityPostingCategories.disease}
+              onPress={() => setCategory(CommunityPostingCategories.disease)}
             />
             <CommunityCategoryButton
               title={CommunityPostingCategories.waterManagement}
@@ -127,24 +125,24 @@ export default function MyClipping({ navigation }: any) {
               }
             />
             <CommunityCategoryButton
-              title={CommunityPostingCategories.raise}
-              onPress={() => setCategory(CommunityPostingCategories.raise)}
+              title={CommunityPostingCategories.species}
+              onPress={() => setCategory(CommunityPostingCategories.species)}
             />
             <CommunityCategoryButton
               title={CommunityPostingCategories.goods}
               onPress={() => setCategory(CommunityPostingCategories.goods)}
             />
             <CommunityCategoryButton
-              title={CommunityPostingCategories.species}
-              onPress={() => setCategory(CommunityPostingCategories.species)}
+              title={CommunityPostingCategories.raise}
+              onPress={() => setCategory(CommunityPostingCategories.raise)}
             />
             <CommunityCategoryButton
-              title={CommunityPostingCategories.report}
-              onPress={() => setCategory(CommunityPostingCategories.report)}
+              title={CommunityPostingCategories.feed}
+              onPress={() => setCategory(CommunityPostingCategories.feed)}
             />
             <CommunityCategoryButton
-              title={CommunityPostingCategories.other}
-              onPress={() => setCategory(CommunityPostingCategories.other)}
+              title={CommunityPostingCategories.free}
+              onPress={() => setCategory(CommunityPostingCategories.free)}
             />
           </ScrollView>
           {/* 내가 스크랩한 글 리스트 */}
