@@ -13,6 +13,7 @@ export default function useCachedResources() {
           "pretendard-bold": require("../assets/fonts/Pretendard-Bold.otf"),
           "pretendard-medium": require("../assets/fonts/Pretendard-Medium.otf"),
           "pretendard-extraBold": require("../assets/fonts/Pretendard-ExtraBold.otf"),
+          "pretendard-semiBold": require("../assets/fonts/Pretendard-SemiBold.otf"),
         });
       } catch (e) {
         console.warn(e);
