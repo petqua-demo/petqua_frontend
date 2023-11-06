@@ -37,12 +37,12 @@ const CommunityPostingItem = ({
         <View style={styles.subInfo}>
           <Image
             source={images.commentIcon}
-            style={{ width: 15, height: 13, marginRight: 4 }}
+            style={{ width: 20, height: 15, marginRight: 4 }}
           />
           <LightText
             style={{
-              fontSize: 12,
-              color: palette.gray4,
+              fontSize: 14,
+              color: palette.mainGray,
               marginRight: 13,
             }}
           >
@@ -50,12 +50,12 @@ const CommunityPostingItem = ({
           </LightText>
           <Image
             source={images.heartIcon}
-            style={{ width: 14, height: 13, marginRight: 4 }}
+            style={{ width: 18, height: 16, marginRight: 4 }}
           />
           <LightText
             style={{
-              fontSize: 12,
-              color: palette.gray4,
+              fontSize: 14,
+              color: palette.mainGray,
               marginRight: 13,
             }}
           >
@@ -63,12 +63,12 @@ const CommunityPostingItem = ({
           </LightText>
           <Image
             source={images.scrapIcon}
-            style={{ width: 10, height: 13, marginRight: 4 }}
+            style={{ width: 10.5, height: 15, marginRight: 4 }}
           />
           <LightText
             style={{
-              fontSize: 12,
-              color: palette.gray4,
+              fontSize: 14,
+              color: palette.mainGray,
             }}
           >
             {scrap}
@@ -85,11 +85,11 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#ffffff",
     borderBottomWidth: 0.5,
-    borderBottomColor: palette.gray2,
+    borderBottomColor: palette.gray3,
   },
   mainText: {
     fontSize: 16,
-    color: palette.gray4,
+    color: palette.mainGray,
   },
   subInfo: {
     flexDirection: "row",
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
   textSubInfo: {
     fontSize: 12,
-    color: palette.gray4,
+    color: palette.mainGray,
   },
   dividingLine: {
     width: 0.5,
