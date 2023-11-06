@@ -11,6 +11,7 @@ const CommunityPostingItem = ({
   category,
   title,
   content,
+  imgSrc,
   date,
   howLong,
   comment,
@@ -20,19 +21,41 @@ const CommunityPostingItem = ({
 }) => {
   return (
     <Pressable style={styles.container} onPress={onPress}>
-      <View>
-        {/* 카테고리 분류 */}
-        <View style={{ marginBottom: 7 }}>
-          <CommunityCategoryRect title={category} />
+      {imgSrc != null ? ( // 이미지가 있는 게시글이라면
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          {/* 제목, 내용을 왼쪽 70%만 배치 */}
+          <View style={{ width: "70%" }}>
+            {/* 카테고리 분류 */}
+            <View style={{ marginBottom: 7 }}>
+              <CommunityCategoryRect title={category} />
+            </View>
+            {/* main info - title, content */}
+            <SemiBoldText style={styles.titleText} numberOfLines={2}>
+              {title}
+            </SemiBoldText>
+            <Text style={styles.mainText} numberOfLines={1}>
+              {content}
+            </Text>
+          </View>
+          {/* 이미지 */}
+          <Image style={styles.image} source={imgSrc} />
         </View>
-        {/* main info - title, content */}
-        <SemiBoldText style={styles.titleText} numberOfLines={2}>
-          {title}
-        </SemiBoldText>
-        <Text style={styles.mainText} numberOfLines={1}>
-          {content}
-        </Text>
-      </View>
+      ) : (
+        // 이미지가 없는 게시글
+        <View>
+          {/* 카테고리 분류 */}
+          <View style={{ marginBottom: 7 }}>
+            <CommunityCategoryRect title={category} />
+          </View>
+          {/* main info - title, content */}
+          <SemiBoldText style={styles.titleText} numberOfLines={2}>
+            {title}
+          </SemiBoldText>
+          <Text style={styles.mainText} numberOfLines={1}>
+            {content}
+          </Text>
+        </View>
+      )}
       {/* sub info */}
       <View style={[styles.subInfo, { marginTop: 17 }]}>
         <View style={styles.subInfo}>
@@ -107,6 +130,11 @@ const styles = StyleSheet.create({
   mainText: {
     fontSize: 14,
     color: palette.mainGray,
+  },
+  image: {
+    width: 80,
+    aspectRatio: 1, // 높이를 width와 똑같이 해주기위함
+    borderRadius: 10,
   },
   subInfo: {
     flexDirection: "row",
