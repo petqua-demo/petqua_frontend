@@ -33,14 +33,18 @@ const CommunityPostingItem = ({
           {content}
         </Text>
       </View>
+      {/* sub info */}
       <View style={[styles.subInfo, { marginTop: 17 }]}>
         <View style={styles.subInfo}>
+          {/* 날짜 */}
           <Text style={styles.textSubInfo}>{date}</Text>
           {/* 구분선 */}
           <View style={styles.dividingLine} />
+          {/* 몇 시간 전 게시글인지 */}
           <Text style={styles.textSubInfo}>{howLong}</Text>
         </View>
         <View style={styles.subInfo}>
+          {/* 댓글 */}
           <Image
             source={images.commentIcon}
             style={{ width: 20, height: 15, marginRight: 4 }}
@@ -54,6 +58,7 @@ const CommunityPostingItem = ({
           >
             {comment}
           </LightText>
+          {/* 하트 */}
           <Image
             source={images.heartIcon}
             style={{ width: 18, height: 16, marginRight: 4 }}
@@ -67,6 +72,7 @@ const CommunityPostingItem = ({
           >
             {heart}
           </LightText>
+          {/* 스크랩 */}
           <Image
             source={images.scrapIcon}
             style={{ width: 10.5, height: 15, marginRight: 4 }}
