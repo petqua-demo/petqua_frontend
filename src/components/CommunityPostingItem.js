@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Image, View } from "react-native";
 import Text from "./DefaultText";
-import BoldText from "./BoldText";
+import SemiBoldText from "./SemiBoldText";
 import LightText from "./LightText";
 import palette from "../styles/ColorPalette";
 import images from "../enum/Images";
@@ -20,13 +20,19 @@ const CommunityPostingItem = ({
 }) => {
   return (
     <Pressable style={styles.container} onPress={onPress}>
-      <View style={{ flexDirection: "row", marginBottom: 14 }}>
-        <View style={{ marginRight: 10 }}>
+      <View>
+        {/* 카테고리 분류 */}
+        <View style={{ marginBottom: 7 }}>
           <CommunityCategoryRect title={category} />
         </View>
-        <BoldText style={styles.mainText}>{title}</BoldText>
+        {/* main info - title, content */}
+        <SemiBoldText style={styles.titleText} numberOfLines={2}>
+          {title}
+        </SemiBoldText>
+        <Text style={styles.mainText} numberOfLines={1}>
+          {content}
+        </Text>
       </View>
-      <LightText style={styles.mainText}>{content}</LightText>
       <View style={[styles.subInfo, { marginTop: 17 }]}>
         <View style={styles.subInfo}>
           <Text style={styles.textSubInfo}>{date}</Text>
@@ -81,14 +87,19 @@ const CommunityPostingItem = ({
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 25,
+    paddingVertical: 15,
     width: "100%",
     backgroundColor: "#ffffff",
     borderBottomWidth: 0.5,
     borderBottomColor: palette.gray3,
   },
+  titleText: {
+    fontSize: 18,
+    color: palette.mainDark,
+    marginBottom: 10,
+  },
   mainText: {
-    fontSize: 16,
+    fontSize: 14,
     color: palette.mainGray,
   },
   subInfo: {
@@ -97,13 +108,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   textSubInfo: {
-    fontSize: 12,
+    fontSize: 14,
     color: palette.mainGray,
   },
   dividingLine: {
     width: 0.5,
     height: 11,
-    backgroundColor: "#000000",
+    backgroundColor: palette.mainGray,
     marginHorizontal: 12,
   },
 });
