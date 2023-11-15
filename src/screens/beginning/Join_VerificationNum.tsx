@@ -24,7 +24,7 @@ export default function Join_VerificationNum({ navigation }: any) {
 
   const [placeholder, setPlaceholder] = useState(placeholderText.defaultText);
   const [placeholderTextColor, setPlaceholderTextColor] = useState(
-    palette.gray2
+    palette.mainGray
   );
   // 인증번호 재전송 modal창 띄울 것인지 boolean 값
   const [displayModal, setDisplayModal] = useState(false);
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     width: 0,
     marginBottom: 13,
     fontSize: 12,
-    color: palette.gray2,
+    color: palette.mainGray,
   },
   resendRequestContainer: {
     alignSelf: "flex-start",
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   },
   resendRequest: {
     fontSize: 14,
-    color: palette.gray3,
+    color: "#777777",
   },
   buttonBox: {
     justifyContent: "flex-end",

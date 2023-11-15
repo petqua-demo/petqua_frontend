@@ -8,10 +8,10 @@ const BlueButton = ({ title, onPress, buttonStyle }) => {
       style={({ pressed }) => [
         styles.button,
         {
-          backgroundColor: palette.mainColor,
+          backgroundColor: palette.mainBlue,
         },
         pressed && {
-          backgroundColor: palette.mainColor,
+          backgroundColor: palette.mainBlue,
         },
         buttonStyle,
       ]}

@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: palette.mainColor,
+    borderColor: palette.mainBlue,
   },
   title: {
     color: palette.mainColor,

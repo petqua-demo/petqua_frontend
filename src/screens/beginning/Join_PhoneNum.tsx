@@ -36,7 +36,7 @@ export default function Join_PhoneNum({ navigation }: any) {
 
   const [placeholder, setPlaceholder] = useState(placeholderText.defaultText);
   const [placeholderTextColor, setPlaceholderTextColor] = useState(
-    palette.gray2
+    palette.mainGray
   );
 
   const onFocusTextInput = () => {
@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
   textInputTitle: {
     marginBottom: 13,
     fontSize: 12,
-    color: palette.gray2,
+    color: palette.mainGray,
   },
   textInputTitle2: {
     width: 0,

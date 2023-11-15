@@ -9,7 +9,7 @@ const InputBox = ({ placeholder, value, clearText, ...props }) => {
       <TextInput
         style={styles.textInput}
         placeholder={placeholder}
-        placeholderTextColor={palette.gray2}
+        placeholderTextColor={palette.mainGray}
         value={value}
         {...props}
       ></TextInput>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingBottom: 12,
     borderBottomWidth: 2,
-    borderBottomColor: palette.mainColor,
+    borderBottomColor: palette.mainBlue,
   },
   textInput: {
     flex: 1,
