@@ -49,6 +49,7 @@ export default function Join_VerificationNum({ navigation }: any) {
       setPlaceholderTextColor(palette.warning);
     } else {
       // 인증번호가 올바르면 가입 완료
+      navigation.navigate("Welcome");
     }
   };
 
