@@ -3,10 +3,10 @@ const CommunityPostingCategoriesTitle = {
   disease: "질병",
   waterManagement: "여과/수질",
   raise: "사육/번식",
-  goods: "용품",
+  goods: "용품/사료",
   species: "어종",
-  feed: "사료",
   free: "자유게시판",
+  expert: "전문가 칼럼",
 };
 
 export default CommunityPostingCategoriesTitle;

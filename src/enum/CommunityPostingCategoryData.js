@@ -16,7 +16,7 @@ const CommunityPostingCategoryData = [
   },
   {
     imageSrc: images.itemImageExample,
-    title: CommunityPostingCategoriesTitle.species,
+    title: CommunityPostingCategoriesTitle.raise,
   },
   {
     imageSrc: images.itemImageExample,
@@ -24,15 +24,15 @@ const CommunityPostingCategoryData = [
   },
   {
     imageSrc: images.itemImageExample,
-    title: CommunityPostingCategoriesTitle.raise,
-  },
-  {
-    imageSrc: images.itemImageExample,
-    title: CommunityPostingCategoriesTitle.feed,
+    title: CommunityPostingCategoriesTitle.species,
   },
   {
     imageSrc: images.itemImageExample,
     title: CommunityPostingCategoriesTitle.free,
+  },
+  {
+    imageSrc: images.itemImageExample,
+    title: CommunityPostingCategoriesTitle.expert,
   },
 ];
 
