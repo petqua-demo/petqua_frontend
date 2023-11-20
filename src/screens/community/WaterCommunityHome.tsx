@@ -16,6 +16,7 @@ import { useCallback, useEffect, useState } from "react";
 import uuid from "react-uuid";
 
 import Text from "../../components/DefaultText";
+import SemiBoldText from "../../components/SemiBoldText";
 import BoldText from "../../components/BoldText";
 import palette from "../../styles/ColorPalette";
 import images from "../../enum/Images";
@@ -36,9 +37,11 @@ export default function WaterCommunityHome({ navigation }: any) {
     {
       id: uuid(),
       category: CommunityPostingCategoriesTitle.disease,
-      title: "구피100마리",
+      title:
+        "베타키우는법 베타키우는법 베타키베타키우는법 베타키우는법 베타키우는법 베타키베타키우는법",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
+      imgSrc: images.itemImageExample,
       date: "07/12",
       howLong: "2주전",
       comment: "129",
@@ -63,6 +66,7 @@ export default function WaterCommunityHome({ navigation }: any) {
       title: "구피100마리",
       content:
         "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
+      imgSrc: images.itemImageExample,
       date: "07/12",
       howLong: "2주전",
       comment: "129",
@@ -125,8 +129,17 @@ export default function WaterCommunityHome({ navigation }: any) {
         >
           <StatusBar style="auto" />
           <View style={styles.header}>
+            <View style={{ flexDirection: "row" }}>
+              {/* 알림 버튼 */}
+              <Pressable>
+                <Image
+                  source={images.topNotificationIcon}
+                  style={{ width: 24, height: 24 }}
+                />
+              </Pressable>
+            </View>
             {/* 페이지 제목.
-            우측 상단 버튼과 관계 없이 화면 중앙에 배치하기 위해 View로 감쌈. */}
+            상단 버튼들과 관계 없이 화면 중앙에 배치하기 위해 View로 감쌈. */}
             <View
               style={{
                 width: "100%",
@@ -135,23 +148,23 @@ export default function WaterCommunityHome({ navigation }: any) {
                 paddingBottom: 20,
               }}
             >
-              <BoldText style={{ fontSize: 16, color: palette.gray3 }}>
-                커뮤니티
-              </BoldText>
+              <SemiBoldText style={{ fontSize: 18, color: palette.mainDark }}>
+                물생활
+              </SemiBoldText>
             </View>
-            <View style={{ flexDirection: "row", marginRight: 18 }}>
+            <View style={{ flexDirection: "row" }}>
               {/* 검색 버튼 */}
               <Pressable>
                 <Image
                   source={images.topSearchIcon}
-                  style={{ width: 23, height: 23, marginRight: 21 }}
+                  style={{ width: 24, height: 24, marginRight: 16 }}
                 />
               </Pressable>
-              {/* 알림 버튼 */}
+              {/* 물봉 버튼 */}
               <Pressable>
                 <Image
-                  source={images.topNotificationIcon}
-                  style={{ width: 23, height: 23 }}
+                  source={images.topShoppingBasketIcon}
+                  style={{ width: 24, height: 24 }}
                 />
               </Pressable>
             </View>
@@ -167,20 +180,12 @@ export default function WaterCommunityHome({ navigation }: any) {
                   />
                 </View>
               </View>
-              <View // 구분선
-                style={{
-                  backgroundColor: "#F5F5F5",
-                  width: "120%",
-                  height: 1,
-                  marginTop: 8,
-                }}
-              />
               {/* 배너 광고 */}
               <View style={styles.contentMargin}>
                 <Text
                   style={{
                     fontSize: 12,
-                    color: palette.gray4,
+                    color: palette.mainGray,
                     marginVertical: 12,
                   }}
                 >
@@ -192,13 +197,17 @@ export default function WaterCommunityHome({ navigation }: any) {
                 style={{
                   backgroundColor: "#F5F5F5",
                   width: "120%",
-                  height: 1,
+                  height: 8,
                 }}
               />
               {/* 인기글 */}
               <View style={styles.contentMargin}>
                 <BoldText
-                  style={{ fontSize: 14, color: palette.gray4, marginTop: 25 }}
+                  style={{
+                    fontSize: 14,
+                    color: palette.mainDark,
+                    marginTop: 25,
+                  }}
                 >
                   인기글
                 </BoldText>
@@ -225,14 +234,13 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     paddingBottom: 20,
+    marginHorizontal: 18,
     marginTop: 55,
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
     alignItems: "center",
-    borderBottomColor: palette.gray2,
-    borderBottomWidth: 0.5,
   },
   contentMargin: {
-    marginHorizontal: 15,
+    marginHorizontal: 20,
   },
   imageCategoryContainer: {
     flexDirection: "row",
@@ -241,7 +249,7 @@ const styles = StyleSheet.create({
   bannerAD: {
     width: "100%",
     height: 65,
-    marginBottom: 20,
+    marginBottom: 30,
     borderRadius: 5,
   },
 });
