@@ -22,6 +22,7 @@ import MyShoppingBasket from "../screens/mypage/MyShoppingBasket";
 import MySellingPosting from "../screens/mypage/MySellingPosting";
 import MyBuying from "../screens/mypage/MyBuying";
 import WaterCommunityHome from "../screens/community/WaterCommunityHome";
+import CommunityPosting from "../screens/community/CommunityPosting";
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +44,9 @@ export default function Navigation() {
           />
           <Stack.Screen name="Welcome" component={Welcome} />
           <Stack.Screen name="BottomTabNav" component={BottomTabNav} />
+          <Stack.Screen name="CommunityPosting" component={CommunityPosting} />
+
+          {/* 피봇팅 전 페이지들 */}
           <Stack.Screen name="FishPosting" component={FishPosting} />
           <Stack.Screen name="GoodsPosting" component={GoodsPosting} />
           <Stack.Screen name="DiaryPosting" component={DiaryPosting} />

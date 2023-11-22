@@ -218,7 +218,10 @@ export default function WaterCommunityHome({ navigation }: any) {
               </View>
             </ScrollView>
           </SafeAreaView>
-          <Pressable style={styles.postingIcon}>
+          <Pressable
+            style={styles.postingIcon}
+            onPress={() => navigation.navigate("CommunityPosting")}
+          >
             <Image
               source={images.postingIcon}
               style={{ width: 57, height: 57 }}
