@@ -218,6 +218,12 @@ export default function WaterCommunityHome({ navigation }: any) {
               </View>
             </ScrollView>
           </SafeAreaView>
+          <Pressable style={styles.postingIcon}>
+            <Image
+              source={images.postingIcon}
+              style={{ width: 57, height: 57 }}
+            />
+          </Pressable>
         </KeyboardAvoidingView>
       </Pressable>
     );
@@ -251,5 +257,10 @@ const styles = StyleSheet.create({
     height: 65,
     marginBottom: 30,
     borderRadius: 5,
+  },
+  postingIcon: {
+    position: "absolute",
+    right: 14,
+    bottom: 14,
   },
 });
