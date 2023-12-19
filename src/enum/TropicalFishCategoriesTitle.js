@@ -1,4 +1,4 @@
-const TropicalFishCategories = {
+const TropicalFishCategoriesTitle = {
   ricefish: "난태생/송사리과",
   characin: "카라신과",
   carp: "잉어과",
@@ -8,6 +8,8 @@ const TropicalFishCategories = {
   catfish: "메기과",
   cichlid: "시클리드과",
   otherTropical: "기타과",
+
+  plus: "더보기",
 };
 
-export default TropicalFishCategories;
+export default TropicalFishCategoriesTitle;
