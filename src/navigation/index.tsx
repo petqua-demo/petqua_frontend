@@ -24,6 +24,7 @@ import MyBuying from "../screens/mypage/MyBuying";
 import WaterCommunityHome from "../screens/community/WaterCommunityHome";
 import CommunityPosting from "../screens/community/CommunityPosting";
 import SellingListPerCategory from "../screens/selling/SellingListPerCategory";
+import SellingMainHome from "../screens/selling/SellingMainHome";
 
 const Stack = createNativeStackNavigator();
 
@@ -33,7 +34,7 @@ export default function Navigation() {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Join_PhoneNum"
+          initialRouteName="BottomTabNav"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Login" component={Login} />
@@ -77,7 +78,7 @@ const BottomTab = createBottomTabNavigator();
 // 해결해야 할 것들: 탭 아이템들 간격 피그마와 맞추기, 탭에 shadow 넣기
 const BottomTabNav = () => (
   <BottomTab.Navigator
-    initialRouteName="Selling"
+    initialRouteName="SellingMainHome"
     screenOptions={{
       headerShown: false,
       tabBarHideOnKeyboard: true,
@@ -85,8 +86,8 @@ const BottomTabNav = () => (
     }}
   >
     <BottomTab.Screen
-      name="Selling"
-      component={Selling}
+      name="SellingMainHome"
+      component={SellingMainHome}
       options={{
         tabBarLabel: "홈",
         tabBarLabelStyle: styles.tabBarLable,
