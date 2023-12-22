@@ -6,7 +6,6 @@ const CommunityPostingCategoriesTitle = {
   goods: "용품/사료",
   species: "어종",
   free: "자유게시판",
-  expert: "전문가 칼럼",
 };
 
 export default CommunityPostingCategoriesTitle;

@@ -21,12 +21,56 @@ import BlueButton from "../../components/BlueButton";
 import images from "../../enum/Images";
 import SemiBoldText from "../../components/SemiBoldText";
 import CommunityTitle from "../../enum/CommunityPostingCategoriesTitle";
+import Questions from "../../enum/PostingQnA/Questions";
+import DiseaseA from "../../components/PostingAnswers/DiseaseA";
+import RaiseA from "../../components/PostingAnswers/RaiseA";
+import WaterManagementA from "../../components/PostingAnswers/waterManagementA";
+import GoodsA from "../../components/PostingAnswers/GoodsA";
+import SpeciesA from "../../components/PostingAnswers/SpeciesA";
+import FreeA from "../../components/PostingAnswers/FreeA";
 
 export default function CommunityPosting({ navigation }: any) {
   const isLoaded = useCachedResources();
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("게시판 선택");
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState(DiseaseA);
 
   const [displayModal, setDisplayModal] = useState(false); // 카테고리 선택 모달창 띄울 것인지 여부
+
+  const changeCategory = (newCategory: any) => {
+    setCategory(newCategory);
+    changeQnA(newCategory);
+    setDisplayModal(false);
+  };
+
+  const changeQnA = (newCategory: String) => {
+    switch (newCategory) {
+      case CommunityTitle.disease:
+        setQuestion(Questions.diseaseQ);
+        setAnswer(DiseaseA);
+        break;
+      case CommunityTitle.waterManagement:
+        setQuestion(Questions.waterManagementQ);
+        setAnswer(WaterManagementA);
+        break;
+      case CommunityTitle.raise:
+        setQuestion(Questions.raiseQ);
+        setAnswer(RaiseA);
+        break;
+      case CommunityTitle.goods:
+        setQuestion(Questions.goodsQ);
+        setAnswer(GoodsA);
+        break;
+      case CommunityTitle.species:
+        setQuestion(Questions.speciesQ);
+        setAnswer(SpeciesA);
+        break;
+      case CommunityTitle.free:
+        setQuestion(Questions.freeQ);
+        setAnswer(FreeA);
+        break;
+    }
+  };
 
   const finish = () => {};
 
@@ -71,7 +115,7 @@ export default function CommunityPosting({ navigation }: any) {
                   </View>
                   <View
                     style={styles.categoryTitleBorder}
-                    onTouchEnd={() => {}}
+                    onTouchEnd={() => changeCategory(CommunityTitle.disease)}
                   >
                     <Text style={styles.categoryTitle}>
                       {CommunityTitle.disease}
@@ -79,7 +123,9 @@ export default function CommunityPosting({ navigation }: any) {
                   </View>
                   <View
                     style={styles.categoryTitleBorder}
-                    onTouchEnd={() => {}}
+                    onTouchEnd={() =>
+                      changeCategory(CommunityTitle.waterManagement)
+                    }
                   >
                     <Text style={styles.categoryTitle}>
                       {CommunityTitle.waterManagement}
@@ -87,7 +133,7 @@ export default function CommunityPosting({ navigation }: any) {
                   </View>
                   <View
                     style={styles.categoryTitleBorder}
-                    onTouchEnd={() => {}}
+                    onTouchEnd={() => changeCategory(CommunityTitle.raise)}
                   >
                     <Text style={styles.categoryTitle}>
                       {CommunityTitle.raise}
@@ -95,7 +141,7 @@ export default function CommunityPosting({ navigation }: any) {
                   </View>
                   <View
                     style={styles.categoryTitleBorder}
-                    onTouchEnd={() => {}}
+                    onTouchEnd={() => changeCategory(CommunityTitle.goods)}
                   >
                     <Text style={styles.categoryTitle}>
                       {CommunityTitle.goods}
@@ -103,7 +149,7 @@ export default function CommunityPosting({ navigation }: any) {
                   </View>
                   <View
                     style={styles.categoryTitleBorder}
-                    onTouchEnd={() => {}}
+                    onTouchEnd={() => changeCategory(CommunityTitle.species)}
                   >
                     <Text style={styles.categoryTitle}>
                       {CommunityTitle.species}
@@ -111,18 +157,10 @@ export default function CommunityPosting({ navigation }: any) {
                   </View>
                   <View
                     style={styles.categoryTitleBorder}
-                    onTouchEnd={() => {}}
+                    onTouchEnd={() => changeCategory(CommunityTitle.free)}
                   >
                     <Text style={styles.categoryTitle}>
                       {CommunityTitle.free}
-                    </Text>
-                  </View>
-                  <View
-                    style={styles.categoryTitleBorder}
-                    onTouchEnd={() => {}}
-                  >
-                    <Text style={styles.categoryTitle}>
-                      {CommunityTitle.expert}
                     </Text>
                   </View>
                 </View>
@@ -148,7 +186,7 @@ export default function CommunityPosting({ navigation }: any) {
                   setDisplayModal(true);
                 }}
               >
-                게시판선택
+                {category}
               </SemiBoldText>
               <Image
                 source={images.dropDownButtonIcon}
@@ -165,8 +203,28 @@ export default function CommunityPosting({ navigation }: any) {
               />
             </Pressable>
           </View>
-          <ScrollView style={{ marginBottom: 70, marginHorizontal: 14 }}>
-            {/* ****************************** 카테고리별 상단에 띄워야 할 것들 추가하기 */}
+          <ScrollView
+            style={{ marginBottom: 100, marginHorizontal: 14 }}
+            showsVerticalScrollIndicator={false}
+          >
+            {/* 카테고리별 상단에 띄우는 질문들 */}
+            {/* 카테고리가 선택되었을 때만 띄우기 */}
+            {category != "게시판 선택" ? (
+              <View style={styles.requestQnAContainer}>
+                <Text
+                  style={{
+                    fontSize: 12,
+                    color: palette.gray2,
+                    marginBottom: 7,
+                  }}
+                >
+                  {question}
+                </Text>
+                {answer}
+              </View>
+            ) : (
+              <View></View>
+            )}
             {/* 제목 */}
             <View style={styles.header}>
               <BoldText
@@ -204,6 +262,7 @@ export default function CommunityPosting({ navigation }: any) {
               }
               placeholderTextColor={palette.mainGray}
               multiline={true}
+              scrollEnabled={false}
             />
           </ScrollView>
           {/* 등록하기 버튼 */}
@@ -249,6 +308,12 @@ const styles = StyleSheet.create({
     marginLeft: 14,
     // 상단 바에 들어가는 padding 때문에 왼쪽으로 쏠리는 현상 발생하여
     // marginLeft로 위치 조정. (categorySelection View가 가운데로 오도록)
+  },
+  requestQnAContainer: {
+    paddingTop: 16,
+    paddingBottom: 10,
+    borderBottomColor: palette.gray2,
+    borderBottomWidth: 0.5,
   },
   textInput: {
     flex: 1,
