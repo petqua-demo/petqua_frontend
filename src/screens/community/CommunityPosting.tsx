@@ -28,6 +28,8 @@ export default function CommunityPosting({ navigation }: any) {
 
   const [displayModal, setDisplayModal] = useState(false); // 카테고리 선택 모달창 띄울 것인지 여부
 
+  const finish = () => {};
+
   if (isLoaded) {
     return (
       <Pressable style={{ flex: 1 }} onPress={() => Keyboard.dismiss()}>
@@ -138,25 +140,28 @@ export default function CommunityPosting({ navigation }: any) {
               },
             ]}
           >
-            <Pressable>
-              <Image
-                source={images.closeButtonIcon}
-                style={{ width: 24, height: 24 }}
-              />
-            </Pressable>
             {/* 게시판 선택 */}
-            <Pressable
-              style={styles.categorySelection}
-              onPress={() => {
-                setDisplayModal(true);
-              }}
-            >
-              <SemiBoldText style={{ fontSize: 18, color: palette.mainDark }}>
+            <Pressable style={styles.categorySelection}>
+              <SemiBoldText
+                style={{ fontSize: 18, color: palette.mainDark }}
+                onPress={() => {
+                  setDisplayModal(true);
+                }}
+              >
                 게시판선택
               </SemiBoldText>
               <Image
                 source={images.dropDownButtonIcon}
                 style={{ width: 12, height: 6, marginLeft: 10 }}
+              />
+            </Pressable>
+            {/* 게시판 선택의 width가 100%로 되어 있어서 x 버튼을 눌러도 게시판 선택이 나오는 문제 생김.
+            x 버튼의 레이어를 위로 올려주기 위해 코드 뒤로 빼줌 */}
+            {/* 닫기 버튼 */}
+            <Pressable onPress={() => navigation.pop()}>
+              <Image
+                source={images.closeButtonIcon}
+                style={{ width: 24, height: 24 }}
               />
             </Pressable>
           </View>
@@ -173,6 +178,7 @@ export default function CommunityPosting({ navigation }: any) {
                 style={styles.textInput}
                 placeholder="제목을 입력해주세요"
                 placeholderTextColor={palette.mainGray}
+                maxLength={25}
               />
             </View>
             {/* 사진 가져오기 */}
@@ -201,7 +207,7 @@ export default function CommunityPosting({ navigation }: any) {
             />
           </ScrollView>
           {/* 등록하기 버튼 */}
-          <View style={{ marginHorizontal: 14 }}>
+          <View style={{ marginHorizontal: 14 }} onTouchEnd={finish}>
             <BlueButton
               title="등록하기"
               onPress={() => {}}
