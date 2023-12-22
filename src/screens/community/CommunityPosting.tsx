@@ -243,12 +243,8 @@ export default function CommunityPosting({ navigation }: any) {
             <Pressable style={styles.takePhotoBtn}>
               <Image
                 source={images.takePhotoIcon}
-                style={{ width: 32, height: 28 }}
+                style={{ width: 58, height: 58 }}
               />
-              <Text style={styles.photoNum}>
-                0/10
-                {/* ************************************* 사진 개수대로 숫자 바뀌게 만들기 */}
-              </Text>
             </Pressable>
             {/* 선택된 사진들 */}
             <View style={{ marginBottom: 16 }}>
@@ -323,14 +319,6 @@ const styles = StyleSheet.create({
   takePhotoBtn: {
     marginTop: 16,
     marginBottom: 8,
-    width: 60,
-    height: 60,
-    paddingTop: 5,
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: palette.skyBlue,
-    alignItems: "center",
-    justifyContent: "center",
   },
   photoNum: {
     fontSize: 10,
