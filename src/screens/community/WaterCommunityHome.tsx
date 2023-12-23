@@ -129,15 +129,6 @@ export default function WaterCommunityHome({ navigation }: any) {
         >
           <StatusBar style="auto" />
           <View style={styles.header}>
-            <View style={{ flexDirection: "row" }}>
-              {/* 알림 버튼 */}
-              <Pressable>
-                <Image
-                  source={images.topNotificationIcon}
-                  style={{ width: 24, height: 24 }}
-                />
-              </Pressable>
-            </View>
             {/* 페이지 제목.
             상단 버튼들과 관계 없이 화면 중앙에 배치하기 위해 View로 감쌈. */}
             <View
@@ -245,7 +236,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     marginHorizontal: 18,
     marginTop: 55,
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     alignItems: "center",
   },
   contentMargin: {

@@ -24,7 +24,7 @@ import CommunityTitle from "../../enum/CommunityPostingCategoriesTitle";
 import Questions from "../../enum/PostingQnA/Questions";
 import DiseaseA from "../../components/PostingAnswers/DiseaseA";
 import RaiseA from "../../components/PostingAnswers/RaiseA";
-import WaterManagementA from "../../components/PostingAnswers/waterManagementA";
+import WaterManagementA from "../../components/PostingAnswers/WaterManagementA";
 import GoodsA from "../../components/PostingAnswers/GoodsA";
 import SpeciesA from "../../components/PostingAnswers/SpeciesA";
 import FreeA from "../../components/PostingAnswers/FreeA";
