@@ -41,6 +41,7 @@ import useAgreementBigCheckBoxUnchecked from "../../assets/images/useAgreementBi
 import useAgreementBigCheckBoxChecked from "../../assets/images/useAgreementBigCheckBoxChecked.png";
 import dropDownButtonIcon from "../../assets/images/dropDownButtonIcon.png";
 import plusCategoryButton from "../../assets/images/plusCategoryButton.png";
+import backButtonIcon from "../../assets/images/backButtonIcon.png";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -86,6 +87,7 @@ const images = {
   useAgreementBigCheckBoxChecked: useAgreementBigCheckBoxChecked,
   dropDownButtonIcon: dropDownButtonIcon,
   plusCategoryButton: plusCategoryButton,
+  backButtonIcon: backButtonIcon,
 };
 
 export default images;
