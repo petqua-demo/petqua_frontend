@@ -1,23 +1,24 @@
-import { Pressable, StyleSheet } from "react-native";
+import { TouchableOpacity, StyleSheet } from "react-native";
 import palette from "../styles/ColorPalette";
 import Text from "./DefaultText";
 
-const CommunityCategoryButton = ({ title, onPress }) => {
+const CommunityCategoryButton = ({ id, title, selected, onToggle }) => {
   return (
-    <Pressable
-      style={({ pressed }) => [
+    <TouchableOpacity
+      onPressOut={onToggle(id)}
+      style={[
         styles.button,
-        {
-          backgroundColor: "#ffffff",
-        },
-        pressed && {
-          backgroundColor: "#7DADFF",
-        },
+        selected
+          ? { backgroundColor: palette.skyBlue }
+          : { backgroundColor: "#ffffff" },
       ]}
-      onPressOut={onPress}
     >
-      <Text style={styles.title}>{title}</Text>
-    </Pressable>
+      {selected ? (
+        <Text style={styles.selectedTitle}>{title}</Text>
+      ) : (
+        <Text style={styles.title}>{title}</Text>
+      )}
+    </TouchableOpacity>
   );
 };
 
@@ -36,6 +37,10 @@ const styles = StyleSheet.create({
   },
   title: {
     color: palette.gray4,
+    fontSize: 14,
+  },
+  selectedTitle: {
+    color: "#ffffff",
     fontSize: 14,
   },
 });

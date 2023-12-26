@@ -22,18 +22,26 @@ import images from "../../enum/Images";
 import SemiBoldText from "../../components/SemiBoldText";
 import CommunityTitle from "../../enum/CommunityPostingCategoriesTitle";
 import Questions from "../../enum/PostingQnA/Questions";
-import DiseaseA from "../../components/PostingAnswers/DiseaseA";
-import RaiseA from "../../components/PostingAnswers/RaiseA";
-import WaterManagementA from "../../components/PostingAnswers/WaterManagementA";
-import GoodsA from "../../components/PostingAnswers/GoodsA";
-import SpeciesA from "../../components/PostingAnswers/SpeciesA";
-import FreeA from "../../components/PostingAnswers/FreeA";
+import DiseaseA from "../../enum/PostingQnA/DiseaseA";
+import RaiseA from "../../enum/PostingQnA/RaiseA";
+import WaterManagementA from "../../enum/PostingQnA/WaterManagementA";
+import GoodsA from "../../enum/PostingQnA/GoodsA";
+import SpeciesA from "../../enum/PostingQnA/SpeciesA";
+import FreeA from "../../enum/PostingQnA/FreeA";
+import SubCategoryList from "../../components/PostingAnswers/SubCategoryList";
 
 export default function CommunityPosting({ navigation }: any) {
   const isLoaded = useCachedResources();
   const [category, setCategory] = useState("게시판 선택");
   const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState(DiseaseA);
+  const [subCategories, setSubCategories] = useState(DiseaseA);
+
+  const onToggle = (id: any) => (e: any) => {
+    const selected = subCategories.map((sub) =>
+      sub.id === id ? { ...sub, selected: !sub.selected } : sub
+    );
+    setSubCategories(selected);
+  };
 
   const [displayModal, setDisplayModal] = useState(false); // 카테고리 선택 모달창 띄울 것인지 여부
 
@@ -47,27 +55,27 @@ export default function CommunityPosting({ navigation }: any) {
     switch (newCategory) {
       case CommunityTitle.disease:
         setQuestion(Questions.diseaseQ);
-        setAnswer(DiseaseA);
+        setSubCategories(DiseaseA);
         break;
       case CommunityTitle.waterManagement:
         setQuestion(Questions.waterManagementQ);
-        setAnswer(WaterManagementA);
+        setSubCategories(WaterManagementA);
         break;
       case CommunityTitle.raise:
         setQuestion(Questions.raiseQ);
-        setAnswer(RaiseA);
+        setSubCategories(RaiseA);
         break;
       case CommunityTitle.goods:
         setQuestion(Questions.goodsQ);
-        setAnswer(GoodsA);
+        setSubCategories(GoodsA);
         break;
       case CommunityTitle.species:
         setQuestion(Questions.speciesQ);
-        setAnswer(SpeciesA);
+        setSubCategories(SpeciesA);
         break;
       case CommunityTitle.free:
         setQuestion(Questions.freeQ);
-        setAnswer(FreeA);
+        setSubCategories(FreeA);
         break;
     }
   };
@@ -220,7 +228,10 @@ export default function CommunityPosting({ navigation }: any) {
                 >
                   {question}
                 </Text>
-                {answer}
+                <SubCategoryList
+                  subCategories={subCategories}
+                  onToggle={onToggle}
+                />
               </View>
             ) : (
               <View></View>
