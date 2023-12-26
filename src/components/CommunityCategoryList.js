@@ -3,7 +3,7 @@ import CommunityCategoryImageIcon from "./CommunityCategoryImageIcon";
 
 const CategoryItem = ({ onPress, imageSrc, title }) => (
   <CommunityCategoryImageIcon
-    onPress={onPress}
+    onPress={() => onPress(title)}
     imageSrc={imageSrc}
     title={title}
   />

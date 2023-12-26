@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useCallback, useEffect, useState } from "react";
-import uuid from "react-uuid";
 
 import SemiBoldText from "../../components/SemiBoldText";
 import palette from "../../styles/ColorPalette";
@@ -32,11 +31,53 @@ import raiseData from "../../enum/PostingData/RaisePostingData";
 import freeData from "../../enum/PostingData/FreePostingData";
 import speciesData from "../../enum/PostingData/SpeciesPostingData";
 
-export default function CommunityCategory({ navigation }: any) {
+const findMatchingTitle = (title: any): string => {
+  const selectedTitle = title.title; // 'title' 속성 추출
+
+  console.log("Selected Title:", selectedTitle);
+
+  switch (selectedTitle) {
+    case "전체":
+      console.log("Matched: 전체");
+      return CategoriesTitle.all;
+    case "질병":
+      console.log("Matched: 질병");
+      return CategoriesTitle.disease;
+    case "여과/수질":
+      console.log("Matched: 여과/수질");
+      return CategoriesTitle.waterManagement;
+    case "사육/번식":
+      console.log("Matched: 사육/번식");
+      return CategoriesTitle.raise;
+    case "용품/사료":
+      console.log("Matched: 용품/사료");
+      return CategoriesTitle.goods;
+    case "어종":
+      console.log("Matched: 어종");
+      return CategoriesTitle.species;
+    case "자유게시판":
+      console.log("Matched: 자유게시판");
+      return CategoriesTitle.free;
+    default:
+      console.log("No match found");
+      return CategoriesTitle.all; // 처리되지 않은 경우에 대한 기본값
+  }
+};
+
+export default function CommunityCategory({ navigation, route }: any) {
   const isLoaded = useCachedResources();
+
+  const selectedTitle = route.params;
+  console.log(selectedTitle);
 
   const [selectedTab, setSelectedTab] = useState(CategoriesTitle.all);
   const [subCategories, setSubCategories] = useState(DiseaseA);
+
+  useEffect(() => {
+    setSelectedTab(findMatchingTitle(selectedTitle));
+  }, [selectedTitle]);
+
+  console.log(selectedTab);
 
   const getAllData = () => {
     // 데이터 가져오기

@@ -42,6 +42,10 @@ export default function WaterCommunityHome({ navigation }: any) {
 
   const keyExtractor = useCallback((item: any) => item.id, []);
 
+  const handleCategoryPress = (title: any) => {
+    navigation.navigate("CommunityCategory", { title });
+  };
+
   if (isLoaded) {
     return (
       <Pressable style={{ flex: 1 }} onPress={() => Keyboard.dismiss()}>
@@ -89,7 +93,7 @@ export default function WaterCommunityHome({ navigation }: any) {
                 <View style={styles.imageCategoryContainer}>
                   <CommunityCategoryList
                     CommunityCategories={CategoryData}
-                    onPress={{}} // onPress -> 해당 글로 이동
+                    onPress={handleCategoryPress} // onPress -> 해당 글로 이동
                   />
                 </View>
               </View>

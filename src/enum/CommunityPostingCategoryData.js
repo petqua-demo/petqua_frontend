@@ -30,10 +30,7 @@ const CommunityPostingCategoryData = [
     imageSrc: images.itemImageExample,
     title: CommunityPostingCategoriesTitle.free,
   },
-  {
-    imageSrc: images.itemImageExample,
-    title: CommunityPostingCategoriesTitle.expert,
-  },
+  {},
 ];
 
 export default CommunityPostingCategoryData;
