@@ -46,6 +46,10 @@ export default function WaterCommunityHome({ navigation }: any) {
     navigation.navigate("CommunityCategory", { title });
   };
 
+  const handlePostingPress = () => {
+    navigation.navigate("CommunityPostingDetail");
+  };
+
   if (isLoaded) {
     return (
       <Pressable style={{ flex: 1 }} onPress={() => Keyboard.dismiss()}>
@@ -130,7 +134,7 @@ export default function WaterCommunityHome({ navigation }: any) {
                 </BoldText>
                 <BestPostingList
                   BestPostings={bestPostingData}
-                  onPress={{}} // onPress -> 해당 글로 이동
+                  onPress={handlePostingPress} // onPress -> 해당 글로 이동
                 />
               </View>
             </ScrollView>

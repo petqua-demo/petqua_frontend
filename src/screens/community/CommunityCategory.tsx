@@ -74,7 +74,31 @@ export default function CommunityCategory({ navigation, route }: any) {
   const [subCategories, setSubCategories] = useState(DiseaseA);
 
   useEffect(() => {
-    setSelectedTab(findMatchingTitle(selectedTitle));
+    const matchingTitle = findMatchingTitle(selectedTitle);
+    setSelectedTab(matchingTitle);
+
+    // matchingTitle에 따라 데이터 설정하기
+    switch (matchingTitle) {
+      case CategoriesTitle.all:
+        setTabData(allData);
+        setSelectedData(allData);
+        break;
+      case CategoriesTitle.disease:
+        setTabData(diseaseData);
+        setSelectedData(diseaseData);
+        setSubCategories(DiseaseA);
+        break;
+      case CategoriesTitle.waterManagement:
+        setTabData(waterManagementData);
+        setSelectedData(waterManagementData);
+        setSubCategories(WaterManagementA);
+        break;
+      // 나머지 case에 대한 설정 추가...
+      default:
+        setTabData(allData);
+        setSelectedData(allData);
+        break;
+    }
   }, [selectedTitle]);
 
   console.log(selectedTab);
@@ -127,12 +151,6 @@ export default function CommunityCategory({ navigation, route }: any) {
       <View style={styles.container}>
         <StatusBar style="auto" />
         <View style={styles.header}>
-          <Pressable onPress={() => navigation.pop()}>
-            <Image
-              source={images.backButtonIcon}
-              style={{ width: 24, height: 24 }}
-            />
-          </Pressable>
           {/* 페이지 제목.
             상단 버튼들과 관계 없이 화면 중앙에 배치하기 위해 View로 감쌈. */}
           <View
@@ -147,6 +165,17 @@ export default function CommunityCategory({ navigation, route }: any) {
               커뮤니티
             </SemiBoldText>
           </View>
+          {/* 이전 버튼 */}
+          <Pressable
+            onPress={() => {
+              navigation.pop();
+            }}
+          >
+            <Image
+              source={images.backButtonIcon}
+              style={{ width: 24, height: 24 }}
+            />
+          </Pressable>
           <View style={{ flexDirection: "row" }}>
             {/* 검색 버튼 */}
             <Pressable>

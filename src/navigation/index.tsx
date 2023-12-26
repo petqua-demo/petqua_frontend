@@ -23,8 +23,10 @@ import MySellingPosting from "../screens/mypage/MySellingPosting";
 import MyBuying from "../screens/mypage/MyBuying";
 import WaterCommunityHome from "../screens/community/WaterCommunityHome";
 import CommunityPosting from "../screens/community/CommunityPosting";
-import SellingListPerCategory from "../screens/selling/SellingListPerCategory";
+// import SellingListPerCategory from "../screens/selling/SellingListPerCategory";
 import SellingMainHome from "../screens/selling/SellingMainHome";
+import CommunityCategory from "../screens/community/CommunityCategory";
+import CommunityPostingDetail from "../screens/community/CommunityPostingDetail";
 
 const Stack = createNativeStackNavigator();
 
@@ -48,9 +50,18 @@ export default function Navigation() {
           <Stack.Screen name="BottomTabNav" component={BottomTabNav} />
           <Stack.Screen name="CommunityPosting" component={CommunityPosting} />
           <Stack.Screen
+            name="CommunityCategory"
+            component={CommunityCategory}
+          />
+          <Stack.Screen
+            name="CommunityPostingDetail"
+            component={CommunityPostingDetail}
+          />
+
+          {/* <Stack.Screen
             name="SellingListPerCategory"
             component={SellingListPerCategory}
-          />
+          /> */}
 
           {/* 피봇팅 전 페이지들 */}
           <Stack.Screen name="FishPosting" component={FishPosting} />
@@ -103,8 +114,8 @@ const BottomTabNav = () => (
     />
     {/* 나중에 연결 Component 바꿀 예정. 테스트를 위해 임시 Component 연결. */}
     <BottomTab.Screen
-      name="SellingListPerCategory"
-      component={SellingListPerCategory}
+      name="Join_PhoneNum"
+      component={Join_PhoneNum}
       options={{
         tabBarLabel: "검색",
         tabBarLabelStyle: styles.tabBarLable,
