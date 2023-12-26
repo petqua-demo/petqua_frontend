@@ -276,7 +276,7 @@ export default function CommunityPosting({ navigation }: any) {
           <View style={{ marginHorizontal: 14 }} onTouchEnd={finish}>
             <BlueButton
               title="등록하기"
-              onPress={() => {}}
+              onPress={() => navigation.navigate("CommunityPostingDetail")}
               buttonStyle={{
                 width: "100%",
                 height: 50,
