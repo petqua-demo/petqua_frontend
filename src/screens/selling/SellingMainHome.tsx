@@ -94,7 +94,7 @@ export default function SellingMainHome({ navigation }: any) {
               </View>
 
               {/* 추천상품 */}
-              <View style={styles.contentMargin}>
+              {/* <View style={styles.contentMargin}>
                 <View style={styles.subHeader}>
                   <SemiBoldText
                     style={{ fontSize: 22, color: palette.mainDark }}
@@ -109,9 +109,9 @@ export default function SellingMainHome({ navigation }: any) {
                   >
                     더보기 {">"}
                   </Text>
-                </View>
-                {/* 이 자리에 추천글 목록 넣기 */}
-              </View>
+                </View> */}
+              {/* 이 자리에 추천글 목록 넣기 */}
+              {/* </View> */}
 
               {/* 수입 입고 소식 */}
               <View style={styles.contentMargin}>
@@ -140,7 +140,7 @@ export default function SellingMainHome({ navigation }: any) {
               </View>
 
               {/* 주간 인기 반려어 */}
-              <View style={styles.contentMargin}>
+              {/* <View style={styles.contentMargin}>
                 <SemiBoldText style={{ fontSize: 22, color: palette.mainDark }}>
                   주간 인기 반려어
                 </SemiBoldText>
@@ -161,9 +161,9 @@ export default function SellingMainHome({ navigation }: any) {
                   >
                     더보기 {">"}
                   </Text>
-                </View>
-                {/* 이 자리에 주간 인기 반려어 목록 넣기 */}
-              </View>
+                </View> */}
+              {/* 이 자리에 주간 인기 반려어 목록 넣기 */}
+              {/* </View> */}
             </ScrollView>
           </SafeAreaView>
         </KeyboardAvoidingView>
