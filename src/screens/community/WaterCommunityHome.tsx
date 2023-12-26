@@ -20,96 +20,18 @@ import SemiBoldText from "../../components/SemiBoldText";
 import BoldText from "../../components/BoldText";
 import palette from "../../styles/ColorPalette";
 import images from "../../enum/Images";
-import CommunityPostingCategoriesTitle from "../../enum/CommunityPostingCategoriesTitle";
+import CategoriesTitle from "../../enum/CommunityPostingCategoriesTitle";
 import CommunityCategoryImageIcon from "../../components/CommunityCategoryImageIcon";
 import BestPostingList from "../../components/BestPostingList";
 import CommunityCategoryList from "../../components/CommunityCategoryList";
 import CategoryData from "../../enum/CommunityPostingCategoryData";
+import bestPostingData from "../../enum/PostingData/BestPostingData";
 
 export default function WaterCommunityHome({ navigation }: any) {
   const isLoaded = useCachedResources();
 
   // 한 줄에 배치하는 카테고리 수
   const numColumns = 4;
-
-  // 나중에 DB 연결 후 인기글 목록 가져오기
-  const [bestPostingData, setBestPostingData] = useState([
-    {
-      id: uuid(),
-      category: CommunityPostingCategoriesTitle.disease,
-      title:
-        "베타키우는법 베타키우는법 베타키베타키우는법 베타키우는법 베타키우는법 베타키베타키우는법",
-      content:
-        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
-      imgSrc: images.itemImageExample,
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-    {
-      id: uuid(),
-      category: CommunityPostingCategoriesTitle.disease,
-      title: "구피100마리",
-      content:
-        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-    {
-      id: uuid(),
-      category: CommunityPostingCategoriesTitle.goods,
-      title: "구피100마리",
-      content:
-        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
-      imgSrc: images.itemImageExample,
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-    {
-      id: uuid(),
-      category: CommunityPostingCategoriesTitle.disease,
-      title: "구피100마리",
-      content:
-        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-    {
-      id: uuid(),
-      category: CommunityPostingCategoriesTitle.disease,
-      title: "구피100마리",
-      content:
-        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-    {
-      id: uuid(),
-      category: CommunityPostingCategoriesTitle.goods,
-      title: "구피100마리",
-      content:
-        "가나다라마바사 아자차카가나다라마바사 아자차카가나다라마바사 ...",
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-  ]);
 
   const getBestPostingData = () => {
     // 데이터 가져오기
