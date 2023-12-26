@@ -9,6 +9,7 @@ import CommunityCategoryRect from "./CommunityCategoryRect";
 const CommunityPostingItem = ({
   id,
   category,
+  subCategory,
   title,
   content,
   imgSrc,
