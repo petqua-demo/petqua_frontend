@@ -24,6 +24,13 @@ import GoodsA from "../../enum/PostingQnA/GoodsA";
 import SpeciesA from "../../enum/PostingQnA/SpeciesA";
 import FreeA from "../../enum/PostingQnA/FreeA";
 import SubCategoryList from "../../components/PostingAnswers/SubCategoryList";
+import allData from "../../enum/PostingData/AllPostingData";
+import diseaseData from "../../enum/PostingData/DiseasePostingData";
+import goodsData from "../../enum/PostingData/GoodsPostingData";
+import waterManagementData from "../../enum/PostingData/WaterManagementPostingData";
+import raiseData from "../../enum/PostingData/RaisePostingData";
+import freeData from "../../enum/PostingData/FreePostingData";
+import speciesData from "../../enum/PostingData/SpeciesPostingData";
 
 export default function CommunityCategory({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -31,161 +38,12 @@ export default function CommunityCategory({ navigation }: any) {
   const [selectedTab, setSelectedTab] = useState(CategoriesTitle.all);
   const [subCategories, setSubCategories] = useState(DiseaseA);
 
-  // 나중에 DB 연결 후 posting 목록 가져오기
-  const [allData, setAllData] = useState([
-    {
-      id: uuid(),
-      category: CategoriesTitle.disease,
-      subCategory: "백점병",
-      title: "구피랑 베타랑 키우고 있습니다.",
-      content:
-        "베타를 키우려하는데 어떻게 키우는지 잘 모르겠습니다. 고수님들 도와주세요.",
-      imgSrc: images.itemImageExample,
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-    {
-      id: uuid(),
-      category: CategoriesTitle.disease,
-      subCategory: "모르겠어요",
-      title: "구피랑 베타랑 서로 계속 싸워요ㅜ",
-      content:
-        "구피랑 베타 키우고 있습니다. 서로 계속 싸우는데 안 싸울 수 있는 팁 있을까요?",
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-    {
-      id: uuid(),
-      category: CategoriesTitle.goods,
-      subCategory: "수조",
-      title: "구피랑 베타랑 서로 계속 싸워요ㅜ",
-      content:
-        "구피랑 베타 키우고 있습니다. 서로 계속 싸우는데 안 싸울 수 있는 팁 있을까요?",
-      imgSrc: images.itemImageExample,
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-    {
-      id: uuid(),
-      category: CategoriesTitle.disease,
-      subCategory: "모르겠어요",
-      title: "구피랑 베타랑 서로 계속 싸워요ㅜ",
-      content:
-        "구피랑 베타 키우고 있습니다. 서로 계속 싸우는데 안 싸울 수 있는 팁 있을까요?",
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-    {
-      id: uuid(),
-      category: CategoriesTitle.goods,
-      subCategory: "여과기",
-      title: "구피랑 베타랑 서로 계속 싸워요ㅜ",
-      content:
-        "구피랑 베타 키우고 있습니다. 서로 계속 싸우는데 안 싸울 수 있는 팁 있을까요?",
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-  ]);
-
   const getAllData = () => {
     // 데이터 가져오기
   };
   useEffect(() => {
     getAllData();
   }, []);
-
-  const [diseaseData, setDiseaseData] = useState([
-    {
-      id: uuid(),
-      category: CategoriesTitle.disease,
-      subCategory: "백점병",
-      title: "구피랑 베타랑 키우고 있습니다.",
-      content:
-        "베타를 키우려하는데 어떻게 키우는지 잘 모르겠습니다. 고수님들 도와주세요.",
-      imgSrc: images.itemImageExample,
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-    {
-      id: uuid(),
-      category: CategoriesTitle.disease,
-      subCategory: "모르겠어요",
-      title: "구피랑 베타랑 서로 계속 싸워요ㅜ",
-      content:
-        "구피랑 베타 키우고 있습니다. 서로 계속 싸우는데 안 싸울 수 있는 팁 있을까요?",
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-    {
-      id: uuid(),
-      category: CategoriesTitle.disease,
-      subCategory: "모르겠어요",
-      title: "구피랑 베타랑 서로 계속 싸워요ㅜ",
-      content:
-        "구피랑 베타 키우고 있습니다. 서로 계속 싸우는데 안 싸울 수 있는 팁 있을까요?",
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-  ]);
-
-  const [goodsData, setGoodsData] = useState([
-    {
-      id: uuid(),
-      category: CategoriesTitle.goods,
-      subCategory: "수조",
-      title: "구피랑 베타랑 서로 계속 싸워요ㅜ",
-      content:
-        "구피랑 베타 키우고 있습니다. 서로 계속 싸우는데 안 싸울 수 있는 팁 있을까요?",
-      imgSrc: images.itemImageExample,
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-    {
-      id: uuid(),
-      category: CategoriesTitle.goods,
-      subCategory: "여과기",
-      title: "구피랑 베타랑 서로 계속 싸워요ㅜ",
-      content:
-        "구피랑 베타 키우고 있습니다. 서로 계속 싸우는데 안 싸울 수 있는 팁 있을까요?",
-      date: "07/12",
-      howLong: "2주전",
-      comment: "129",
-      heart: "9",
-      scrap: "123",
-    },
-  ]);
-
-  const [waterManagementData, setWaterManagementData] = useState([]);
-  const [raiseData, setRaiseData] = useState([]);
-  const [speciesData, setSpeciesData] = useState([]);
-  const [freeData, setFreeData] = useState([]);
 
   // 각 탭의 전체 데이터
   const [tabData, setTabData] = useState(allData);
