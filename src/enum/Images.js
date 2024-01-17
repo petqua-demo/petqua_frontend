@@ -40,6 +40,14 @@ import useAgreementCheckBoxChecked from "../../assets/images/useAgreementCheckBo
 import useAgreementBigCheckBoxUnchecked from "../../assets/images/useAgreementBigCheckBoxUnchecked.png";
 import useAgreementBigCheckBoxChecked from "../../assets/images/useAgreementBigCheckBoxChecked.png";
 import dropDownButtonIcon from "../../assets/images/dropDownButtonIcon.png";
+import banner from "../../assets/images/banner.svg";
+import category1 from "../../assets/images/category1.svg";
+import category2 from "../../assets/images/category2.svg";
+import category3 from "../../assets/images/category3.svg";
+import category4 from "../../assets/images/category4.svg";
+import category5 from "../../assets/images/category5.svg";
+import category6 from "../../assets/images/category6.svg";
+import category7 from "../../assets/images/category7.svg";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -84,6 +92,14 @@ const images = {
   useAgreementBigCheckBoxUnchecked: useAgreementBigCheckBoxUnchecked,
   useAgreementBigCheckBoxChecked: useAgreementBigCheckBoxChecked,
   dropDownButtonIcon: dropDownButtonIcon,
+  banner: banner,
+  category1: category1,
+  category2: category2,
+  category3: category3,
+  category4: category4,
+  category5: category5,
+  category6: category6,
+  category7: category7,
 };
 
 export default images;

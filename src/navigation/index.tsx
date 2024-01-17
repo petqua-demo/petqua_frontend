@@ -33,11 +33,11 @@ export default function Navigation() {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Join_PhoneNum"
+          initialRouteName="Selling"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Login" component={Login} />
-          {/* <Stack.Screen name="Join" component={Join} /> */}
+          <Stack.Screen name="Selling" component={Selling} />
           <Stack.Screen name="Join_PhoneNum" component={Join_PhoneNum} />
           <Stack.Screen
             name="Join_VerificationNum"

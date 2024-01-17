@@ -8,12 +8,8 @@ const palette = {
   mainDark: "#333333",
   black: "#0B0D0F",
   warning: "#E72A00",
-
-  // navy: "#012F7D",
-  // lightGray: "#D9D9D9",
-  // gray1: "#F4F4F4",
-  // body1: "#999999",
-  // gray3: "#777777",
+  grayBg: "#F7F7F7",
+  skyBlueBg: "#F3F7FF"
 };
 
 export default palette;
