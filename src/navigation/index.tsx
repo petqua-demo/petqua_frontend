@@ -42,8 +42,8 @@ export default function Navigation() {
           initialRouteName="Welcome"
           screenOptions={{ headerShown: false }}
         >
+          <Stack.Screen name="RecommendResult" component={RecommendResult} />
           <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Recommend" component={Recommend} />
           <Stack.Screen name="Join_PhoneNum" component={Join_PhoneNum} />
           <Stack.Screen
             name="Join_VerificationNum"
@@ -176,7 +176,7 @@ const RecommendStackScreen = () => (
       name="RecommendResult"
       component={RecommendResult}
       options={{
-        title: "RecommendResult",
+        headerShown: false,
       }}
     />
   </RecommendStack.Navigator>

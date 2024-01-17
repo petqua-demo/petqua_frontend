@@ -4,20 +4,22 @@ import {
   Image,
   Text,
   TextInput,
-  Button,
   TouchableOpacity,
 } from "react-native";
-import { Input } from "react-native-elements";
 import images from "../../enum/Images";
 import { useState } from "react";
 import palette from "../../styles/ColorPalette";
 import { ScrollView } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Recommend({ navigation }: any) {
+export default function Recommend() {
+  const navigation = useNavigation<any>();
   const [fish1, setFish1] = useState("");
   const [fish2, setFish2] = useState("");
 
-  const handleButtonPress = () => {};
+  const handleButtonPress = () => {
+    navigation.navigate("RecommendResult");
+  };
 
   return (
     <View style={styles.container}>

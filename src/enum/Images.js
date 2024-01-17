@@ -49,6 +49,8 @@ import category5 from "../../assets/images/category5.svg";
 import category6 from "../../assets/images/category6.svg";
 import category7 from "../../assets/images/category7.svg";
 import recommend from "../../assets/images/recommend.svg";
+import safeCircle from "../../assets/images/safeCircle.svg";
+import safeBar from "../../assets/images/safeBar.svg";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -102,6 +104,8 @@ const images = {
   category6: category6,
   category7: category7,
   recommend: recommend,
+  safeCircle: safeCircle,
+  safeBar: safeBar,
 };
 
 export default images;
