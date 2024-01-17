@@ -3,7 +3,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, Image } from "react-native";
 import useCachedResources from "../useCachedResources";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
+import palette from "../styles/ColorPalette";
 import images from "../enum/Images";
 // import Join from "../screens/beginning/Join";
 import Join_PhoneNum from "../screens/beginning/Join_PhoneNum";
@@ -33,7 +36,7 @@ export default function Navigation() {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Selling"
+          initialRouteName="Welcome"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Login" component={Login} />
@@ -74,7 +77,7 @@ export default function Navigation() {
 }
 
 const BottomTab = createBottomTabNavigator();
-// 해결해야 할 것들: 탭 아이템들 간격 피그마와 맞추기, 탭에 shadow 넣기
+
 const BottomTabNav = () => (
   <BottomTab.Navigator
     initialRouteName="Selling"
@@ -82,6 +85,9 @@ const BottomTabNav = () => (
       headerShown: false,
       tabBarHideOnKeyboard: true,
       tabBarStyle: styles.tabBar,
+      tabBarItemStyle: styles.tabBarItem,
+      tabBarLabelStyle: styles.tabBarLabel,
+      tabBarIconStyle: styles.tabBarIcon,
     }}
   >
     <BottomTab.Screen
@@ -89,34 +95,38 @@ const BottomTabNav = () => (
       component={Selling}
       options={{
         tabBarLabel: "홈",
-        tabBarLabelStyle: styles.tabBarLable,
-        tabBarIcon: ({ focused }) => {
-          return (
-            <Image
-              source={focused ? images.selectedHomeIcon : images.bottomHomeIcon}
-              style={{ width: 23, height: 22 }}
-            />
-          );
-        },
+        tabBarIcon: ({ focused }) =>
+          focused ? (
+            <Ionicons name="home-sharp" size={24} color={palette.mainDark} />
+          ) : (
+            <Ionicons name="home-outline" size={24} />
+          ),
       }}
     />
-    {/* 나중에 연결 Component 바꿀 예정. 테스트를 위해 임시 Component 연결. */}
     <BottomTab.Screen
       name="SellingListPerCategory"
       component={SellingListPerCategory}
       options={{
         tabBarLabel: "검색",
-        tabBarLabelStyle: styles.tabBarLable,
-        tabBarIcon: ({ focused }) => {
-          return (
-            <Image
-              source={
-                focused ? images.bottomSearchIcon : images.bottomSearchIcon
-              }
-              style={{ width: 20, height: 22 }}
-            />
-          );
-        },
+        tabBarIcon: ({ focused }) =>
+          focused ? (
+            <Ionicons name="search" size={24} color={palette.mainDark} />
+          ) : (
+            <Ionicons name="search-outline" size={24} />
+          ),
+      }}
+    />
+    <BottomTab.Screen
+      name="Recommend"
+      component={CommunityPosting}
+      options={{
+        tabBarLabel: "추천",
+        tabBarIcon: ({ focused }) =>
+          focused ? (
+            <AntDesign name="star" size={24} color={palette.mainDark} />
+          ) : (
+            <AntDesign name="staro" size={24} />
+          ),
       }}
     />
     <BottomTab.Screen
@@ -124,37 +134,25 @@ const BottomTabNav = () => (
       component={WaterCommunityHome}
       options={{
         tabBarLabel: "물생활",
-        tabBarLabelStyle: styles.tabBarLable,
-        tabBarIcon: ({ focused }) => {
-          return (
-            <Image
-              source={
-                focused
-                  ? images.bottomWaterCommunityIcon
-                  : images.bottomWaterCommunityIcon
-              }
-              style={{ width: 22, height: 20 }}
-            />
-          );
-        },
+        tabBarIcon: ({ focused }) =>
+          focused ? (
+            <Ionicons name="chatbubbles" size={24} color={palette.mainDark} />
+          ) : (
+            <Ionicons name="chatbubbles-outline" size={24} />
+          ),
       }}
     />
     <BottomTab.Screen
       name="MyPage"
       component={MyPage}
       options={{
-        tabBarLabel: "마이쿠아",
-        tabBarLabelStyle: styles.tabBarLable,
-        tabBarIcon: ({ focused }) => {
-          return (
-            <Image
-              source={
-                focused ? images.selectedMyPageIcon : images.bottomMyPageIcon
-              }
-              style={{ width: 22, height: 22 }}
-            />
-          );
-        },
+        tabBarLabel: "마이페이지",
+        tabBarIcon: ({ focused }) =>
+          focused ? (
+            <Ionicons name="person" size={24} color={palette.mainDark} />
+          ) : (
+            <Ionicons name="person-outline" size={24} />
+          ),
       }}
     />
   </BottomTab.Navigator>
@@ -162,16 +160,21 @@ const BottomTabNav = () => (
 
 const styles = StyleSheet.create({
   tabBar: {
-    height: 90,
-    paddingTop: 15,
-    paddingLeft: 30,
-    paddingRight: 30,
-    backgroundColor: "#ffffff",
-    // shadow 아직 안 넣음
+    boxShadow: "0px 4px 25px 0px rgba(0, 0, 0, 0.08)",
+    border: "none",
+    height: 68,
   },
-  tabBarLable: {
-    fontFamily: "pretendard-medium",
+  tabBarItem: {
+    marginVertical: 16,
+  },
+  tabBarIcon: {
+    width: 24,
+    height: 24,
+    marginBottom: 6,
+  },
+  tabBarLabel: {
     fontSize: 10,
-    color: "#333333",
+    fontWeight: "400",
+    color: palette.mainDark,
   },
 });

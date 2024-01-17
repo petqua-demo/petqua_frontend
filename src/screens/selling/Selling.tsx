@@ -1,20 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  View,
-  Image,
-  Text,
-  SafeAreaView,
-  FlatList,
-  Pressable,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, View, Image, Text } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useCallback, useEffect, useState } from "react";
 
 import palette from "../../styles/ColorPalette";
 import images from "../../enum/Images";
 import Icon from "react-native-vector-icons/AntDesign";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function Selling({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -70,31 +62,34 @@ export default function Selling({ navigation }: any) {
             />
           </View>
         </View>
-        <Image
-          source={images.banner}
-          style={{ width: "100%", aspectRatio: 1.323 }}
-        />
-        <View style={styles.notice}>
-          <Text style={styles.noticeTxt}>
-            [공지] 펫쿠아 안전배송이 이벤트가 생성되었습니다.
-          </Text>
-        </View>
-        <View style={styles.categoryContainer}>
-          {categories.map((el, idx) => (
-            <View style={styles.category}>
-              <View style={styles.categoryImgContainer}>
-                <Image source={el.image} style={{ width: 44, height: 44 }} />
-              </View>
-              <Text style={styles.noticeTxt}>{el.title}</Text>
-            </View>
-          ))}
-          <View style={styles.category}>
-            <View style={{ ...styles.categoryImgContainer, padding: 14 }}>
-              <Icon name="plus" size={36} color={palette.mainDark} />
-            </View>
-            <Text style={styles.noticeTxt}>더보기</Text>
+        
+        <ScrollView>
+          <Image
+            source={images.banner}
+            style={{ width: "100%", aspectRatio: 1.323 }}
+          />
+          <View style={styles.notice}>
+            <Text style={styles.noticeTxt}>
+              [공지] 펫쿠아 안전배송이 이벤트가 생성되었습니다.
+            </Text>
           </View>
-        </View>
+          <View style={styles.categoryContainer}>
+            {categories.map((el, idx) => (
+              <View style={styles.category}>
+                <View style={styles.categoryImgContainer}>
+                  <Image source={el.image} style={{ width: 44, height: 44 }} />
+                </View>
+                <Text style={styles.noticeTxt}>{el.title}</Text>
+              </View>
+            ))}
+            <View style={styles.category}>
+              <View style={{ ...styles.categoryImgContainer, padding: 14 }}>
+                <Icon name="plus" size={36} color={palette.mainDark} />
+              </View>
+              <Text style={styles.noticeTxt}>더보기</Text>
+            </View>
+          </View>
+        </ScrollView>
       </View>
     );
   } else {
