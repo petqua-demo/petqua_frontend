@@ -5,7 +5,7 @@ import palette from "../../styles/ColorPalette";
 export default function RecommendResult() {
   return (
     <View style={styles.container}>
-      <ScrollView style={{ width: "100%" }}>
+      <ScrollView style={{ width: "100%", paddingBottom: 16 }}>
         <View style={styles.banner}>
           <Text style={styles.bannerTxt}>
             구피, 네온테트라의{"\n"}합사 가능 여부를 알려드릴게요!
