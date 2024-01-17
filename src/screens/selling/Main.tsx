@@ -8,7 +8,7 @@ import images from "../../enum/Images";
 import Icon from "react-native-vector-icons/AntDesign";
 import { ScrollView } from "react-native-gesture-handler";
 
-export default function Selling({ navigation }: any) {
+export default function Main({ navigation }: any) {
   const isLoaded = useCachedResources();
 
   const categories = [
@@ -62,7 +62,7 @@ export default function Selling({ navigation }: any) {
             />
           </View>
         </View>
-        
+
         <ScrollView>
           <Image
             source={images.banner}

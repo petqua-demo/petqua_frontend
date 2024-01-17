@@ -48,6 +48,7 @@ import category4 from "../../assets/images/category4.svg";
 import category5 from "../../assets/images/category5.svg";
 import category6 from "../../assets/images/category6.svg";
 import category7 from "../../assets/images/category7.svg";
+import recommend from "../../assets/images/recommend.svg";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -100,6 +101,7 @@ const images = {
   category5: category5,
   category6: category6,
   category7: category7,
+  recommend: recommend,
 };
 
 export default images;

@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, Image } from "react-native";
@@ -13,7 +14,7 @@ import Join_PhoneNum from "../screens/beginning/Join_PhoneNum";
 import Join_VerificationNum from "../screens/beginning/Join_VerificationNum";
 import Welcome from "../screens/beginning/Welcome";
 import Login from "../screens/beginning/Login";
-import Selling from "../screens/selling/Selling";
+import Main from "../screens/selling/Main";
 import FishPosting from "../screens/posting/FishPosting";
 import GoodsPosting from "../screens/posting/GoodsPosting";
 import DiaryPosting from "../screens/posting/DiaryPosting";
@@ -27,6 +28,8 @@ import MyBuying from "../screens/mypage/MyBuying";
 import WaterCommunityHome from "../screens/community/WaterCommunityHome";
 import CommunityPosting from "../screens/community/CommunityPosting";
 import SellingListPerCategory from "../screens/selling/SellingListPerCategory";
+import Recommend from "../screens/recommend/Recommend";
+import RecommendResult from "../screens/recommend/RecommendResult";
 
 const Stack = createNativeStackNavigator();
 
@@ -40,7 +43,7 @@ export default function Navigation() {
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Selling" component={Selling} />
+          <Stack.Screen name="Recommend" component={Recommend} />
           <Stack.Screen name="Join_PhoneNum" component={Join_PhoneNum} />
           <Stack.Screen
             name="Join_VerificationNum"
@@ -80,7 +83,7 @@ const BottomTab = createBottomTabNavigator();
 
 const BottomTabNav = () => (
   <BottomTab.Navigator
-    initialRouteName="Selling"
+    initialRouteName="Main"
     screenOptions={{
       headerShown: false,
       tabBarHideOnKeyboard: true,
@@ -91,8 +94,8 @@ const BottomTabNav = () => (
     }}
   >
     <BottomTab.Screen
-      name="Selling"
-      component={Selling}
+      name="Main"
+      component={Main}
       options={{
         tabBarLabel: "홈",
         tabBarIcon: ({ focused }) =>
@@ -118,7 +121,7 @@ const BottomTabNav = () => (
     />
     <BottomTab.Screen
       name="Recommend"
-      component={CommunityPosting}
+      component={RecommendStackScreen}
       options={{
         tabBarLabel: "추천",
         tabBarIcon: ({ focused }) =>
@@ -156,6 +159,27 @@ const BottomTabNav = () => (
       }}
     />
   </BottomTab.Navigator>
+);
+
+const RecommendStack = createStackNavigator();
+
+const RecommendStackScreen = () => (
+  <RecommendStack.Navigator>
+    <RecommendStack.Screen
+      name="Recommend"
+      component={Recommend}
+      options={{
+        headerShown: false,
+      }}
+    />
+    <RecommendStack.Screen
+      name="RecommendResult"
+      component={RecommendResult}
+      options={{
+        title: "RecommendResult",
+      }}
+    />
+  </RecommendStack.Navigator>
 );
 
 const styles = StyleSheet.create({
