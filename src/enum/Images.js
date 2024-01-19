@@ -51,6 +51,16 @@ import category7 from "../../assets/images/category7.svg";
 import recommend from "../../assets/images/recommend.svg";
 import safeCircle from "../../assets/images/safeCircle.svg";
 import safeBar from "../../assets/images/safeBar.svg";
+import community1 from "../../assets/images/community1.svg";
+import community2 from "../../assets/images/community2.svg";
+import community3 from "../../assets/images/community3.svg";
+import community4 from "../../assets/images/community4.svg";
+import community5 from "../../assets/images/community5.svg";
+import community6 from "../../assets/images/community6.svg";
+import community7 from "../../assets/images/community7.svg";
+import community8 from "../../assets/images/community8.svg";
+import communityBanner from "../../assets/images/communityBanner.svg";
+import communityImg from "../../assets/images/communityImg.svg";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -106,6 +116,16 @@ const images = {
   recommend: recommend,
   safeCircle: safeCircle,
   safeBar: safeBar,
+  community1: community1,
+  community2: community2,
+  community3: community3,
+  community4: community4,
+  community5: community5,
+  community6: community6,
+  community7: community7,
+  community8: community8,
+  communityBanner: communityBanner,
+  communityImg: communityImg,
 };
 
 export default images;

@@ -75,7 +75,7 @@ export default function Main({ navigation }: any) {
           </View>
           <View style={styles.categoryContainer}>
             {categories.map((el, idx) => (
-              <View style={styles.category}>
+              <View key={idx} style={styles.category}>
                 <View style={styles.categoryImgContainer}>
                   <Image source={el.image} style={{ width: 44, height: 44 }} />
                 </View>

@@ -17,7 +17,7 @@ import Join_PhoneNum from "../screens/beginning/Join_PhoneNum";
 import Join_VerificationNum from "../screens/beginning/Join_VerificationNum";
 import Main from "../screens/selling/Main";
 import MyPage from "../screens/mypage/MyPage";
-import WaterCommunityHome from "../screens/community/WaterCommunityHome";
+import CommunityMain from "../screens/community/CommunityMain";
 import CommunityPosting from "../screens/community/CommunityPosting";
 import SellingListPerCategory from "../screens/selling/SellingListPerCategory";
 import Recommend from "../screens/recommend/Recommend";
@@ -37,7 +37,7 @@ export default function Navigation() {
           <Stack.Screen name="Welcome" component={Welcome} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Join" component={Join} />
-          <Stack.Screen name="Recommend" component={Recommend} />
+          <Stack.Screen name="CommunityMain" component={CommunityMain} />
           <Stack.Screen name="Join_PhoneNum" component={Join_PhoneNum} />
           <Stack.Screen
             name="Join_VerificationNum"
@@ -111,8 +111,8 @@ const BottomTabNav = () => (
       }}
     />
     <BottomTab.Screen
-      name="WaterCommunityHome"
-      component={WaterCommunityHome}
+      name="CommunityMain"
+      component={CommunityMain}
       options={{
         tabBarLabel: "물생활",
         tabBarIcon: ({ focused }) =>
