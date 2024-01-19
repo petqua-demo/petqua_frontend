@@ -9,22 +9,14 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 
 import palette from "../styles/ColorPalette";
 import images from "../enum/Images";
-// import Join from "../screens/beginning/Join";
-import Join_PhoneNum from "../screens/beginning/Join_PhoneNum";
-import Join_VerificationNum from "../screens/beginning/Join_VerificationNum";
+
 import Welcome from "../screens/beginning/Welcome";
 import Login from "../screens/beginning/Login";
+import Join from "../screens/beginning/Join";
+import Join_PhoneNum from "../screens/beginning/Join_PhoneNum";
+import Join_VerificationNum from "../screens/beginning/Join_VerificationNum";
 import Main from "../screens/selling/Main";
-import FishPosting from "../screens/posting/FishPosting";
-import GoodsPosting from "../screens/posting/GoodsPosting";
-import DiaryPosting from "../screens/posting/DiaryPosting";
-import ProductDetail from "../screens/selling/ProductDetail";
 import MyPage from "../screens/mypage/MyPage";
-import MyPostingAndComment from "../screens/mypage/MyPostingAndComment";
-import MyClipping from "../screens/mypage/MyClipping";
-import MyShoppingBasket from "../screens/mypage/MyShoppingBasket";
-import MySellingPosting from "../screens/mypage/MySellingPosting";
-import MyBuying from "../screens/mypage/MyBuying";
 import WaterCommunityHome from "../screens/community/WaterCommunityHome";
 import CommunityPosting from "../screens/community/CommunityPosting";
 import SellingListPerCategory from "../screens/selling/SellingListPerCategory";
@@ -39,38 +31,24 @@ export default function Navigation() {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Welcome"
+          initialRouteName="Recommend"
           screenOptions={{ headerShown: false }}
         >
-          <Stack.Screen name="RecommendResult" component={RecommendResult} />
+          <Stack.Screen name="Welcome" component={Welcome} />
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Join" component={Join} />
+          <Stack.Screen name="Recommend" component={Recommend} />
           <Stack.Screen name="Join_PhoneNum" component={Join_PhoneNum} />
           <Stack.Screen
             name="Join_VerificationNum"
             component={Join_VerificationNum}
           />
-          <Stack.Screen name="Welcome" component={Welcome} />
           <Stack.Screen name="BottomTabNav" component={BottomTabNav} />
           <Stack.Screen name="CommunityPosting" component={CommunityPosting} />
           <Stack.Screen
             name="SellingListPerCategory"
             component={SellingListPerCategory}
           />
-
-          {/* 피봇팅 전 페이지들 */}
-          <Stack.Screen name="FishPosting" component={FishPosting} />
-          <Stack.Screen name="GoodsPosting" component={GoodsPosting} />
-          <Stack.Screen name="DiaryPosting" component={DiaryPosting} />
-          <Stack.Screen name="ProductDetail" component={ProductDetail} />
-          <Stack.Screen name="MyPage" component={MyPage} />
-          <Stack.Screen
-            name="MyPostingAndComment"
-            component={MyPostingAndComment}
-          />
-          <Stack.Screen name="MyClipping" component={MyClipping} />
-          <Stack.Screen name="MyShoppingBasket" component={MyShoppingBasket} />
-          <Stack.Screen name="MySellingPosting" component={MySellingPosting} />
-          <Stack.Screen name="MyBuying" component={MyBuying} />
         </Stack.Navigator>
       </NavigationContainer>
     );

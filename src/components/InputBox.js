@@ -13,7 +13,7 @@ const InputBox = ({ placeholder, value, clearText, ...props }) => {
         value={value}
         {...props}
       ></TextInput>
-      <Pressable onPress={clearText}>
+      <Pressable onPress={clearText} style={{ alignItems: "center" }}>
         <Image
           source={images.clearTextInputButton}
           style={[styles.clearButton, !value && styles.noInputValue]}
@@ -26,6 +26,7 @@ const InputBox = ({ placeholder, value, clearText, ...props }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    alignItems: "center",
     paddingBottom: 12,
     borderBottomWidth: 2,
     borderBottomColor: palette.mainBlue,
@@ -33,11 +34,11 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     fontSize: 20,
+    outline: "none",
   },
   clearButton: {
-    width: 21,
-    height: 21,
-    marginTop: 2,
+    width: 16,
+    height: 16,
   },
   noInputValue: {
     width: 0,

@@ -67,7 +67,6 @@ export default function Join({ navigation }: any) {
                   (clickVerifyBtn && "확인"),
               ]}
               onPress={(clickVerifyBtn: any) => setClickVerifyBtn(true)}
-              buttonStyle={{ width: "100%", height: 50 }}
             ></BlueButton>
           </View>
         </View>
