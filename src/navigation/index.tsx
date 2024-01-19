@@ -31,7 +31,7 @@ export default function Navigation() {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Recommend"
+          initialRouteName="Welcome"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Welcome" component={Welcome} />

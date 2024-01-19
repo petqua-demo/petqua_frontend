@@ -2,13 +2,14 @@ import { StyleSheet, View, Text, Image, ScrollView } from "react-native";
 import images from "../../enum/Images";
 import palette from "../../styles/ColorPalette";
 
-export default function RecommendResult() {
+export default function RecommendResult({ route }: any) {
   return (
     <View style={styles.container}>
       <ScrollView style={{ width: "100%", paddingBottom: 16 }}>
         <View style={styles.banner}>
           <Text style={styles.bannerTxt}>
-            구피, 네온테트라의{"\n"}합사 가능 여부를 알려드릴게요!
+            {route.params.fish1}, {route.params.fish2}의{"\n"}합사 가능 여부를
+            알려드릴게요!
           </Text>
           <View style={styles.circleBox}>
             <Image

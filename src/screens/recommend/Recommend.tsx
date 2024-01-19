@@ -18,16 +18,18 @@ export default function Recommend() {
   const [fish2, setFish2] = useState("");
 
   const handleButtonPress = () => {
-    navigation.navigate("RecommendResult");
+    navigation.navigate("RecommendResult", { fish1, fish2 });
   };
 
   return (
     <View style={styles.container}>
-      <ScrollView style={{ width: "100%" }}>
-        <View style={styles.banner}>
-          <Text style={styles.bannerTxt}>
-            합사할 어종을 입력하면{"\n"}합사 가능 여부를 알려드릴게요!
-          </Text>
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.content}>
+          <View style={styles.banner}>
+            <Text style={styles.bannerTxt}>
+              합사할 어종을 입력하면{"\n"}합사 가능 여부를 알려드릴게요!
+            </Text>
+          </View>
           <View style={styles.box}>
             <Image
               source={images.recommend}
@@ -38,7 +40,7 @@ export default function Recommend() {
               <TextInput
                 style={styles.input}
                 placeholder="합사할 어종을 입력해 주세요"
-                onChangeText={(txt) => setFish1(txt)}
+                onChangeText={(txt: string) => setFish1(txt)}
                 value={fish1}
               />
             </View>
@@ -47,24 +49,24 @@ export default function Recommend() {
               <TextInput
                 style={styles.input}
                 placeholder="합사할 어종을 입력해 주세요"
-                onChangeText={(txt) => setFish2(txt)}
+                onChangeText={(txt: string) => setFish2(txt)}
                 value={fish2}
               />
             </View>
           </View>
         </View>
-        <View style={{ height: 380 }} />
-      </ScrollView>
 
-      <TouchableOpacity
-        style={{
-          ...styles.button,
-          backgroundColor: fish1 && fish2 ? palette.skyBlue : palette.mainGray,
-        }}
-        onPress={handleButtonPress}
-      >
-        <Text style={styles.buttonTxt}>합사 결과 보기</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            ...styles.button,
+            backgroundColor:
+              fish1 && fish2 ? palette.skyBlue : palette.mainGray,
+          }}
+          onPress={handleButtonPress}
+        >
+          <Text style={styles.buttonTxt}>합사 결과 보기</Text>
+        </TouchableOpacity>
+      </ScrollView>
     </View>
   );
 }
@@ -75,13 +77,24 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5F5F5",
     alignItems: "center",
   },
+  scrollView: {
+    width: "100%",
+    height: "100%",
+  },
+  content: {
+    width: "100%",
+    height: 640,
+    position: "relative",
+  },
   banner: {
+    position: "absolute",
+    top: 0,
+    left: 0,
     width: "100%",
     height: 240,
     paddingVertical: 36,
     paddingHorizontal: 20,
     backgroundColor: palette.blue,
-    position: "relative",
   },
   bannerTxt: {
     color: "white",
@@ -104,11 +117,12 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     width: "100%",
-    gap: 8,
+    gap: 12,
   },
   inputTxt: {
     color: palette.gray2,
-    fontSize: 14,
+    fontSize: 16,
+    fontFamily: "pretendard-regular",
   },
   input: {
     width: "100%",
@@ -116,12 +130,14 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     backgroundColor: palette.gray1,
     borderRadius: 8,
+    zIndex: 50,
   },
   button: {
     width: "95%",
     borderRadius: 8,
     paddingVertical: 16,
     marginBottom: 8,
+    marginLeft: "2.5%",
   },
   buttonTxt: {
     color: "white",
