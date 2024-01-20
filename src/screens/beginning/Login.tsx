@@ -8,48 +8,43 @@ import BlueButton from "../../components/BlueButton";
 import BlueBorderButton from "../../components/BlueBorderButton";
 import BoldText from "../../components/BoldText";
 import InputBox from "../../components/InputBox";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Login({ navigation }: any) {
+export default function Login() {
+  const navigation = useNavigation<any>();
   const isLoaded = useCachedResources();
   const [phoneNum, setPhoneNum] = useState("");
 
   if (isLoaded) {
     return (
-      <Pressable style={{ flex: 1 }} onPress={() => Keyboard.dismiss()}>
-        <View style={styles.container}>
-          <StatusBar style="auto" />
-          <View style={styles.content}>
-            {/* 페이지 제목 */}
-            <BoldText style={styles.subtitle}>로그인</BoldText>
-            {/* 안내 문구 */}
-            <Text style={styles.command}>휴대폰번호를{"\n"}입력해주세요</Text>
-            {/* 휴대폰 번호 입력 칸 */}
-            <View style={styles.inputItem}>
-              <InputBox
-                placeholder="휴대폰번호"
-                keyboardType="numeric"
-                returnKeyType="done"
-                value={phoneNum}
-                onChangeText={(phoneNum: any) => setPhoneNum(phoneNum)}
-                clearText={() => setPhoneNum("")}
-              />
-            </View>
-            {/* 로그인, 회원가입 버튼 */}
-            <View style={styles.buttonBox}>
-              <BlueButton
-                title="로그인"
-                onPress={() => {}}
-                buttonStyle={{ width: "100%", height: 50 }}
-              ></BlueButton>
-              <BlueBorderButton
-                title="회원가입"
-                onPress={() => navigation.navigate("Join")}
-                buttonStyle={{ width: "100%", height: 50 }}
-              ></BlueBorderButton>
-            </View>
+      <View style={styles.container}>
+        <StatusBar style="auto" />
+        <View style={styles.content}>
+          <BoldText style={styles.title}>로그인</BoldText>
+          <Text style={styles.subTitle}>휴대폰번호를{"\n"}입력해주세요</Text>
+
+          <View style={styles.inputContainer}>
+            <InputBox
+              placeholder="휴대폰번호"
+              keyboardType="numeric"
+              returnKeyType="done"
+              value={phoneNum}
+              onChangeText={(phoneNum: any) => setPhoneNum(phoneNum)}
+              clearText={() => setPhoneNum("")}
+            />
+          </View>
+
+          <View style={styles.buttonBox}>
+            <BlueButton
+              title="로그인"
+              onPress={() => navigation.navigate("BottomTabNav")}
+            ></BlueButton>
+            <BlueBorderButton
+              onPress={() => navigation.navigate("Join")}
+            ></BlueBorderButton>
           </View>
         </View>
-      </Pressable>
+      </View>
     );
   } else {
     return null;
@@ -59,26 +54,26 @@ export default function Login({ navigation }: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 80,
     backgroundColor: "#fff",
   },
   content: {
     marginHorizontal: 24,
   },
-  command: {
+  title: {
     fontSize: 28,
+  },
+  subTitle: {
+    fontSize: 24,
     marginTop: 40,
     lineHeight: 40,
-    marginBottom: 29,
+    marginBottom: 28,
   },
-  subtitle: {
-    fontSize: 24,
-    marginTop: 70,
-  },
-  inputItem: {
-    marginTop: 41,
+  inputContainer: {
+    marginTop: 40,
   },
   buttonBox: {
-    marginTop: 82,
+    marginTop: 80,
     justifyContent: "space-between",
     height: 112,
   },

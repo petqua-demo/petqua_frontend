@@ -10,7 +10,7 @@ const Welcome = ({ navigation }: any) => {
     setTimeout(() => {
       // 1초 지나면 홈 화면으로 넘어가기
       // stack에 쌓여있던 beggining 폴더 페이지들 clear
-      navigation.reset({ routes: [{ name: "BottomTabNav" }] });
+      navigation.reset({ routes: [{ name: "Login" }] });
     }, 1000);
   });
 

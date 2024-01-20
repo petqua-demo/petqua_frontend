@@ -40,6 +40,27 @@ import useAgreementCheckBoxChecked from "../../assets/images/useAgreementCheckBo
 import useAgreementBigCheckBoxUnchecked from "../../assets/images/useAgreementBigCheckBoxUnchecked.png";
 import useAgreementBigCheckBoxChecked from "../../assets/images/useAgreementBigCheckBoxChecked.png";
 import dropDownButtonIcon from "../../assets/images/dropDownButtonIcon.png";
+import banner from "../../assets/images/banner.svg";
+import category1 from "../../assets/images/category1.svg";
+import category2 from "../../assets/images/category2.svg";
+import category3 from "../../assets/images/category3.svg";
+import category4 from "../../assets/images/category4.svg";
+import category5 from "../../assets/images/category5.svg";
+import category6 from "../../assets/images/category6.svg";
+import category7 from "../../assets/images/category7.svg";
+import recommend from "../../assets/images/recommend.svg";
+import safeCircle from "../../assets/images/safeCircle.svg";
+import safeBar from "../../assets/images/safeBar.svg";
+import community1 from "../../assets/images/community1.svg";
+import community2 from "../../assets/images/community2.svg";
+import community3 from "../../assets/images/community3.svg";
+import community4 from "../../assets/images/community4.svg";
+import community5 from "../../assets/images/community5.svg";
+import community6 from "../../assets/images/community6.svg";
+import community7 from "../../assets/images/community7.svg";
+import community8 from "../../assets/images/community8.svg";
+import communityBanner from "../../assets/images/communityBanner.svg";
+import communityImg from "../../assets/images/communityImg.svg";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -84,6 +105,27 @@ const images = {
   useAgreementBigCheckBoxUnchecked: useAgreementBigCheckBoxUnchecked,
   useAgreementBigCheckBoxChecked: useAgreementBigCheckBoxChecked,
   dropDownButtonIcon: dropDownButtonIcon,
+  banner: banner,
+  category1: category1,
+  category2: category2,
+  category3: category3,
+  category4: category4,
+  category5: category5,
+  category6: category6,
+  category7: category7,
+  recommend: recommend,
+  safeCircle: safeCircle,
+  safeBar: safeBar,
+  community1: community1,
+  community2: community2,
+  community3: community3,
+  community4: community4,
+  community5: community5,
+  community6: community6,
+  community7: community7,
+  community8: community8,
+  communityBanner: communityBanner,
+  communityImg: communityImg,
 };
 
 export default images;

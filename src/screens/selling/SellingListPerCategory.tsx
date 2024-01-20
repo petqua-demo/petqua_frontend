@@ -21,7 +21,7 @@ const SellingListPerCategory = () => {
       <WebView
         style={styles.webbiew}
         source={{
-          uri: "https://petqua.github.io/petqua_frontend_webview/",
+          uri: "https://petqua1.github.io/petqua_frontend_webview/",
         }}
       />
     </SafeAreaView>
