@@ -1,17 +1,35 @@
-import { View, Text, Image, StyleSheet } from "react-native";
-import Icon from "react-native-vector-icons/AntDesign";
-import EvilIcons from "react-native-vector-icons/EvilIcons";
-import palette from "../styles/ColorPalette";
+import { View, Text, Image, StyleSheet, Pressable } from "react-native";
+import { AntDesign, EvilIcons } from "@expo/vector-icons";
 
-const BestPost = ({ data }: any) => {
+import palette from "../styles/ColorPalette";
+import { useNavigation } from "@react-navigation/native";
+import { categoryFilter } from "../utils/filter";
+
+const PostItem = ({ data }: any) => {
+  const navigation = useNavigation<any>();
+  function truncateString(content: string, maxLen: number) {
+    if (content.length > maxLen) {
+      return content.substring(0, maxLen) + "...";
+    } else {
+      return content;
+    }
+  }
+
   return (
-    <View style={styles.container}>
-      <View style={styles.category}>{data.category}</View>
+    <Pressable
+      style={styles.container}
+      onPress={() => {
+        navigation.navigate("CommunityDetail", { id: data.id });
+      }}
+    >
+      <View style={styles.category}>
+        <Text style={styles.categoryTxt}>{categoryFilter(data.category)}</Text>
+      </View>
       <View style={styles.contentContainer}>
         <View style={{ gap: 8 }}>
-          <Text style={styles.blackTxt}>{data.title}</Text>
+          <Text style={styles.blackTxt}>{truncateString(data.title, 16)}</Text>
           <Text style={{ ...styles.grayTxt, fontSize: 14 }}>
-            {data.content}
+            {truncateString(data.content, 18)}
           </Text>
         </View>
         {data.imgUrl && <Image source={data.imgUrl} style={styles.image} />}
@@ -27,15 +45,15 @@ const BestPost = ({ data }: any) => {
         <View style={styles.btmTxtContainer}>
           <EvilIcons name="comment" color={palette.mainGray} size={14} />
           <Text style={styles.grayTxt}>{data.comment}</Text>
-          <Icon name="hearto" color={palette.mainGray} size={14} />
+          <AntDesign name="hearto" color={palette.mainGray} size={14} />
           <Text style={styles.grayTxt}>{data.heart}</Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 
-export default BestPost;
+export default PostItem;
 
 const styles = StyleSheet.create({
   container: { paddingVertical: 16, width: "100%", gap: 8 },
@@ -45,6 +63,8 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     paddingHorizontal: 8,
     borderRadius: 4,
+  },
+  categoryTxt: {
     color: palette.skyBlue,
     fontSize: 12,
   },

@@ -60,7 +60,17 @@ import community6 from "../../assets/images/community6.svg";
 import community7 from "../../assets/images/community7.svg";
 import community8 from "../../assets/images/community8.svg";
 import communityBanner from "../../assets/images/communityBanner.svg";
-import communityImg from "../../assets/images/communityImg.svg";
+import communityImg1 from "../../assets/images/communityImg1.svg";
+import communityImg2 from "../../assets/images/communityImg2.svg";
+import communityImg3 from "../../assets/images/communityImg3.svg";
+import communityImg4 from "../../assets/images/communityImg4.svg";
+import communityImg5 from "../../assets/images/communityImg5.svg";
+import communityImg6 from "../../assets/images/communityImg6.svg";
+import communityImg7 from "../../assets/images/communityImg7.svg";
+import communityImg8 from "../../assets/images/communityImg8.svg";
+import communityImg9 from "../../assets/images/communityImg9.svg";
+import communityImg10 from "../../assets/images/communityImg10.svg";
+import profile from "../../assets/images/profile.svg";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -125,7 +135,17 @@ const images = {
   community7: community7,
   community8: community8,
   communityBanner: communityBanner,
-  communityImg: communityImg,
+  communityImg1: communityImg1,
+  communityImg2: communityImg2,
+  communityImg3: communityImg3,
+  communityImg4: communityImg4,
+  communityImg5: communityImg5,
+  communityImg6: communityImg6,
+  communityImg7: communityImg7,
+  communityImg8: communityImg8,
+  communityImg9: communityImg9,
+  communityImg10: communityImg10,
+  profile: profile,
 };
 
 export default images;

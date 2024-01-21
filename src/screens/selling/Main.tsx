@@ -1,12 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Image, Text } from "react-native";
+import { StyleSheet, View, Image, Text, ScrollView } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useCallback, useEffect, useState } from "react";
 
 import palette from "../../styles/ColorPalette";
 import images from "../../enum/Images";
-import Icon from "react-native-vector-icons/AntDesign";
-import { ScrollView } from "react-native-gesture-handler";
+import { AntDesign } from "@expo/vector-icons";
+// import { ScrollView } from "react-native-gesture-handler";
 
 export default function Main({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -84,7 +84,7 @@ export default function Main({ navigation }: any) {
             ))}
             <View style={styles.category}>
               <View style={{ ...styles.categoryImgContainer, padding: 14 }}>
-                <Icon name="plus" size={36} color={palette.mainDark} />
+                <AntDesign name="plus" size={36} color={palette.mainDark} />
               </View>
               <Text style={styles.noticeTxt}>더보기</Text>
             </View>
