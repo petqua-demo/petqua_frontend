@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
   View,
@@ -7,6 +6,7 @@ import {
   Image,
   ScrollView,
   TextInput,
+  StatusBar,
 } from "react-native";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 import palette from "../../styles/ColorPalette";
@@ -21,7 +21,7 @@ export default function CommunityDetail({ navigation, route }: any) {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar />
       <ScrollView style={{ width: "100%" }}>
         {/* 상단 네비 */}
         <View style={styles.topNav}>
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   category: {
-    width: "fit-content",
+    alignSelf: "flex-start",
     backgroundColor: "#ECF3FF",
     paddingVertical: 2,
     paddingHorizontal: 8,

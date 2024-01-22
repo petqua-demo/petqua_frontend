@@ -14,7 +14,7 @@ const Welcome = ({ navigation }: any) => {
 
   return (
     <View style={styles.container}>
-      <Image source={images.logo} style={{ width: 140, aspectRatio: 1.175 }} />
+      <Image source={images.logo} style={{ width: 120, height: 120 }} />
       <ExtraBoldText style={styles.welcome}>
         펫쿠아에 오신 걸{"\n"}환영합니다!
       </ExtraBoldText>

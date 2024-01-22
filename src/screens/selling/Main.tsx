@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
   View,
@@ -6,6 +5,7 @@ import {
   Text,
   ScrollView,
   Pressable,
+  StatusBar
 } from "react-native";
 import useCachedResources from "../../useCachedResources";
 
@@ -50,7 +50,7 @@ export default function Main({ navigation }: any) {
   if (isLoaded) {
     return (
       <View style={styles.container}>
-        <StatusBar style="auto" />
+        <StatusBar />
         <View style={styles.header}>
           <Image
             source={images.petqua_logo}

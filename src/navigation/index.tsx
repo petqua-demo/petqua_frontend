@@ -31,7 +31,7 @@ export default function Navigation() {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Welcome"
+          initialRouteName="BottomTabNav"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Welcome" component={Welcome} />
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   tabBar: {
     boxShadow: "0px 4px 25px 0px rgba(0, 0, 0, 0.08)",
     border: "none",
-    height: 68,
+    height: 76,
   },
   tabBarItem: {
     marginVertical: 16,

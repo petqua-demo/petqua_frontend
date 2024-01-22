@@ -1,10 +1,18 @@
-import { StyleSheet, View, Text, Image, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  ScrollView,
+  StatusBar,
+} from "react-native";
 import images from "../../enum/Images";
 import palette from "../../styles/ColorPalette";
 
 export default function RecommendResult({ route }: any) {
   return (
     <View style={styles.container}>
+      <StatusBar />
       <ScrollView style={{ width: "100%", paddingBottom: 16 }}>
         <View style={styles.banner}>
           <Text style={styles.bannerTxt}>

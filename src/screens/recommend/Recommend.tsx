@@ -5,6 +5,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  StatusBar,
 } from "react-native";
 import images from "../../enum/Images";
 import { useState } from "react";
@@ -23,6 +24,7 @@ export default function Recommend() {
 
   return (
     <View style={styles.container}>
+      <StatusBar />
       <ScrollView style={styles.scrollView}>
         <View style={styles.content}>
           <View style={styles.banner}>

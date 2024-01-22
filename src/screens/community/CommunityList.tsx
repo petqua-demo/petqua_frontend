@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
   View,
@@ -6,6 +5,7 @@ import {
   Text,
   Pressable,
   ScrollView,
+  StatusBar,
 } from "react-native";
 import { useState } from "react";
 import images from "../../enum/Images";
@@ -24,7 +24,7 @@ export default function CommunityList({ navigation, route }: any) {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar />
 
       {/* 상단 네비 */}
       <View style={styles.topNav}>

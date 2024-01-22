@@ -1,5 +1,11 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Image, ScrollView, Pressable } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  ScrollView,
+  Pressable,
+  StatusBar,
+} from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -87,7 +93,7 @@ export default function CommunityMain({ navigation }: any) {
   if (isLoaded) {
     return (
       <View style={styles.container}>
-        <StatusBar style="auto" />
+        <StatusBar />
         <ScrollView>
           {/* 상단 네비 */}
           <View style={styles.topNav}>
