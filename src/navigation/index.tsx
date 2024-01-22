@@ -21,6 +21,7 @@ import Recommend from "../screens/recommend/Recommend";
 import RecommendResult from "../screens/recommend/RecommendResult";
 import CommunityList from "../screens/community/CommunityList";
 import CommunityDetail from "../screens/community/CommunityDetail";
+import Search from "../screens/selling/Search";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,14 +31,12 @@ export default function Navigation() {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Login"
+          initialRouteName="Welcome"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Welcome" component={Welcome} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Join" component={Join} />
-          <Stack.Screen name="CommunityList" component={CommunityList} />
-          <Stack.Screen name="CommunityDetail" component={CommunityDetail} />
           <Stack.Screen name="Join_PhoneNum" component={Join_PhoneNum} />
           <Stack.Screen
             name="Join_VerificationNum"
@@ -85,8 +84,8 @@ const BottomTabNav = () => (
       }}
     />
     <BottomTab.Screen
-      name="SellingListPerCategory"
-      component={SellingListPerCategory}
+      name="Search"
+      component={Search}
       options={{
         tabBarLabel: "검색",
         tabBarIcon: ({ focused }) =>

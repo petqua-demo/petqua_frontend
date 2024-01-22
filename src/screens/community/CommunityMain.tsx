@@ -8,6 +8,7 @@ import palette from "../../styles/ColorPalette";
 import images from "../../enum/Images";
 import PostItem from "../../components/PostItem";
 import { categoryFilter } from "../../utils/filter";
+import { CommunityPostData } from "../../enum/CommunityData";
 
 export default function CommunityMain({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -46,7 +47,7 @@ export default function CommunityMain({ navigation }: any) {
       image: images.community8,
     },
   ];
-
+  const postListId = [1, 3, 7];
   const postList = [
     {
       category: "질병",
@@ -138,9 +139,11 @@ export default function CommunityMain({ navigation }: any) {
           {/* 인기글 */}
           <View style={styles.bestPostContainer}>
             <Text style={styles.bestPostTitle}>인기글</Text>
-            {postList.map((el, idx) => (
-              <PostItem key={idx} data={el} />
-            ))}
+            {CommunityPostData.filter((el) => postListId.includes(el.id)).map(
+              (el, idx) => (
+                <PostItem key={idx} data={el} />
+              )
+            )}
           </View>
         </ScrollView>
 

@@ -1,12 +1,17 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Image, Text, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  ScrollView,
+  Pressable,
+} from "react-native";
 import useCachedResources from "../../useCachedResources";
-import { useCallback, useEffect, useState } from "react";
 
 import palette from "../../styles/ColorPalette";
 import images from "../../enum/Images";
 import { AntDesign } from "@expo/vector-icons";
-// import { ScrollView } from "react-native-gesture-handler";
 
 export default function Main({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -75,12 +80,16 @@ export default function Main({ navigation }: any) {
           </View>
           <View style={styles.categoryContainer}>
             {categories.map((el, idx) => (
-              <View key={idx} style={styles.category}>
+              <Pressable
+                key={idx}
+                style={styles.category}
+                onPress={() => navigation.navigate("SellingListPerCategory")}
+              >
                 <View style={styles.categoryImgContainer}>
                   <Image source={el.image} style={{ width: 44, height: 44 }} />
                 </View>
                 <Text style={styles.noticeTxt}>{el.title}</Text>
-              </View>
+              </Pressable>
             ))}
             <View style={styles.category}>
               <View style={{ ...styles.categoryImgContainer, padding: 14 }}>

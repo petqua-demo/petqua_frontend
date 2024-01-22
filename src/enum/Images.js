@@ -71,6 +71,7 @@ import communityImg8 from "../../assets/images/communityImg8.svg";
 import communityImg9 from "../../assets/images/communityImg9.svg";
 import communityImg10 from "../../assets/images/communityImg10.svg";
 import profile from "../../assets/images/profile.svg";
+import logo from "../../assets/logo.png";
 
 const images = {
   besidesIcon: besidesIcon,
@@ -146,6 +147,7 @@ const images = {
   communityImg9: communityImg9,
   communityImg10: communityImg10,
   profile: profile,
+  logo: logo,
 };
 
 export default images;

@@ -58,7 +58,7 @@ export default PostItem;
 const styles = StyleSheet.create({
   container: { paddingVertical: 16, width: "100%", gap: 8 },
   category: {
-    width: "fit-content",
+    alignSelf: "flex-start",
     backgroundColor: "#ECF3FF",
     paddingVertical: 2,
     paddingHorizontal: 8,
