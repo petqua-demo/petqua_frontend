@@ -2,13 +2,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet } from "react-native";
 import useCachedResources from "../useCachedResources";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import AntDesign from "react-native-vector-icons/AntDesign";
-
+import { AntDesign, Ionicons } from "@expo/vector-icons";
 import palette from "../styles/ColorPalette";
-import images from "../enum/Images";
 
 import Welcome from "../screens/beginning/Welcome";
 import Login from "../screens/beginning/Login";
@@ -22,6 +19,9 @@ import CommunityPosting from "../screens/community/CommunityPosting";
 import SellingListPerCategory from "../screens/selling/SellingListPerCategory";
 import Recommend from "../screens/recommend/Recommend";
 import RecommendResult from "../screens/recommend/RecommendResult";
+import CommunityList from "../screens/community/CommunityList";
+import CommunityDetail from "../screens/community/CommunityDetail";
+import Search from "../screens/selling/Search";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,13 +31,12 @@ export default function Navigation() {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Welcome"
+          initialRouteName="BottomTabNav"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Welcome" component={Welcome} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Join" component={Join} />
-          <Stack.Screen name="CommunityMain" component={CommunityMain} />
           <Stack.Screen name="Join_PhoneNum" component={Join_PhoneNum} />
           <Stack.Screen
             name="Join_VerificationNum"
@@ -85,8 +84,8 @@ const BottomTabNav = () => (
       }}
     />
     <BottomTab.Screen
-      name="SellingListPerCategory"
-      component={SellingListPerCategory}
+      name="Search"
+      component={Search}
       options={{
         tabBarLabel: "검색",
         tabBarIcon: ({ focused }) =>
@@ -111,8 +110,8 @@ const BottomTabNav = () => (
       }}
     />
     <BottomTab.Screen
-      name="CommunityMain"
-      component={CommunityMain}
+      name="Community"
+      component={CommunityStackScreen}
       options={{
         tabBarLabel: "물생활",
         tabBarIcon: ({ focused }) =>
@@ -140,6 +139,7 @@ const BottomTabNav = () => (
 );
 
 const RecommendStack = createStackNavigator();
+const CommunityStack = createStackNavigator();
 
 const RecommendStackScreen = () => (
   <RecommendStack.Navigator>
@@ -160,11 +160,37 @@ const RecommendStackScreen = () => (
   </RecommendStack.Navigator>
 );
 
+const CommunityStackScreen = () => (
+  <CommunityStack.Navigator>
+    <CommunityStack.Screen
+      name="CommunityMain"
+      component={CommunityMain}
+      options={{
+        headerShown: false,
+      }}
+    />
+    <CommunityStack.Screen
+      name="CommunityList"
+      component={CommunityList}
+      options={{
+        headerShown: false,
+      }}
+    />
+    <CommunityStack.Screen
+      name="CommunityDetail"
+      component={CommunityDetail}
+      options={{
+        headerShown: false,
+      }}
+    />
+  </CommunityStack.Navigator>
+);
+
 const styles = StyleSheet.create({
   tabBar: {
     boxShadow: "0px 4px 25px 0px rgba(0, 0, 0, 0.08)",
     border: "none",
-    height: 68,
+    height: 76,
   },
   tabBarItem: {
     marginVertical: 16,

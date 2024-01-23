@@ -1,57 +1,65 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Image, ScrollView, Pressable } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  ScrollView,
+  Pressable,
+  StatusBar,
+} from "react-native";
 import useCachedResources from "../../useCachedResources";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Text from "../../components/DefaultText";
 import palette from "../../styles/ColorPalette";
 import images from "../../enum/Images";
-import BestPost from "../../components/BestPost";
+import PostItem from "../../components/PostItem";
+import { categoryFilter } from "../../utils/filter";
+import { CommunityPostData } from "../../enum/CommunityData";
 
 export default function CommunityMain({ navigation }: any) {
   const isLoaded = useCachedResources();
 
   const categories = [
     {
-      title: "전체",
+      title: "all",
       image: images.community1,
     },
     {
-      title: "질병",
+      title: "disease",
       image: images.community2,
     },
     {
-      title: "여과/수질",
+      title: "filter",
       image: images.community3,
     },
     {
-      title: "사육/번식",
+      title: "breeding",
       image: images.community4,
     },
     {
-      title: "용품/사료",
+      title: "goods",
       image: images.community5,
     },
     {
-      title: "어종",
+      title: "species",
       image: images.community6,
     },
     {
-      title: "자유게시판",
+      title: "board",
       image: images.community7,
     },
     {
-      title: "전문가 칼럼",
+      title: "column",
       image: images.community8,
     },
   ];
-
+  const postListId = [1, 3, 7];
   const postList = [
     {
       category: "질병",
       title: "풀레드 구피 진짜 이쁘네요",
       content: "인기 많은 어종으로 유명하기는 하지...",
-      imgUrl: images.communityImg,
+      imgUrl: images.communityImg9,
       date: "07/12",
       howLong: "2주전",
       comment: "129",
@@ -73,7 +81,7 @@ export default function CommunityMain({ navigation }: any) {
       category: "질병",
       title: "구피랑 베테랑 계속 싸워요ㅜ",
       content: "고수님들 혹시 안싸울 수 있는 방법...",
-      imgUrl: images.communityImg,
+      imgUrl: images.communityImg9,
       date: "07/12",
       howLong: "2주전",
       comment: "129",
@@ -85,7 +93,7 @@ export default function CommunityMain({ navigation }: any) {
   if (isLoaded) {
     return (
       <View style={styles.container}>
-        <StatusBar style="auto" />
+        <StatusBar />
         <ScrollView>
           {/* 상단 네비 */}
           <View style={styles.topNav}>
@@ -101,15 +109,24 @@ export default function CommunityMain({ navigation }: any) {
               />
             </View>
           </View>
+
           {/* 카테고리 */}
           <View style={styles.categoryContainer}>
             {categories.map((el, idx) => (
-              <View key={idx} style={styles.category}>
+              <Pressable
+                key={idx}
+                style={styles.category}
+                onPress={() =>
+                  navigation.navigate("CommunityList", { category: el.title })
+                }
+              >
                 <View style={styles.categoryImgContainer}>
                   <Image source={el.image} style={{ width: 40, height: 40 }} />
                 </View>
-                <Text style={styles.categoryTxt}>{el.title}</Text>
-              </View>
+                <Text style={styles.categoryTxt}>
+                  {categoryFilter(el.title)}
+                </Text>
+              </Pressable>
             ))}
           </View>
 
@@ -128,9 +145,11 @@ export default function CommunityMain({ navigation }: any) {
           {/* 인기글 */}
           <View style={styles.bestPostContainer}>
             <Text style={styles.bestPostTitle}>인기글</Text>
-            {postList.map((el, idx) => (
-              <BestPost key={idx} data={el} />
-            ))}
+            {CommunityPostData.filter((el) => postListId.includes(el.id)).map(
+              (el, idx) => (
+                <PostItem key={idx} data={el} />
+              )
+            )}
           </View>
         </ScrollView>
 
@@ -172,7 +191,7 @@ const styles = StyleSheet.create({
   },
   topNavContainer: {
     position: "absolute",
-    right: 24,
+    right: 16,
     flexDirection: "row",
     gap: 12,
   },

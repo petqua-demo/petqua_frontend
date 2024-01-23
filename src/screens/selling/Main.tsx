@@ -1,12 +1,17 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Image, Text } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  ScrollView,
+  Pressable,
+  StatusBar
+} from "react-native";
 import useCachedResources from "../../useCachedResources";
-import { useCallback, useEffect, useState } from "react";
 
 import palette from "../../styles/ColorPalette";
 import images from "../../enum/Images";
-import Icon from "react-native-vector-icons/AntDesign";
-import { ScrollView } from "react-native-gesture-handler";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function Main({ navigation }: any) {
   const isLoaded = useCachedResources();
@@ -45,7 +50,7 @@ export default function Main({ navigation }: any) {
   if (isLoaded) {
     return (
       <View style={styles.container}>
-        <StatusBar style="auto" />
+        <StatusBar />
         <View style={styles.header}>
           <Image
             source={images.petqua_logo}
@@ -75,16 +80,20 @@ export default function Main({ navigation }: any) {
           </View>
           <View style={styles.categoryContainer}>
             {categories.map((el, idx) => (
-              <View key={idx} style={styles.category}>
+              <Pressable
+                key={idx}
+                style={styles.category}
+                onPress={() => navigation.navigate("SellingListPerCategory")}
+              >
                 <View style={styles.categoryImgContainer}>
                   <Image source={el.image} style={{ width: 44, height: 44 }} />
                 </View>
                 <Text style={styles.noticeTxt}>{el.title}</Text>
-              </View>
+              </Pressable>
             ))}
             <View style={styles.category}>
               <View style={{ ...styles.categoryImgContainer, padding: 14 }}>
-                <Icon name="plus" size={36} color={palette.mainDark} />
+                <AntDesign name="plus" size={36} color={palette.mainDark} />
               </View>
               <Text style={styles.noticeTxt}>더보기</Text>
             </View>

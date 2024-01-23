@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
   View,
@@ -8,6 +7,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  StatusBar,
 } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useState } from "react";
@@ -31,7 +31,7 @@ export default function CommunityPosting({ navigation }: any) {
           style={styles.container}
           behavior={Platform.select({ ios: "padding" })}
         >
-          <StatusBar style="auto" />
+          <StatusBar />
           {/* 상단 바 (닫기 버튼, 게시판 선택) */}
           <View
             style={[
@@ -42,7 +42,7 @@ export default function CommunityPosting({ navigation }: any) {
               },
             ]}
           >
-            <Pressable>
+            <Pressable onPress={() => navigation.goBack()}>
               <Image
                 source={images.closeButtonIcon}
                 style={{ width: 24, height: 24 }}

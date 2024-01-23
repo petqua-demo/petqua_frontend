@@ -1,22 +1,20 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import { useEffect } from "react";
 
-import Text from "../../components/DefaultText";
 import ExtraBoldText from "../../components/ExtraBoldText";
 import palette from "../../styles/ColorPalette";
+import images from "../../enum/Images";
 
 const Welcome = ({ navigation }: any) => {
   useEffect(() => {
     setTimeout(() => {
-      // 1초 지나면 홈 화면으로 넘어가기
-      // stack에 쌓여있던 beggining 폴더 페이지들 clear
       navigation.reset({ routes: [{ name: "Login" }] });
     }, 1000);
   });
 
   return (
     <View style={styles.container}>
-      <Text style={styles.join}>회원가입 완료!</Text>
+      <Image source={images.logo} style={{ width: 120, height: 120 }} />
       <ExtraBoldText style={styles.welcome}>
         펫쿠아에 오신 걸{"\n"}환영합니다!
       </ExtraBoldText>
@@ -30,14 +28,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-  },
-  join: {
-    fontSize: 16,
-    color: palette.mainDark,
-    marginBottom: 16,
+    gap: 20,
   },
   welcome: {
-    fontSize: 34,
+    fontSize: 32,
     color: palette.mainBlue,
     textAlign: "center",
   },

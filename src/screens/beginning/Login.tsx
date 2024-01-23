@@ -1,5 +1,4 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Pressable, Keyboard } from "react-native";
+import { StyleSheet, View, StatusBar } from "react-native";
 import useCachedResources from "../../useCachedResources";
 import { useState } from "react";
 
@@ -18,7 +17,7 @@ export default function Login() {
   if (isLoaded) {
     return (
       <View style={styles.container}>
-        <StatusBar style="auto" />
+        <StatusBar />
         <View style={styles.content}>
           <BoldText style={styles.title}>로그인</BoldText>
           <Text style={styles.subTitle}>휴대폰번호를{"\n"}입력해주세요</Text>
