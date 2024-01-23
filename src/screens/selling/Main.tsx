@@ -5,7 +5,7 @@ import {
   Text,
   ScrollView,
   Pressable,
-  StatusBar
+  StatusBar,
 } from "react-native";
 import useCachedResources from "../../useCachedResources";
 
@@ -68,11 +68,13 @@ export default function Main({ navigation }: any) {
           </View>
         </View>
 
-        <ScrollView>
-          <Image
-            source={images.banner}
-            style={{ width: "100%", aspectRatio: 1.323 }}
-          />
+        <ScrollView style={{ width: "100%" }}>
+          <View style={{ width: "100%" }}>
+            <Image
+              source={images.banner}
+              style={{ width: "100%", aspectRatio: 1.323 }}
+            />
+          </View>
           <View style={styles.notice}>
             <Text style={styles.noticeTxt}>
               [공지] 펫쿠아 안전배송이 이벤트가 생성되었습니다.
@@ -85,9 +87,7 @@ export default function Main({ navigation }: any) {
                 style={styles.category}
                 onPress={() => navigation.navigate("SellingListPerCategory")}
               >
-                <View style={styles.categoryImgContainer}>
-                  <Image source={el.image} style={{ width: 44, height: 44 }} />
-                </View>
+                <Image source={el.image} style={{ width: 66, height: 66 }} />
                 <Text style={styles.noticeTxt}>{el.title}</Text>
               </Pressable>
             ))}
@@ -137,7 +137,6 @@ const styles = StyleSheet.create({
   },
   categoryImgContainer: {
     backgroundColor: palette.skyBlueBg,
-    padding: 12,
     borderRadius: 12,
   },
 });

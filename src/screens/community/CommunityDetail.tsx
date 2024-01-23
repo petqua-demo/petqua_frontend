@@ -25,10 +25,10 @@ export default function CommunityDetail({ navigation, route }: any) {
       <ScrollView style={{ width: "100%" }}>
         {/* 상단 네비 */}
         <View style={styles.topNav}>
-          <Text style={styles.topNavTitle}>물생활</Text>
-          <Pressable onPress={() => navigation.goBack()} style={styles.backBtn}>
+          <Pressable onPress={() => navigation.goBack()} style={{ width: 40 }}>
             <AntDesign name="left" size={24} color="#5F5F5F" />
           </Pressable>
+          <Text style={styles.topNavTitle}>물생활</Text>
           <View style={styles.topNavContainer}>
             <Image
               source={images.topSearchIcon}
@@ -98,7 +98,8 @@ const styles = StyleSheet.create({
   // 네비바
   topNav: {
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-between",
+    alignItems: "center",
     padding: 16,
     backgroundColor: "#fff",
     position: "relative",
@@ -109,14 +110,9 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   topNavContainer: {
-    position: "absolute",
-    right: 16,
+    alignItems: "center",
     flexDirection: "row",
     gap: 12,
-  },
-  backBtn: {
-    position: "absolute",
-    left: 16,
   },
   // 글 내용
   conentContainer: {
@@ -160,8 +156,8 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   img: {
-    width: 328,
-    height: 328,
+    width: "100%",
+    aspectRatio: 1,
   },
   like: {
     fontSize: 14,

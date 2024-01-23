@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   content: {
     width: "100%",
-    height: 640,
+    height: 660,
     position: "relative",
   },
   banner: {

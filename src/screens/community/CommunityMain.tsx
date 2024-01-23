@@ -97,6 +97,7 @@ export default function CommunityMain({ navigation }: any) {
         <ScrollView>
           {/* 상단 네비 */}
           <View style={styles.topNav}>
+            <View style={{ width: 60 }} />
             <Text style={styles.topNavTitle}>물생활</Text>
             <View style={styles.topNavContainer}>
               <Image
@@ -120,9 +121,7 @@ export default function CommunityMain({ navigation }: any) {
                   navigation.navigate("CommunityList", { category: el.title })
                 }
               >
-                <View style={styles.categoryImgContainer}>
-                  <Image source={el.image} style={{ width: 40, height: 40 }} />
-                </View>
+                <Image source={el.image} style={{ width: 66, height: 66 }} />
                 <Text style={styles.categoryTxt}>
                   {categoryFilter(el.title)}
                 </Text>
@@ -179,7 +178,8 @@ const styles = StyleSheet.create({
   // 네비바
   topNav: {
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-between",
+    alignItems: "center",
     padding: 16,
     backgroundColor: "#fff",
     position: "relative",
@@ -190,8 +190,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   topNavContainer: {
-    position: "absolute",
-    right: 16,
+    alignItems: "center",
     flexDirection: "row",
     gap: 12,
   },
@@ -207,11 +206,6 @@ const styles = StyleSheet.create({
   category: {
     gap: 8,
     alignItems: "center",
-  },
-  categoryImgContainer: {
-    backgroundColor: palette.skyBlueBg,
-    padding: 12,
-    borderRadius: 12,
   },
   categoryTxt: {
     color: palette.mainDark,
