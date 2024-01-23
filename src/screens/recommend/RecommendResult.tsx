@@ -20,6 +20,7 @@ export default function RecommendResult({ route }: any) {
             알려드릴게요!
           </Text>
           <View style={styles.circleBox}>
+            <View style={{ width: "100%" }} />
             <Image
               source={images.safeCircle}
               style={{ width: "85%", aspectRatio: 1.3 }}
